@@ -1,4 +1,4 @@
 class Notification
 {
-    
+    String notifName;
 }
