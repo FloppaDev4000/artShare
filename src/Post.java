@@ -1,6 +1,6 @@
 class Post
 {
-    int postID;
+    int postId;
     String postTitle;
     String postAuthor;
 

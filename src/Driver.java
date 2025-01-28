@@ -2,6 +2,6 @@ class Driver
 {
     public static void main(String[] args)
     {
-        frontend.PostVisual.draw();
+        frontend.UiTest.test();
     }
 }

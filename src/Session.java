@@ -1,4 +1,4 @@
 class Session
 {
-    int sessionID;
+    int sessionId;
 }
