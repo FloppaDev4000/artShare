@@ -1,4 +1,4 @@
-package frontend;
+package View;
 class Visual 
 {
     

@@ -1,3 +1,4 @@
+package Controller;
 class Notification
 {
     int notifId;
