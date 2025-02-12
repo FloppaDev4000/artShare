@@ -11,9 +11,7 @@ class Post
     int comments;
     int shares;
 
-    Post()
-    {
-    }
+    Post(){}
 
     Post(String postTitle, RegisteredUser user, String postDescription)
     {
@@ -24,7 +22,6 @@ class Post
         likes = 0;
         comments = 0;
         shares = 0;
-        saveToDatabase(user.userID);
     }
 
     Post(String postTitle, String author, String postDescription)
@@ -32,7 +29,7 @@ class Post
     	
     }
 
-    int interact()
+    int interact(int userID)
     {
         // add immediate interaction
 
@@ -43,7 +40,12 @@ class Post
         return 0;
     }
 
-    int saveToDatabase(int userID)
+    int comment(int userID, String comment)
+    {
+        return 0;
+    }
+
+    static int saveToDatabase(String postTitle, String postDescription, int userID)
     {
         // create post in SQL
         Model.PostOptions.create(postTitle, postDescription, userID);
@@ -51,5 +53,10 @@ class Post
         // retrieve postID
         
         return 0;
+    }
+
+    void getPostData()
+    {
+        // put into sql postRead
     }
 }
