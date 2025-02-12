@@ -4,14 +4,10 @@ import java.sql.*;
 
 public class UserOptions
 {
-    public int create()
+    // create new user
+    public int create(String name, String password, String email)
     {
-        return 0;
-    }
-
-    public int readUser(int userID)
-    {
-        String sql = "SELECT * FROM user WHERE userID = ?";
+        String sql = "INSERT INTO User (username, password, email) VALUES (?, ?, ?)";
 
         try
         {
@@ -19,7 +15,32 @@ public class UserOptions
             Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
             PreparedStatement pst = c.prepareStatement(sql);
 
-            pst.setInt(1, userID);
+            pst.setString(1, name);
+            pst.setString(2, password);
+            pst.setString(3, email);
+            
+            pst.executeUpdate();
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    // read one user data
+    public int readUser(int userId)
+    {
+        String sql = "SELECT * FROM User WHERE userId = ?";
+
+        try
+        {
+            // communicate with SQL
+            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, userId);
             
             ResultSet rs = pst.executeQuery();
         }
@@ -35,8 +56,24 @@ public class UserOptions
         return 0;
     }
 
-    public int delete(int postID)
+    // delete user
+    public int delete(int userId)
     {
+        String sql = "DELETE FROM User WHERE userId = ?";
+
+        try
+        {
+            // communicate with SQL
+            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, userId);
+            pst.executeUpdate();
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
         return 0;
     }
 }

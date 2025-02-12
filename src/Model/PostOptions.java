@@ -2,12 +2,18 @@ package Model;
 
 import java.sql.*;
 
+//      Post:
+// postId
+// title
+// description
+// userId
+
 public class PostOptions
 {
-    public static int create(String name, String description, int userID)
+    public static int create(String name, String description, int userId)
     {
         // create SQL insert statement
-        String sql = "INSERT INTO posts VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Post (title, description, userId) VALUES (?, ?, ?)";
         
         try
         {
@@ -17,7 +23,8 @@ public class PostOptions
 
             pst.setString(1, name);
             pst.setString(2, description);
-            pst.setInt(3, userID);
+            pst.setInt(3, userId);
+
             pst.executeUpdate();
         }
         catch(SQLException s)
@@ -28,9 +35,10 @@ public class PostOptions
         return 0;
     }
 
-    public int readPost(int postID)
+    // read one post data
+    public int readPost(int postId)
     {
-        String sql = "SELECT * FROM posts WHERE postID = ?";
+        String sql = "SELECT * FROM Post WHERE postId = ?";
 
         try
         {
@@ -38,7 +46,7 @@ public class PostOptions
             Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
             PreparedStatement pst = c.prepareStatement(sql);
 
-            pst.setInt(1, postID);
+            pst.setInt(1, postId);
             ResultSet rs = pst.executeQuery();
         }
         catch(SQLException s)
@@ -49,14 +57,20 @@ public class PostOptions
         return 0;
     }
 
+    // read many posts' data
+    public int readManyPost()
+    {
+        return 0;
+    }
+
     public int update()
     {
         return 0;
     }
 
-    public int deletePost(int postID)
+    public int deletePost(int postId)
     {
-        String sql = "DELETE FROM posts WHERE postID = ?";
+        String sql = "DELETE FROM Post WHERE postId = ?";
 
         try
         {
@@ -64,7 +78,7 @@ public class PostOptions
             Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
             PreparedStatement pst = c.prepareStatement(sql);
 
-            pst.setInt(1, postID);
+            pst.setInt(1, postId);
             pst.executeUpdate();
         }
         catch(SQLException s)
