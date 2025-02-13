@@ -31,7 +31,7 @@ public class InteractionOption
         {
             checkTypeValid(type, 1);
 
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER, Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.FULLURL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
@@ -57,7 +57,7 @@ public class InteractionOption
         try
         {
 
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER, Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.FULLURL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
