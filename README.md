@@ -1,5 +1,1 @@
-Object Oriented Software Development - Project
-
-COLLABORATORS:
-  Adam Noonan
-  Darius Herdes
+Object Oriented Software Development - Project - COLLABORATORS: Adam Noonan, Darius Herdes
