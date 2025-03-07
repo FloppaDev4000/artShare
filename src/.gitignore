@@ -1,8 +1,5 @@
-/Driver.class
-/Notification.class
-/PaymentSystem.class
-/Post.class
-/PostsViewer.class
-/RegisteredUser.class
-/Session.class
-/User.class
+/*.class
+/Controller/*.class
+/Model/*.class
+/View/*.class
+/Exceptions/*.class
