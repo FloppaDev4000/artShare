@@ -1,5 +1,1 @@
-/*.class
-/Controller/*.class
-/Model/*.class
-/View/*.class
-/Exceptions/*.class
+**/*.class

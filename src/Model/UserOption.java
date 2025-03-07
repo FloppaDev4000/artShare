@@ -76,4 +76,33 @@ public class UserOption
         }
         return 0;
     }
+
+    // change user verification
+    public int verifyUser(int userId, boolean verifying)
+    {
+        String sql = "UPDATE User SET verified = ? WHERE userId = ?";
+        
+        try
+        {
+            // communicate with SQL
+            Connection c = DriverManager.getConnection(Global.URL);
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            // bool to int
+            int verifyingInt = 0;
+            if(verifying)
+            {
+                verifyingInt = 1;
+            }
+
+            pst.setInt(1, verifyingInt);
+            pst.setInt(2, userId);
+            pst.executeUpdate();
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+        return 0;
+    }
 }
