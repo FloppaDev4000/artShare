@@ -18,7 +18,10 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.FULLURL);
+            Connection c = DriverManager.getConnection(Global.URL);
+
+            System.out.println("CONNECTED");
+
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setString(1, name);
@@ -43,7 +46,7 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.FULLURL);
+            Connection c = DriverManager.getConnection(Global.fullUrl());
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
@@ -75,7 +78,7 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.FULLURL);
+            Connection c = DriverManager.getConnection(Global.fullUrl());
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
