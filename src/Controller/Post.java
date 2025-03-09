@@ -11,7 +11,10 @@ class Post
     int comments;
     int shares;
 
-    Post(){}
+    Post()
+    {
+        
+    }
 
     Post(String postTitle, RegisteredUser user, String postDescription)
     {

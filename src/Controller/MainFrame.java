@@ -9,8 +9,6 @@ public class MainFrame extends JFrame
 {
     private MainPanel mainPanel;
 
-    private Session s;
-
     public MainFrame()
     {
         setTitle("ArtShare");
@@ -28,7 +26,13 @@ public class MainFrame extends JFrame
     {
         mainPanel.removeAll();
         mainPanel.add(newView);
-        System.out.println("Switching view to " + name + "!");
+        System.out.println("Switching view to " + newView + "!");
+        mainPanel.revalidate();
         mainPanel.repaint();
+    }
+
+    public void setupHomeView()
+    {
+        
     }
 }

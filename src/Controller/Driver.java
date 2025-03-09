@@ -1,7 +1,6 @@
 package Controller;
 
-import View.LoginView;
-import View.MainPanel;
+import View.*;
 
 class Driver
 {
@@ -11,8 +10,9 @@ class Driver
         MainFrame mainFrame = new MainFrame();
 
         LoginView loginView = new LoginView();
+        HomeView homeView = new HomeView();
 
-        loginView.addLoginListener(e -> mainFrame.switchView(new MainPanel(), "Main"));
+        loginView.addLoginListener(e -> mainFrame.switchView(homeView, "Main"));
 
         mainFrame.switchView(loginView, "Login");
         mainFrame.setVisible(true);

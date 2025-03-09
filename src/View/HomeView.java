@@ -10,6 +10,8 @@ public class HomeView extends JPanel
 
     public HomeView()
     {
+        System.out.println("WEE");
+
         JLabel title = new JLabel("Home Screen", SwingConstants.CENTER);
         logoutButton = new JButton("LogOut");
 
@@ -17,6 +19,7 @@ public class HomeView extends JPanel
         add(logoutButton);
     }
 
+    
     public void addLogoutListener(ActionListener l)
     {
         logoutButton.addActionListener(l);
