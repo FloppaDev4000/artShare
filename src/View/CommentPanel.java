@@ -1,6 +1,8 @@
 package View;
 
-public class CommentPanel
+import javax.swing.*;
+
+public class CommentPanel extends JPanel
 {
     
 }

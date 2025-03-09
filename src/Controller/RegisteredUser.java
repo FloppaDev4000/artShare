@@ -1,4 +1,7 @@
 package Controller;
+
+import Model.UserOption;
+
 class RegisteredUser extends User
 {
     int userID;
@@ -9,7 +12,7 @@ class RegisteredUser extends User
 
     void verify()
     {
-
+        UserOption.verifyUser(userID, !isVerified);
     }
 
     void createPost()
@@ -20,6 +23,5 @@ class RegisteredUser extends User
 
         // create post
         Post p = new Post(postTitle, this, postDescription);
-
     }
 }

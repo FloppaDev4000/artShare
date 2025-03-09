@@ -1,8 +1,9 @@
 package Controller;
 
+import View.LoginView;
+
 public class LoginControl
 {
-    LoginView view;
     
     // log into existing account
     public void login(String username, String password)
@@ -12,6 +13,7 @@ public class LoginControl
         if(loginValid == 0)
         {
             // success path; login and move to main view, logged in
+
         }
         else if(loginValid == 1)
         {

@@ -1,15 +1,6 @@
 package Controller;
-class User
+
+public class User
 {
-
-    void login()
-    {
-
-    }
-
-    void signUp()
-    {
-
-    }
     
 }

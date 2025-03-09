@@ -69,6 +69,44 @@ public class UserOption
         return 2;
     }
 
+    public static int getId(String name)
+    {
+        // RESULTS:
+        // 0:   valid login
+        // 1:   invalid login
+        // 2:   error
+
+        String sql = "SELECT userId FROM User WHERE name = ?";
+
+        try
+        {
+            // communicate with SQL
+            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setString(1, name);
+            
+            ResultSet rs = pst.executeQuery();
+
+            if (!rs.next()) {
+                
+                // invalid login
+                System.out.println("ResultSet is empty");
+                return 1;
+            }
+            else
+            {
+                // valid login, return UserId
+                return rs.getInt(0);
+            }
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+        return 2;
+    }
+
     // check if username is already taken or not
     public static int checkUsernameAvailable(String username)
     {
