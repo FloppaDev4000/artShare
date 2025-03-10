@@ -1,8 +1,8 @@
 package Controller.Signals;
 public class SignalManager
 {
-    public void sendSignal()
+    public void sendSignal(Signal s)
     {
-
+        
     }
 }

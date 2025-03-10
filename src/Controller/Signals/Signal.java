@@ -1,3 +1,4 @@
+package Controller.Signals;
 public class Signal
 {
     String name;
