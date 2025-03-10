@@ -1,4 +1,4 @@
-package Controller;
+package Objects;
 
 public class User
 {

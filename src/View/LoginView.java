@@ -8,6 +8,9 @@ public class LoginView extends JPanel
 {
     public JButton loginButton;
 
+    public String username = "";
+    public String password = "";
+
     public LoginView()
     {
         JLabel title = new JLabel("Login Screen", SwingConstants.CENTER);

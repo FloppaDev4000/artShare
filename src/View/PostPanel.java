@@ -8,7 +8,7 @@ public class PostPanel extends JPanel
     ScrollPane mainScroll;
 
 
-    AuthorPanel authorPanel;
+    //AuthorPanel authorPanel;
 
     JLabel titleLabel;
     JLabel descLabel;

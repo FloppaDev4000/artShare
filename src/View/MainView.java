@@ -3,13 +3,13 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainPanel extends JPanel
+public class MainView extends JPanel
 {
     private JButton logoutButton;
     
     public JPanel container;
 
-    public MainPanel()
+    public MainView()
     {
         container = new JPanel();
     }

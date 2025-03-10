@@ -3,11 +3,11 @@ package Controller;
 import javax.swing.*;
 import java.awt.*;
 
-import View.MainPanel;
+import View.MainView;
 
 public class MainFrame extends JFrame
 {
-    private MainPanel mainPanel;
+    private MainView mainPanel;
 
     public MainFrame()
     {
@@ -17,7 +17,7 @@ public class MainFrame extends JFrame
         setLocationRelativeTo(null);
 
         // set up panels
-        mainPanel = new MainPanel();
+        mainPanel = new MainView();
 
         add(mainPanel);
     }
