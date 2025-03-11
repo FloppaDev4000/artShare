@@ -5,7 +5,7 @@ import View.*;
 public class HomeControl extends Control
 {
     HomeView view;
-    Control middleControl;
+    ArrayControl middleControl;
 
     public HomeControl(Control parent)
     {
@@ -21,11 +21,11 @@ public class HomeControl extends Control
     // move to single post
     public void goToPost(int postId)
     {
-        middleControl = new PostControl(this);
+        middleControl = new ArrayControl(this);
     }
 
     // return to base post scroll
-    public goToArrayPost()
+    public void goToArrayPost()
     {
         middleControl = new ArrayPostControl(this);
     }

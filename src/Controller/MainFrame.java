@@ -9,6 +9,10 @@ public class MainFrame extends JFrame
 {
     private MainView mainPanel;
 
+    public LoginControl loginControl;
+    public HomeControl homeControl;
+    public PostControl postControl;
+
     public MainFrame()
     {
         setTitle("ArtShare");
@@ -22,16 +26,17 @@ public class MainFrame extends JFrame
         add(mainPanel);
     }
 
-    public void switchView(JPanel newView, String name)
+    public void goToHome()
     {
-        mainPanel.removeAll();
-        mainPanel.add(newView);
-        System.out.println("Switching view to " + newView + "!");
-        mainPanel.revalidate();
-        mainPanel.repaint();
+
     }
 
-    public void setupHomeView()
+    public void goToLogin()
+    {
+        
+    }
+
+    public void goToPost()
     {
         
     }

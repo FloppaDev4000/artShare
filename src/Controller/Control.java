@@ -4,22 +4,26 @@ import javax.swing.*;
 
 public class Control
 {
-    JPanel view;
-    Control parent;
+    public JPanel view;
+    public Control parent;
 
+    Control(){}
     Control(Control parent)
     {
         this.parent = parent;
     }
 
-    public void switchView(JPanel newView)
+    public JPanel switchView(JPanel newView)
     {
-        view.removeAll();
-        view.add(newView);
-        System.out.println("Switching view to " + newView + "!");
+        return newView;
+    }
+
+    public void setUpView()
+    {
         view.revalidate();
         view.repaint();
     }
+    
 
     public Control createControl(Control newControl)
     {

@@ -11,7 +11,8 @@ public class LoginControl extends Control
     public LoginControl(Control parent)
     {
         super(parent);
-        switchView(new LoginView());
+        view = new LoginView();
+        setUpView();
         view.addLoginListener(e -> login(view.username, view.password));
         parent = (MainControl) parent;
     }
