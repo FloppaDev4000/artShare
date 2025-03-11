@@ -1,0 +1,7 @@
+DATABASE TABLES:
+
+user
+post
+notification
+postStats
+userStats
