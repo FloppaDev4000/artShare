@@ -4,15 +4,18 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class LoginView extends JPanel
+import Controller.ControlManager;
+
+public class LoginView extends View
 {
     public JButton loginButton;
 
     public String username = "";
     public String password = "";
 
-    public LoginView()
+    public LoginView(ControlManager m)
     {
+        super(m);
         JLabel title = new JLabel("Login Screen", SwingConstants.CENTER);
         loginButton = new JButton("Login");
 

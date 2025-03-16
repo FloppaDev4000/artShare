@@ -3,14 +3,31 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainView extends JPanel
+import Controller.*;
+
+public class MainView extends View
 {
     private JButton logoutButton;
-    
-    public JPanel container;
 
-    public MainView()
+    public View container;
+    
+    public View subView;
+
+    public MainView(ControlManager m)
     {
-        container = new JPanel();
+        super(m);
+        JLabel title = new JLabel("ArtShare", SwingConstants.CENTER);
+        subView = new View(manager);
+    }
+
+    public void setContainer(View newView)
+    {
+        subView = newView;
+        // set it up so it works
+    }
+
+    public void switchContainer(View view)
+    {
+
     }
 }

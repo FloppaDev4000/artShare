@@ -5,28 +5,16 @@ import javax.swing.*;
 public class Control
 {
     public JPanel view;
-    public Control parent;
+    public ControlManager manager;
 
     Control(){}
-    Control(Control parent)
+    Control(ControlManager manager)
     {
-        this.parent = parent;
+        this.manager = manager;
     }
 
     public JPanel switchView(JPanel newView)
     {
         return newView;
-    }
-
-    public void setUpView()
-    {
-        view.revalidate();
-        view.repaint();
-    }
-    
-
-    public Control createControl(Control newControl)
-    {
-        return newControl;
     }
 }

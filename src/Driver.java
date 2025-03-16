@@ -8,6 +8,7 @@ class Driver
 
     public static void main(String[] args)
     {
-        MainControl ctrl = new MainControl();
+        ControlManager cm = new ControlManager();
+        cm.run();
     }
 }

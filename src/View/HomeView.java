@@ -3,13 +3,15 @@ package View;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import Controller.*;
 
-public class HomeView extends JPanel
+public class HomeView extends View
 {
     public JButton logoutButton;
 
-    public HomeView()
+    public HomeView(ControlManager m)
     {
+        super(m);
         System.out.println("WEE");
 
         JLabel title = new JLabel("Home Screen", SwingConstants.CENTER);

@@ -8,13 +8,9 @@ public class LoginControl extends Control
     LoginView view;
     MainControl parent;
 
-    public LoginControl(Control parent)
+    public LoginControl(ControlManager m)
     {
-        super(parent);
-        view = new LoginView();
-        setUpView();
-        view.addLoginListener(e -> login(view.username, view.password));
-        parent = (MainControl) parent;
+        super(m);
     }
     
     // log into existing account
@@ -27,8 +23,7 @@ public class LoginControl extends Control
             // success path; login and move to main view, logged in
             int uid = UserOption.getId(username);
 
-            // here, we want to tell MainControl to move to home
-            parent.goToHome();
+            manager.makeActiveHome();
             
         }
         else if(loginValid == 1)

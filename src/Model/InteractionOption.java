@@ -3,6 +3,7 @@ package Model;
 import java.sql.*;
 
 import Exceptions.InteractionTypeException;
+import Objects.Post;
 
 //      Interaction:
 // interactionId
@@ -97,5 +98,35 @@ public class InteractionOption
         }
 
         return 0;
+    }
+
+    public static int[] getInteractions(int postId)
+    {
+        int[] array = {0, 0, 0};
+
+        String sql = "SELECT * FROM Interaction WHERE postId = ?";
+        ResultSet rs;
+        try
+        {
+            // communicate with SQL
+            Connection c = DriverManager.getConnection(Global.fullUrl());
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+            rs = pst.executeQuery();
+
+            while(rs.next())
+            {
+                int type = rs.getInt("type");
+                array[type]++;
+            }
+
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+
+        return array;
     }
 }

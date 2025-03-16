@@ -5,29 +5,26 @@ import View.*;
 public class HomeControl extends Control
 {
     HomeView view;
-    ArrayControl middleControl;
+    Control middleControl;
 
-    public HomeControl(Control parent)
+    public HomeControl(ControlManager m)
     {
-        super(parent);
-        switchView(new HomeView());
-        view.addLogoutListener(e -> logout());
-        parent = (MainControl) parent;
+        super(m);
 
         // set basic middleControl
-        middleControl = new ArrayPostControl(this);
+        middleControl = new ArrayPostControl(manager);
     }
 
     // move to single post
     public void goToPost(int postId)
     {
-        middleControl = new ArrayControl(this);
+        middleControl = new PostControl(manager);
     }
 
     // return to base post scroll
     public void goToArrayPost()
     {
-        middleControl = new ArrayPostControl(this);
+        middleControl = new ArrayPostControl(manager);
     }
 
     public void logout()

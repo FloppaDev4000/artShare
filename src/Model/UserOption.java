@@ -1,6 +1,7 @@
 package Model;
 
 import java.sql.*;
+import Objects.*;
 
 public class UserOption
 {
@@ -12,7 +13,7 @@ public class UserOption
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setString(1, name);
@@ -37,18 +38,22 @@ public class UserOption
         // 1:   invalid login
         // 2:   error
 
-        String sql = "SELECT * FROM User WHERE name = ?, password = ?";
+        String sql = "SELECT username, password FROM User WHERE username = ? and password = ? ";
 
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
-            PreparedStatement pst = c.prepareStatement(sql);
+            Connection c = DriverManager.getConnection(Global.URL);
 
-            pst.setString(1, name);
-            pst.setString(1, password);
+            PreparedStatement pst = c.prepareStatement(sql);
             
+            
+            pst.setString(1, name);
+            pst.setString(2, password);
+            
+            System.out.println("Query executed successfully!");
             ResultSet rs = pst.executeQuery();
+
 
             if (!rs.next()) {
                 
@@ -64,6 +69,7 @@ public class UserOption
         }
         catch(SQLException s)
         {
+            System.out.println("ERROR!");
             s.printStackTrace();
         }
         return 2;
@@ -76,12 +82,17 @@ public class UserOption
         // 1:   invalid login
         // 2:   error
 
-        String sql = "SELECT userId FROM User WHERE name = ?";
+        String sql = "SELECT userId FROM User WHERE username = ? ";
+
+        System.out.println("getting ID...");
 
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.URL);
+
+            System.out.println("CONNECTED");
+
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setString(1, name);
@@ -97,7 +108,7 @@ public class UserOption
             else
             {
                 // valid login, return UserId
-                return rs.getInt(0);
+                return rs.getInt(1);
             }
         }
         catch(SQLException s)
@@ -115,12 +126,12 @@ public class UserOption
         // 1:   invalid login
         // 2:   error
 
-        String sql = "SELECT * FROM User WHERE name = ?";
+        String sql = "SELECT * FROM User WHERE username = ?";
 
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setString(1, username);
@@ -146,25 +157,29 @@ public class UserOption
     }
 
     // read one user data
-    public static int readUser(int userId)
+    public static User readUser(int userId)
     {
         String sql = "SELECT * FROM User WHERE userId = ?";
+        User u = null;
 
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, userId);
             
             ResultSet rs = pst.executeQuery();
+
+            u.username = rs.getString("username");
+            u.isVerified = rs.getBoolean("isVerified");
         }
         catch(SQLException s)
         {
             s.printStackTrace();
         }
-        return 0;
+        return u;
     }
 
     public static int update()
@@ -180,7 +195,7 @@ public class UserOption
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL, Global.USER , Global.PASSWORD);
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, userId);

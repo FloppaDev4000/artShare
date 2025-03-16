@@ -20,10 +20,9 @@ public class MainFrame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // set up panels
-        mainPanel = new MainView();
+        pack();
 
-        add(mainPanel);
+        setVisible(true);
     }
 
     public void goToHome()
@@ -39,5 +38,12 @@ public class MainFrame extends JFrame
     public void goToPost()
     {
         
+    }
+
+    public void frameReset()
+    {
+        repaint();
+        revalidate();
+        pack();
     }
 }

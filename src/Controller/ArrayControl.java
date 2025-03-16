@@ -2,8 +2,8 @@ package Controller;
 
 public class ArrayControl extends Control
 {
-    public ArrayControl(Control parent)
+    public ArrayControl(ControlManager m)
     {
-        super(parent);
+        super(m);
     }
 }

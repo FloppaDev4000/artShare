@@ -7,6 +7,6 @@ public class Tester
     {
         System.out.println("TEST");
         
-        PostOptions.create("fifth", "this is the 5th post", 0);   
+        PostOptions.create("my post", "this post is really lame ngl", 1);   
     }
 }

@@ -5,34 +5,13 @@ import View.*;
 
 public class MainControl extends Control
 {
+    public MainView view;
+
     public Control currentControl;
 
-    public MainControl()
+    public MainControl(ControlManager m)
     {
-        switchView(new MainView());
-        assignLoginControl();
-    }
-    public MainControl(Control parent)
-    {
-        super(parent);
-        switchView(new MainView());
-        assignLoginControl();
+        super(m);
     }
 
-    public void assignHomeControl()
-    {
-        currentControl = new HomeControl(this);
-    }
-
-    public Control assignLoginControl()
-    {
-        currentControl = new LoginControl(this);
-
-        return currentControl;
-    }
-
-    public void goToHome()
-    {
-        currentControl = new HomeControl(this);
-    }
 }

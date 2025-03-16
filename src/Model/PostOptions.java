@@ -1,6 +1,8 @@
 package Model;
 
 import java.sql.*;
+import Controller.*;
+import Objects.*;
 
 //      Post:
 // postId
@@ -39,25 +41,32 @@ public class PostOptions
     }
 
     // read one post data
-    public int readPost(int postId)
+    public static Post readPost(int postId)
     {
         String sql = "SELECT * FROM Post WHERE postId = ?";
-
+        ResultSet rs;
+        Post p = null;
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.fullUrl());
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
-            ResultSet rs = pst.executeQuery();
+            rs = pst.executeQuery();
+
+            p = new Post();
+            p.postId = postId;
+            p.title = rs.getString("title");
+            p.description = rs.getString("description");
+            p.userId = rs.getInt("userId");
         }
         catch(SQLException s)
         {
             s.printStackTrace();
         }
 
-        return 0;
+        return p;
     }
 
     // read many posts' data
@@ -78,7 +87,7 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.fullUrl());
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
