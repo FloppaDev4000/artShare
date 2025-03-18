@@ -18,11 +18,12 @@ public class ArrayPostView extends View
        add(label);
 
        postCtrls = new PostControlBare[posts.length];
-       for(int i = 0; i < posts.length; i++)
-       {
-            postCtrls[i] = new PostControlBare(m, posts[i]);
-            add(postCtrls[i].getView());
-       }
+
+       //for(int i = 0; i < posts.length; i++)
+       //{
+       //     postCtrls[i] = new PostControlBare(m, posts[i]);
+       //     add(postCtrls[i].getView());
+       //}
 
     }
 }
