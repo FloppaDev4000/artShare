@@ -11,7 +11,7 @@ public class User
     public void getData(int userId)
     {
         User temp = UserOption.readUser(userId);
-        int[] interactions = InteractionOption.getInteractions(userId);
+        int[] interactions = InteractionOption.getInteraction(userId);
         
         this.userId = userId;
         username = temp.username;

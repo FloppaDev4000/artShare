@@ -3,7 +3,7 @@ package Model;
 import java.sql.*;
 
 import Exceptions.InteractionTypeException;
-import Objects.Post;
+import Objects.*;
 
 //      Interaction:
 // interactionId
@@ -100,9 +100,9 @@ public class InteractionOption
         return 0;
     }
 
-    public static int[] getInteractions(int postId)
+    public static int[] getInteraction(int postId)
     {
-        int[] array = {0, 0, 0};
+        int[] interactionArr = {0, 0, 0};
 
         String sql = "SELECT * FROM Interaction WHERE postId = ?";
         ResultSet rs;
@@ -118,7 +118,7 @@ public class InteractionOption
             while(rs.next())
             {
                 int type = rs.getInt("type");
-                array[type]++;
+                interactionArr[type]++;
             }
 
         }
@@ -127,6 +127,8 @@ public class InteractionOption
             s.printStackTrace();
         }
 
-        return array;
+        MiscUtils.printArray(interactionArr);
+        
+        return interactionArr;
     }
 }

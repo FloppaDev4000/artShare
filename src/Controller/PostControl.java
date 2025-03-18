@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.PostOptions;
 import Model.UserOption;
 import Objects.*;
 import View.*;
@@ -13,21 +14,30 @@ public class PostControl extends Control
     String description;
     User author;
 
-    public void getPostValues(Post p)
+    Post post;
+
+    public PostControl(ControlManager m, int postId)
     {
-        title = p.title;
-        description = p.description;
-        //getFile(p.filePath);
-        author = UserOption.readUser(p.userId);
+        super(m);
+
+        populate(postId);
+
+        view = new PostView(m, post);
     }
 
-    public PostControl(ControlManager manager)
+    public void getPostValues(Post p)
     {
-        this.manager = manager;
+        title = p.getTitle();
+        description = p.getDescription();
+        //getFile(p.filePath);
+        author = UserOption.readUser(p.getUserId());
     }
 
     public void populate(int postId)
     {
-
+        post = PostOptions.readPost(postId);
     }
+
+    // SETGET
+    public View getView(){return view;}
 }

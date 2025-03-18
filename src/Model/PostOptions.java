@@ -56,10 +56,12 @@ public class PostOptions
             rs = pst.executeQuery();
 
             p = new Post();
-            p.postId = postId;
-            p.title = rs.getString("title");
-            p.description = rs.getString("description");
-            p.userId = rs.getInt("userId");
+            p.setPostId(postId);
+            p.setTitle(rs.getString("title"));
+            p.setDescription(rs.getString("description"));
+            p.setUserId(rs.getInt("userId"));
+
+            // AFTER THIS, GET INTERACTIONS
         }
         catch(SQLException s)
         {
@@ -69,17 +71,63 @@ public class PostOptions
         return p;
     }
 
-    // read many posts' data
-    public int readManyPost()
+    // read array of posts, by userId or all
+    public Post[] readPosts(int userId, int maxLength)
     {
-        return 0;
+        Post[] posts = new Post[maxLength];
+
+        String sql = "SELECT " +
+        "postId, title, description " +
+        "FROM Post";
+
+        if(userId != -1){sql += " WHERE userId = ?";}
+
+        ResultSet rs;
+        try
+        {
+            // communicate with SQL
+            Connection c = DriverManager.getConnection(Global.URL);
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            if(userId != -1){pst.setInt(1, userId);}
+
+            rs = pst.executeQuery();
+
+            int index = 0;
+
+            while(rs.next() && index < maxLength)
+            {
+                Post p = new Post();
+                p.setPostId(rs.getInt("postId"));
+                p.setTitle(rs.getString("title"));
+                p.setDescription(rs.getString("description"));
+                p.setUserId(rs.getInt("userId"));
+                
+                // use other table options to get other stuff
+                p.setFilePath("file path");
+                int[] interactions = {0, 0, 0};
+                p.setInteractions(interactions);
+                
+                posts[index] = p;
+                index++;
     }
 
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+
+        return posts;   
+    }
+
+    // update
     public int update()
     {
         return 0;
     }
 
+    // delete post by postId
     public int deletePost(int postId)
     {
         String sql = "DELETE FROM Post WHERE postId = ?";

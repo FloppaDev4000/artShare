@@ -7,23 +7,68 @@ import Controller.*;
 
 public class HomeView extends View
 {
-    public JButton logoutButton;
+    private JButton logoutButton;
+    private JButton createButton;
+
+    private View container;
 
     public HomeView(ControlManager m)
     {
         super(m);
-        System.out.println("WEE");
 
-        JLabel title = new JLabel("Home Screen", SwingConstants.CENTER);
+        JLabel homeScreen = new JLabel("Home Screen", SwingConstants.CENTER);
         logoutButton = new JButton("LogOut");
 
-        add(title);
+        createButton = new JButton("Create");        
+
+        add(homeScreen);
         add(logoutButton);
+        add(createButton);
     }
 
+    public void replaceContainer(View newContainer)
+    {
+        remove(container);
+        container = newContainer;
+        add(newContainer);
+        setUpView();
+    }
     
     public void addLogoutListener(ActionListener l)
     {
         logoutButton.addActionListener(l);
     }
+
+    public void addCreateListener(ActionListener l)
+    {
+        createButton.addActionListener(l);
+    }
+
+    // SETGET
+
+
+    public JButton getLogoutButton() {
+        return this.logoutButton;
+    }
+
+    public void setLogoutButton(JButton logoutButton) {
+        this.logoutButton = logoutButton;
+    }
+
+    public JButton getCreateButton() {
+        return this.createButton;
+    }
+
+    public void setCreateButton(JButton createButton) {
+        this.createButton = createButton;
+    }
+
+    public View getContainer() {
+        return this.container;
+    }
+
+    public void setContainer(View container) {
+        this.container = container;
+    }
+
 }

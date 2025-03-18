@@ -15,28 +15,80 @@ public class Post
     }
 
     // post data
-    public int postId;
-    public String title;
-    public String description;
+    private int postId;
+    private String title;
+    private String description;
 
     // file
-    public String filePath;
+    private String filePath;
 
     // interactions (length = 3)
-    public int[] interactions;
+    private int[] interactions;
 
     // foreign key
-    public int userId;
+    private int userId;
 
     // auto get post values
     public void getData(int postId)
     {
         Post temp = PostOptions.readPost(postId);
-        int[] interactions = InteractionOption.getInteractions(postId);
+        int[] interactions = InteractionOption.getInteraction(postId);
         
         postId = temp.postId;
         title = temp.title;
         description = temp.description;
         this.interactions = interactions;
     }
+
+    // SETGET
+
+
+    public int getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFilePath() {
+        return this.filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public int[] getInteractions() {
+        return this.interactions;
+    }
+
+    public void setInteractions(int[] interactions) {
+        this.interactions = interactions;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
 }

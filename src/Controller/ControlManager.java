@@ -2,10 +2,13 @@ package Controller;
 
 import javax.swing.JFrame;
 
+import Model.*;
 import View.*;
+import Objects.*;
 
 public class ControlManager
 {
+    //UIHelper.setup();
     // frame
     MainFrame f = new MainFrame();
 
@@ -24,9 +27,6 @@ public class ControlManager
     ArrayPostControl homeArray;
     ArrayPostView homeArrayV;
 
-    PostControl homePost;
-    PostView homePostV;
-
     ProfileControl homeProfile;
     ProfileView homeProfileV;
 
@@ -42,7 +42,6 @@ public class ControlManager
         mainHome = new HomeControl(this);
 
         homeArray = new ArrayPostControl(this);
-        homePost = new PostControl(this);
         homeProfile = new ProfileControl(this);
 
 
@@ -59,8 +58,7 @@ public class ControlManager
     {
         // place mainLogin's view inside main's view
         mainLoginV = new LoginView(this);
-        mainV.container = mainLoginV;
-        mainV.add(mainV.container);
+        mainV.replaceContainer(mainLoginV);
 
         mainLoginV.addLoginListener(e -> mainLogin.login("adamN", "password"));
 
@@ -70,9 +68,10 @@ public class ControlManager
     void makeActiveHome()
     {
         // place mainHome's view inside main's view
-        mainHomeV = new HomeView(this);
-        mainV.container = mainHomeV;
-        makeActiveArrayPost();
+        mainHome = new HomeControl(this);
+        mainV.replaceContainer(mainHome.view);
+
+        mainHome.makeActiveArrayPost();
 
         f.frameReset();
     }
@@ -84,20 +83,12 @@ public class ControlManager
         // place homeArray's view inside home's view
         homeArrayV = new ArrayPostView(this);
         homeArray.populate(-1);
-        mainV.container = homeArrayV;
+        mainHome.getView().setContainer(homeArrayV);
 
         f.frameReset();
     }
 
-    void makeActivePost(int postId)
-    {
-        // place homePost's view inside home's view
-        // give post values to post
-        homePostV = new PostView(this);
-        homePost.populate(postId);
-
-        f.frameReset();
-    }
+    
 
     void makeActiveProfile(int userId)
     {
@@ -113,4 +104,7 @@ public class ControlManager
         v.repaint();
         v.revalidate();
     }
+
+    // SETGET
+    public MainFrame getFrame(){return f;}
 }

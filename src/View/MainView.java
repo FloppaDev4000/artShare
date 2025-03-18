@@ -17,7 +17,7 @@ public class MainView extends View
     {
         super(m);
         JLabel title = new JLabel("ArtShare", SwingConstants.CENTER);
-        subView = new View(manager);
+        subView = new View(getManager());
     }
 
     public void setContainer(View newView)
@@ -26,8 +26,40 @@ public class MainView extends View
         // set it up so it works
     }
 
+    public void replaceContainer(View newContainer)
+    {
+        removeAll();
+        container = newContainer;
+        add(container);
+        setUpView();
+    }
+
     public void switchContainer(View view)
     {
 
     }
+
+    // SETGET
+
+    public JButton getLogoutButton() {
+        return this.logoutButton;
+    }
+
+    public void setLogoutButton(JButton logoutButton) {
+        this.logoutButton = logoutButton;
+    }
+
+    public View getContainer() {
+        return this.container;
+    }
+
+
+    public View getSubView() {
+        return this.subView;
+    }
+
+    public void setSubView(View subView) {
+        this.subView = subView;
+    }
+    
 }

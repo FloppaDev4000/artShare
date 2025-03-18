@@ -5,7 +5,7 @@ import Controller.*;
 
 public class View extends JPanel
 {
-    public ControlManager manager;
+    private ControlManager manager;
 
     public View(ControlManager m)
     {
@@ -17,4 +17,15 @@ public class View extends JPanel
         revalidate();
         repaint();
     }
+
+    // SETGET
+
+    public ControlManager getManager() {
+        return this.manager;
+    }
+
+    public void setManager(ControlManager manager) {
+        this.manager = manager;
+    }
+
 }
