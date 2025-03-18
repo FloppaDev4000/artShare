@@ -72,12 +72,12 @@ public class PostOptions
     }
 
     // read array of posts, by userId or all
-    public Post[] readPosts(int userId, int maxLength)
+    public static Post[] readPosts(int userId, int maxLength)
     {
         Post[] posts = new Post[maxLength];
 
         String sql = "SELECT " +
-        "postId, title, description " +
+        "* " +
         "FROM Post";
 
         if(userId != -1){sql += " WHERE userId = ?";}

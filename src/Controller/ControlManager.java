@@ -41,7 +41,7 @@ public class ControlManager
         mainLogin = new LoginControl(this);
         mainHome = new HomeControl(this);
 
-        homeArray = new ArrayPostControl(this);
+        homeArray = new ArrayPostControl(this, -1);
         homeProfile = new ProfileControl(this);
 
 
@@ -71,22 +71,10 @@ public class ControlManager
         mainHome = new HomeControl(this);
         mainV.replaceContainer(mainHome.view);
 
-        mainHome.makeActiveArrayPost();
-
         f.frameReset();
     }
 
     //-------------------------------------------------
-
-    void makeActiveArrayPost()
-    {
-        // place homeArray's view inside home's view
-        homeArrayV = new ArrayPostView(this);
-        homeArray.populate(-1);
-        mainHome.getView().setContainer(homeArrayV);
-
-        f.frameReset();
-    }
 
     
 

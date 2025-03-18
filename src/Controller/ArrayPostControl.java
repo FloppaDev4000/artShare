@@ -1,6 +1,8 @@
 package Controller;
 
+import Model.PostOptions;
 import View.ArrayPostView;
+import Objects.Post;
 
 public class ArrayPostControl extends ArrayControl
 {
@@ -8,11 +10,14 @@ public class ArrayPostControl extends ArrayControl
 
     PostControl[] postArray;
 
-    public ArrayPostControl(ControlManager m)
+    public ArrayPostControl(ControlManager m, int userId)
     {
         super(m);
 
-        view = new ArrayPostView(m);
+        // GET POSTS
+        Post[] posts = PostOptions.readPosts(userId, 10);
+
+        view = new ArrayPostView(m, posts);
 
         view.setUpView();
     }

@@ -8,7 +8,7 @@ import java.awt.Image;
 
 import javax.swing.*;
 
-public class PostView extends View
+public class PostViewBare extends View
 {
     AuthorView author;
 
@@ -30,7 +30,7 @@ public class PostView extends View
 
     ArrayCommentView arrayComments;
 
-    public PostView(ControlManager m, Post p)
+    public PostViewBare(ControlManager m, Post p)
     {
         super(m);
 

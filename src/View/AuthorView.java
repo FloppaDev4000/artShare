@@ -2,7 +2,7 @@ package View;
 
 import Controller.ControlManager;
 
-public class AuthorView
+public class AuthorView extends View
 {
     public AuthorView(ControlManager m)
     {

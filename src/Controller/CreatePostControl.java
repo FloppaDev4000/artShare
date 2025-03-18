@@ -28,7 +28,7 @@ public class CreatePostControl extends Control
 
     public void exit()
     {
-        manager.mainHome.makeActiveArrayPost();
+        manager.mainHome.makeActiveArrayPost(-1);
     }
 
     public void submit()

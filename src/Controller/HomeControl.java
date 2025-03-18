@@ -17,18 +17,18 @@ public class HomeControl extends Control
         super(m);
 
         // set basic middleControl
-        middleControl = new ArrayPostControl(manager);
+        middleControl = new ArrayPostControl(manager, -1);
 
         view = new HomeView(m);
 
-        view.setContainer(new ArrayPostView(m));
+        view.setContainer(new View(m));
         view.add(view.getContainer());
         manager.getFrame().frameReset();
 
         view.addLogoutListener(e -> logout());
         view.addCreateListener(e -> makeActiveCreate());
 
-        makeActivePost(0);
+        makeActiveArrayPost(-1);
     }
 
     void makeActivePost(int postId)
@@ -40,12 +40,14 @@ public class HomeControl extends Control
         view.replaceContainer(pCtrl.getView());
 
         manager.getFrame().frameReset();
+
+        middleControl = pCtrl;
     }
 
     // return to base post scroll
-    public void makeActiveArrayPost()
+    public void makeActiveArrayPost(int userId)
     {
-        ArrayPostControl a = new ArrayPostControl(manager);
+        ArrayPostControl a = new ArrayPostControl(manager, userId);
         view.replaceContainer(a.getView());
 
         manager.getFrame().frameReset();
@@ -54,7 +56,6 @@ public class HomeControl extends Control
     public void makeActiveCreate()
     {
         CreatePostControl c = new CreatePostControl(manager);
-        
         view.replaceContainer(c.getView());
         
         manager.getFrame().frameReset();
