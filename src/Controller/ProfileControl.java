@@ -6,8 +6,14 @@ public class ProfileControl extends Control
 {
     ProfileView view;
 
-    public ProfileControl(ControlManager manager)
+    ArrayPostControl postArray;
+
+    public ProfileControl(ControlManager m, int userId)
     {
-        this.manager = manager;
+        super(m);
+
+        postArray = new ArrayPostControl(m, userId);
+
+        view = new ProfileView(m);
     }
 }

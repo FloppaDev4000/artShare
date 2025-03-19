@@ -12,6 +12,7 @@ public class LoginView extends View
     public JPasswordField passwordField;
 
     public JButton loginButton;
+    public JButton backButton;
 
     public LoginView(ControlManager m)
     {
@@ -23,16 +24,16 @@ public class LoginView extends View
         passwordField = new JPasswordField();
         passwordField.setColumns(12);
 
-        loginButton = new JButton("Login");
+        loginButton = new JButton("Submit");
+        backButton = new JButton("Back");
 
         add(title);
         add(usernameField);
         add(passwordField);
         add(loginButton);
+        add(backButton);
     }
 
-    public void addLoginListener(ActionListener l)
-    {
-        loginButton.addActionListener(l);
-    }
+    public void addLoginListener(ActionListener l){loginButton.addActionListener(l);}
+    public void addBackListener(ActionListener l){backButton.addActionListener(l);}
 }

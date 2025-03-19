@@ -3,18 +3,18 @@ package Controller;
 import View.*;
 import Model.*;
 
-public class LoginControl extends Control
+public class SignUpControl extends Control
 {
-    LoginView view;
+    SignUpView view;
     MainControl parent;
 
-    public LoginControl(ControlManager m)
+    public SignUpControl(ControlManager m)
     {
         super(m);
 
-        view = new LoginView(m);
+        view = new SignUpView(m);
 
-        view.addLoginListener(e -> login(view.usernameField.getText(), view.passwordField.getPassword()));
+        view.addSignUpListener(e -> login(view.usernameField.getText(), view.passwordField.getPassword()));
         view.addBackListener(e -> m.makeActiveSplash());
     }
     
@@ -28,7 +28,6 @@ public class LoginControl extends Control
             // success path; login and move to main view, logged in
             int uid = UserOption.getId(username);
 
-            manager.login(uid);
             manager.makeActiveHome();
             
         }

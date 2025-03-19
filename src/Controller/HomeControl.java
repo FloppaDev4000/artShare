@@ -22,11 +22,13 @@ public class HomeControl extends Control
         view = new HomeView(m);
 
         view.setContainer(new View(m));
-        view.add(view.getContainer());
+        view.add(view.getCont());
         manager.getFrame().frameReset();
 
         view.addLogoutListener(e -> logout());
         view.addCreateListener(e -> makeActiveCreate());
+        view.addMyProfileListener(e -> makeActiveProfile(m.getCurrentUserId()));
+        view.addArrayPostListener(e -> makeActiveArrayPost(-1));
 
         makeActiveArrayPost(-1);
     }
@@ -39,7 +41,7 @@ public class HomeControl extends Control
         PostControl pCtrl = new PostControl(manager, postId);
         view.replaceContainer(pCtrl.getView());
 
-        manager.getFrame().frameReset();
+        //manager.getFrame().frameReset();
 
         middleControl = pCtrl;
     }
@@ -50,7 +52,7 @@ public class HomeControl extends Control
         ArrayPostControl a = new ArrayPostControl(manager, userId);
         view.replaceContainer(a.getView());
 
-        manager.getFrame().frameReset();
+        //manager.getFrame().frameReset();
     }
 
     public void makeActiveCreate()
@@ -58,8 +60,18 @@ public class HomeControl extends Control
         CreatePostControl c = new CreatePostControl(manager);
         view.replaceContainer(c.getView());
         
-        manager.getFrame().frameReset();
+        //manager.getFrame().frameReset();
         
+        middleControl = c;
+    }
+
+    public void makeActiveProfile(int userId)
+    {
+        ProfileControl c = new ProfileControl(manager, userId);
+        view.replaceContainer(c.view);
+
+        //manager.getFrame().frameReset();
+
         middleControl = c;
     }
 
@@ -67,6 +79,7 @@ public class HomeControl extends Control
     {
         int uid = -1;
 
+        manager.logout();
         manager.makeActiveLogin();
     }
 
