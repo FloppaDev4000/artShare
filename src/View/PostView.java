@@ -2,9 +2,6 @@ package View;
 
 import Objects.*;
 import Controller.ControlManager;
-import Model.*;
-
-import java.awt.Image;
 
 import javax.swing.*;
 

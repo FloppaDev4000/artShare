@@ -3,7 +3,9 @@ package WindowBuilder.helper_classes;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.*;
 
 public class CustomFontLoader
 {
@@ -14,15 +16,25 @@ public class CustomFontLoader
     {
         try
         {
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File(path));
+            InputStream is = CustomFontLoader.class.getResourceAsStream(path);
+            System.out.println("Font loaded.");
+            Font font = Font.createFont(Font.TRUETYPE_FONT, is);
             font = font.deriveFont(size);
             return font;
         }
-        catch (FontFormatException | IOException e)
+        catch(FileNotFoundException f)
         {
+            f.printStackTrace();
             System.out.println("COULD NOT FIND " + path + "; DEFAULTING...");
             return new Font("Arial", Font.PLAIN, (int) size);
         }
+        catch (FontFormatException | IOException e)
+        {
+            e.printStackTrace();
+            System.out.println(("OH NO! fontformat/IOexception!"));
+            return new Font("Arial", Font.PLAIN, (int) size);
+        }
+        
     }
 
     public static Font loadTitleFont(float size)

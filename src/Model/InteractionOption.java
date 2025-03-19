@@ -3,7 +3,6 @@ package Model;
 import java.sql.*;
 
 import Exceptions.InteractionTypeException;
-import Objects.*;
 
 //      Interaction:
 // interactionId

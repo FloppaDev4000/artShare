@@ -1,12 +1,9 @@
 package Controller;
 
-import javax.swing.JFrame;
 import java.awt.*;
 
-import Model.*;
 import View.*;
 import View.UIHelper;
-import Objects.*;
 
 public class ControlManager
 {
@@ -38,10 +35,10 @@ public class ControlManager
     public void run()
     {
         UIHelper.setup();
-        
+
         main = new MainControl(this);
         mainV = new MainView(this);
-        mainV.setPreferredSize(new Dimension(1280, 720));
+        mainV.setPreferredSize(new Dimension(640, 480));
 
         mainLogin = new LoginControl(this);
         mainHome = new HomeControl(this);
@@ -62,10 +59,8 @@ public class ControlManager
     void makeActiveLogin()
     {
         // place mainLogin's view inside main's view
-        mainLoginV = new LoginView(this);
-        mainV.replaceContainer(mainLoginV);
-
-        mainLoginV.addLoginListener(e -> mainLogin.login("adamN", "password"));
+        mainLogin = new LoginControl(this);
+        mainV.replaceContainer(mainLogin.view);
 
         f.frameReset();
     }

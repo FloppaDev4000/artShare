@@ -1,7 +1,6 @@
 package View;
 
 import javax.swing.*;
-import java.awt.*;
 
 import Controller.*;
 import WindowBuilder.helper_classes.CustomFontLoader;
@@ -21,6 +20,8 @@ public class MainView extends View
         title.setFont(CustomFontLoader.loadTitleFont(20.0f));
         add(title);
         container = new View(m);
+        add(container);
+        setUpView();
 
     }
 
@@ -32,7 +33,10 @@ public class MainView extends View
 
     public void replaceContainer(View newContainer)
     {
-        remove(container);
+        if(isAncestorOf(container))
+        {
+            remove(container);
+        }
         container = newContainer;
         add(container);
         setUpView();
@@ -53,17 +57,5 @@ public class MainView extends View
         this.logoutButton = logoutButton;
     }
 
-    public View getContainer() {
-        return this.container;
-    }
-
-
-    public View getSubView() {
-        return this.subView;
-    }
-
-    public void setSubView(View subView) {
-        this.subView = subView;
-    }
     
 }
