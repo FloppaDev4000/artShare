@@ -106,11 +106,12 @@ public class PostOptions
                 // use other table options to get other stuff
                 p.setFilePath("file path");
                 int[] interactions = {0, 0, 0};
+                interactions = InteractionOption.getInteraction(rs.getInt("postId"));
                 p.setInteractions(interactions);
                 
                 posts[index] = p;
                 index++;
-    }
+            }
 
         }
         catch(SQLException s)

@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class WindowBuilder
 {
-  public static void main(String[] args) {
+  public static void mainy(String[] args) {
 
      JFrame frame = new JFrame("My Awesome Window");
      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

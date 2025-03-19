@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import Controller.*;
+import WindowBuilder.helper_classes.CustomFontLoader;
 
 public class MainView extends View
 {
@@ -16,19 +17,22 @@ public class MainView extends View
     public MainView(ControlManager m)
     {
         super(m);
-        JLabel title = new JLabel("ArtShare", SwingConstants.CENTER);
-        subView = new View(getManager());
+        JLabel title = new JLabel("ArtShare");
+        title.setFont(CustomFontLoader.loadTitleFont(20.0f));
+        add(title);
+        container = new View(m);
+
     }
 
     public void setContainer(View newView)
     {
-        subView = newView;
+        container = newView;
         // set it up so it works
     }
 
     public void replaceContainer(View newContainer)
     {
-        removeAll();
+        remove(container);
         container = newContainer;
         add(container);
         setUpView();

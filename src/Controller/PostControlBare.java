@@ -7,7 +7,7 @@ import View.*;
 
 public class PostControlBare extends Control
 {
-    PostView view;
+    PostViewBare view;
 
     int postId;
     String title;
@@ -22,7 +22,7 @@ public class PostControlBare extends Control
 
         // add values
 
-        view = new PostView(m, p);
+        view = new PostViewBare(m, p);
     }
 
     public void getPostValues(Post p)

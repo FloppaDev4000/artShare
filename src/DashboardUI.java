@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class DashboardUI {
-    public static void main(String[] args) {
+    public static void mainy(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Forum UI");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

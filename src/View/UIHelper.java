@@ -1,7 +1,5 @@
 package View;
 
-import java.awt.Font;
-
 import javax.swing.UIManager;
 import WindowBuilder.helper_classes.*;
 

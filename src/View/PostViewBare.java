@@ -10,8 +10,6 @@ import javax.swing.*;
 
 public class PostViewBare extends View
 {
-    AuthorView author;
-
     JLabel title;
     JLabel description;
 
@@ -25,16 +23,9 @@ public class PostViewBare extends View
     JButton likeButton;
     JButton shareButton;
 
-    JButton commentButton;
-    JTextField commentField;
-
-    ArrayCommentView arrayComments;
-
     public PostViewBare(ControlManager m, Post p)
     {
         super(m);
-
-        System.out.println("POST VIEW!");
 
         // author stuff
 
@@ -60,9 +51,6 @@ public class PostViewBare extends View
         likeButton = new JButton("Like");
         shareButton = new JButton("Share");
 
-        commentField = new JTextField();
-        commentButton = new JButton("Submit Comment");
-
         // PUT ARRAY COMMENTS STUFF HERE
 
         add(title);
@@ -71,7 +59,5 @@ public class PostViewBare extends View
         add(interactions);
         add(likeButton);
         add(shareButton);
-        add(commentField);
-        add(commentButton);
     }
 }

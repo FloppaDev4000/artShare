@@ -32,7 +32,7 @@ public class InteractionOption
         {
             checkTypeValid(type, 1, 0);
 
-            Connection c = DriverManager.getConnection(Global.fullUrl());
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
@@ -59,7 +59,7 @@ public class InteractionOption
         try
         {
 
-            Connection c = DriverManager.getConnection(Global.fullUrl());
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
@@ -84,7 +84,7 @@ public class InteractionOption
         try
         {
 
-            Connection c = DriverManager.getConnection(Global.fullUrl());
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, interactionId);
@@ -109,7 +109,7 @@ public class InteractionOption
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.fullUrl());
+            Connection c = DriverManager.getConnection(Global.URL);
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
@@ -126,9 +126,7 @@ public class InteractionOption
         {
             s.printStackTrace();
         }
-
-        MiscUtils.printArray(interactionArr);
-        
+    
         return interactionArr;
     }
 }

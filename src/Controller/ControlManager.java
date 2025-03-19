@@ -1,14 +1,16 @@
 package Controller;
 
 import javax.swing.JFrame;
+import java.awt.*;
 
 import Model.*;
 import View.*;
+import View.UIHelper;
 import Objects.*;
 
 public class ControlManager
 {
-    //UIHelper.setup();
+    
     // frame
     MainFrame f = new MainFrame();
 
@@ -35,8 +37,11 @@ public class ControlManager
 
     public void run()
     {
+        UIHelper.setup();
+        
         main = new MainControl(this);
         mainV = new MainView(this);
+        mainV.setPreferredSize(new Dimension(1280, 720));
 
         mainLogin = new LoginControl(this);
         mainHome = new HomeControl(this);
