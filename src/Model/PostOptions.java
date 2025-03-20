@@ -19,7 +19,7 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL);
+            Connection c = Global.getCon();
 
             System.out.println("CONNECTED");
 
@@ -48,7 +48,7 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL);
+            Connection c = Global.getCon();
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
@@ -85,7 +85,7 @@ public class PostOptions
         try
         {
             // communicate with SQL
-            Connection c = DriverManager.getConnection(Global.URL);
+            Connection c = Global.getCon();
             PreparedStatement pst = c.prepareStatement(sql);
 
             if(userId != -1){pst.setInt(1, userId);}
