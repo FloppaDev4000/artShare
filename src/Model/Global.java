@@ -2,6 +2,8 @@ package Model;
 
 public abstract class Global
 {
+    public static final boolean SECRET_DEBUG_MODE = true;
+    
     public static final String URL = "jdbc:sqlite:res/data.sqlite";
     public static final String USER = "root";
     public static final String PASSWORD = "";

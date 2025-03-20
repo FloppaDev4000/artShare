@@ -17,4 +17,45 @@ public class User
         username = temp.username;
         isVerified = temp.isVerified;
     }
+
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public boolean isIsVerified() {
+        return this.isVerified;
+    }
+
+    public boolean getIsVerified() {
+        return this.isVerified;
+    }
+
+    public void setIsVerified(boolean isVerified) {
+        this.isVerified = isVerified;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " userId='" + getUserId() + "'" +
+            ", username='" + getUsername() + "'" +
+            ", isVerified='" + isIsVerified() + "'" +
+            "}";
+    }
+    
 }

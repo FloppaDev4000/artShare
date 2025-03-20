@@ -172,6 +172,7 @@ public class UserOption
             
             ResultSet rs = pst.executeQuery();
 
+            u.userId = userId;
             u.username = rs.getString("username");
             u.isVerified = rs.getBoolean("isVerified");
         }

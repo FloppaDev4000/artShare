@@ -2,20 +2,24 @@ package View;
 
 import Objects.*;
 import Controller.ControlManager;
+import javax.swing.*;
 
 public class ProfileView extends View
 {
-    public ProfileView(ControlManager m)
+    JLabel usernameLabel;
+    JLabel verifiedLabel;
+
+    public ProfileView(ControlManager m, User u)
     {
         super(m);
-    }
+        System.out.println("MY USERNAME: " + u.username);
+        usernameLabel = new JLabel(u.username);
+        verifiedLabel = new JLabel("[Verified]");
 
-    int userId;
-    String username;
-
-    public void getUserValues(User u)
-    {
-        userId = u.userId;
-        username = u.username;
+        add(usernameLabel);
+        if(u.isVerified)
+        {
+            add(verifiedLabel);
+        }
     }
 }

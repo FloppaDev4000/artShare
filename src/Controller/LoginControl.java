@@ -21,13 +21,21 @@ public class LoginControl extends Control
     // log into existing account
     public void login(String username, char[] password)
     {
-        int loginValid = UserOption.findUser(username, new String(password));
+        String p = new String(password);
+        if(Global.SECRET_DEBUG_MODE)
+        {
+            username = "adamN";
+            p = "password";
+        }
+    
+        int loginValid = UserOption.findUser(username, p);
 
         if(loginValid == 0)
         {
             // success path; login and move to main view, logged in
             int uid = UserOption.getId(username);
-
+            
+            System.out.println("FOUND UID: " + uid);
             manager.login(uid);
             manager.makeActiveHome();
             

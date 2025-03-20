@@ -63,5 +63,61 @@ public class CreatePostView extends View
     }
 
     // SETGET
-    public JLabel getFileLabel(){return fileLabel;}
+
+    public JTextField getTitleField() {
+        return this.titleField;
+    }
+
+    public void setTitleField(JTextField titleField) {
+        this.titleField = titleField;
+    }
+
+    public JTextArea getDescField() {
+        return this.descField;
+    }
+
+    public void setDescField(JTextArea descField) {
+        this.descField = descField;
+    }
+
+    public JButton getFileButton() {
+        return this.fileButton;
+    }
+
+    public void setFileButton(JButton fileButton) {
+        this.fileButton = fileButton;
+    }
+
+    public JLabel getFileLabel() {
+        return this.fileLabel;
+    }
+
+    public void setFileLabel(JLabel fileLabel) {
+        this.fileLabel = fileLabel;
+    }
+
+    public JFileChooser getFileChoose() {
+        return this.fileChoose;
+    }
+
+    public void setFileChoose(JFileChooser fileChoose) {
+        this.fileChoose = fileChoose;
+    }
+
+    public JButton getSubmitButton() {
+        return this.submitButton;
+    }
+
+    public void setSubmitButton(JButton submitButton) {
+        this.submitButton = submitButton;
+    }
+
+    public JButton getExitButton() {
+        return this.exitButton;
+    }
+
+    public void setExitButton(JButton exitButton) {
+        this.exitButton = exitButton;
+    }
+    
 }

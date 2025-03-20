@@ -5,6 +5,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Model.PostOptions;
 import View.*;
 
 public class CreatePostControl extends Control
@@ -36,14 +37,20 @@ public class CreatePostControl extends Control
         // get values from fields, then validate, then submit to model function
 
         // GET VALUES
-
+        String newTitle = view.getTitleField().getText();
+        String newDesc = view.getDescField().getText();
 
         // VALIDATE
 
+        if(newTitle == "" || newDesc == "")
+        {
+            System.out.println("Fields cannot be empty!");
+            return;
+        }
 
         // SUBMIT
-
-        
+        PostOptions.create(newTitle, newDesc, manager.getCurrentUserId());
+        System.out.println("Post Created!");
     }
 
     public void filePopup()

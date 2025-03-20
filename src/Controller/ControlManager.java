@@ -92,12 +92,7 @@ public class ControlManager
 
     //-------------------------------------------------
 
-    void makeActiveProfile(int userId)
-    {
-        // place inside Home View
-        homeProfileV = new ProfileView(this);
-        mainV.container = homeProfileV;
-    }
+    
 
     void viewReset(View v)
     {
@@ -107,12 +102,13 @@ public class ControlManager
 
     //---------------------------------------------USER STUFF
 
-    void login(int userId)
+    public void login(int userId)
     {
         currentUser = UserOption.readUser(userId);
+        System.out.println("NEW USER: " + currentUser.toString());
     }
 
-    void logout()
+    public void logout()
     {
         if(currentUser != null)
         {
@@ -120,13 +116,14 @@ public class ControlManager
         }
     }
 
-    int getCurrentUserId()
+    public int getCurrentUserId()
     {
         if(currentUser != null)
         {
             return currentUser.userId;
         }
 
+        System.out.println("NULL USER!");
         return -1;
     }
 
