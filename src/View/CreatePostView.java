@@ -23,9 +23,9 @@ public class CreatePostView extends View
         super(m);
 
         JLabel titleLabel = new JLabel("Title:");
-        titleField = new JTextField();
+        titleField = new JTextField(12);
         JLabel descLabel = new JLabel("Description:");
-        descField = new JTextArea();
+        descField = new JTextArea(5, 12);
 
         fileButton = new JButton("Select File");
         fileLabel = new JLabel("");

@@ -19,10 +19,8 @@ public class LoginView extends View
         super(m);
         JLabel title = new JLabel("Login Screen", SwingConstants.CENTER);
 
-        usernameField = new JTextField();
-        usernameField.setColumns(12);
-        passwordField = new JPasswordField();
-        passwordField.setColumns(12);
+        usernameField = new JTextField(12);
+        passwordField = new JPasswordField(12);
 
         loginButton = new JButton("Submit");
         backButton = new JButton("Back");

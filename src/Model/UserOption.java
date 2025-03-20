@@ -160,7 +160,7 @@ public class UserOption
     public static User readUser(int userId)
     {
         String sql = "SELECT * FROM User WHERE userId = ?";
-        User u = null;
+        User u = new User();
 
         try
         {

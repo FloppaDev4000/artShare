@@ -4,7 +4,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import Controller.*;
-import net.miginfocom.layout.AC;
 
 public class HomeView extends View
 {

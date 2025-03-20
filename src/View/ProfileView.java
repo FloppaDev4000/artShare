@@ -2,7 +2,6 @@ package View;
 
 import Objects.*;
 import Controller.ControlManager;
-import Model.*;
 
 public class ProfileView extends View
 {
