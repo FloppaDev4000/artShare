@@ -5,7 +5,11 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+<<<<<<< HEAD
 import Model.PostOption;
+=======
+import Model.PostOptions;
+>>>>>>> ecaf1a0681d171e5f43391ab1aa7388c84256ca0
 import View.*;
 
 public class CreatePostControl extends Control
@@ -49,7 +53,11 @@ public class CreatePostControl extends Control
         }
 
         // SUBMIT
+<<<<<<< HEAD
         PostOption.create(newTitle, newDesc, manager.getCurrentUserId());
+=======
+        PostOptions.create(newTitle, newDesc, manager.getCurrentUserId());
+>>>>>>> ecaf1a0681d171e5f43391ab1aa7388c84256ca0
         System.out.println("Post Created!");
     }
 
