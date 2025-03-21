@@ -4,11 +4,9 @@ import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
 
-import Objects.Post;
-
 public class FileOption
 {
-    public File[] loadFiles(int postId)
+    public static File[] loadFiles(int postId)
     {
         File[] files = null;
         String sql = "SELECT path FROM File WHERE postId = ?";
@@ -25,7 +23,7 @@ public class FileOption
             ArrayList<File> list = new ArrayList<File>();
             while(rs.next())
             {
-                File f = new File(rs.getString("link"));
+                File f = new File(rs.getString("path"));
                 list.add(f);
             }
 
@@ -37,6 +35,40 @@ public class FileOption
             return null;
         }
         return files;
+    }
+
+    public static String getFilePath(int postId)
+    {
+        String path = null;
+
+        String sql = "SELECT path FROM File WHERE postId = ?";
+
+        try
+        {
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(!rs.next())
+            {
+                System.out.println("NO FILE FOR " + postId);
+                return null;
+            }
+
+            path = rs.getString("path");
+            System.out.println("POSTID: " + postId + " - PATH!: " + path);
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return null;
+        }
+        
+
+        return path;
     }
 
     public int saveFile(int postId, int userId, String link)

@@ -1,6 +1,9 @@
 package Controller;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.Writer;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -66,6 +69,22 @@ public class CreatePostControl extends Control
         {
             selectedFile = fileChoose.getSelectedFile();
             view.getFileLabel().setText("Selected: " + selectedFile.getName());
+        }
+    }
+
+    public void writeFile(File f, String dirName)
+    {
+        try
+        {
+            Writer output = null;
+            output = new BufferedWriter(new FileWriter(f));
+
+            File dir = new File(dirName);
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
     }
 

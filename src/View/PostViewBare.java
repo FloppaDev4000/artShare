@@ -34,6 +34,7 @@ public class PostViewBare extends View
         description = new JLabel(p.getDescription());
 
         ImageIcon imageIcon = new ImageIcon(p.getFilePath());
+        System.out.println("FILEPATH: " + p.getFilePath());
         image = new JLabel(imageIcon);
 
         

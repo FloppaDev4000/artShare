@@ -60,6 +60,8 @@ public class PostOption
             p.setDescription(rs.getString("description"));
             p.setUserId(rs.getInt("userId"));
 
+            p.setFilePath(FileOption.getFilePath(p.getPostId()));
+
             // AFTER THIS, GET INTERACTIONS
         }
         catch(SQLException s)
@@ -103,7 +105,7 @@ public class PostOption
                 p.setUserId(rs.getInt("userId"));
                 
                 // use other table options to get other stuff
-                p.setFilePath("file path");
+                p.setFilePath(FileOption.getFilePath(p.getPostId()));
                 int[] interactions = {0, 0, 0};
                 interactions = InteractionOption.getInteraction(rs.getInt("postId"));
                 p.setInteractions(interactions);

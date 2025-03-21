@@ -8,7 +8,7 @@ public class UserOption
     // create new user
     public static int create(String name, String password, String email)
     {
-        String sql = "INSERT INTO User (username, password, email) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO User (username, password, email, isVerified) VALUES (?, ?, ?, 0)";
 
         try
         {
