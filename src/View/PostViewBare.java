@@ -2,13 +2,17 @@ package View;
 
 import Objects.*;
 import Controller.ControlManager;
+import Model.InteractionOption;
 import Model.UserOption;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class PostViewBare extends View
 {
     AuthorView author;
+
+    int postId;
 
     JLabel title;
     JLabel description;
@@ -27,6 +31,8 @@ public class PostViewBare extends View
     {
         super(m);
 
+        postId = p.getPostId();
+
         // author stuff
         author = new AuthorView(m, UserOption.readUser(p.getUserId()));
 
@@ -38,7 +44,7 @@ public class PostViewBare extends View
         image = new JLabel(imageIcon);
 
         
-        int[] i = p.getInteractions();
+        int[] i = InteractionOption.getInteraction(postId);
         
         // ensure i exists
         if(i == null)
@@ -63,5 +69,29 @@ public class PostViewBare extends View
         add(interactions);
         add(likeButton);
         add(shareButton);
+    }
+
+    public void addLikeListener(ActionListener l){likeButton.addActionListener(l);}
+    public void addShareListener(ActionListener l){shareButton.addActionListener(l);}
+
+    public void resetInteractionText()
+    {
+        int[] i = InteractionOption.getInteraction(postId);
+        
+        // ensure i exists
+        if(i == null)
+        {
+            i = new int[3];
+            for(int index = 0; index < i.length; index++)
+            {
+                i[index] = 0;
+            }
+        }
+
+        likes = i[0];
+        shares = i[1];
+        comments = i[2];
+        String newText = "LIKES: " + likes + ", SHARES: " + shares + ", COMMENTS: " + comments;
+        interactions.setText(newText);
     }
 }

@@ -71,8 +71,34 @@ public class FileOption
         return path;
     }
 
-    public int saveFile(int postId, int userId, String link)
+    public static int saveFile(int postId, int userId, String link)
     {
+        // create SQL insert statement
+        String sql = "INSERT INTO File (postId, userId, path) VALUES (?, ?, ?)";
+        
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+
+            System.out.println("CONNECTED");
+
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+            pst.setInt(2, userId);
+            pst.setString(3, link);
+
+            pst.executeUpdate();
+
+            System.out.println("FILE ADDED TO THING!");
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+        
         return 0;
     }
 }

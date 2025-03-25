@@ -8,6 +8,7 @@ import java.io.Writer;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Model.FileSaver;
 import Model.PostOption;
 import View.*;
 
@@ -52,7 +53,10 @@ public class CreatePostControl extends Control
         }
 
         // SUBMIT
-        PostOption.create(newTitle, newDesc, manager.getCurrentUserId());
+        //save file
+        String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
+        FileSaver.saveImgToDir(selectedFile);
+        PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path);
         System.out.println("Post Created!");
     }
 

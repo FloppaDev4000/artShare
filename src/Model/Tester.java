@@ -9,6 +9,6 @@ public class Tester
 
         Global.connect();
         
-        PostOption.create("eeee", "this post is really really lame ngl", 1);   
+        PostOption.create("eeee", "this post is really really lame ngl", 1, "");   
     }
 }

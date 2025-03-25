@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.InteractionOption;
 import Model.PostOption;
 import Model.UserOption;
 import Objects.*;
@@ -23,6 +24,9 @@ public class PostControl extends Control
         populate(postId);
 
         view = new PostView(m, post);
+
+        view.addLikeListener(e -> addLike());
+        view.addShareListener(e -> addShare());
     }
 
     public void getPostValues(Post p)
@@ -36,6 +40,18 @@ public class PostControl extends Control
     public void populate(int postId)
     {
         post = PostOption.readPost(postId);
+    }
+
+    public void addLike()
+    {
+        InteractionOption.checkInteraction(postId, manager.getCurrentUserId(), 0);
+        view.resetInteractionText();
+    }
+
+    public void addShare()
+    {
+        InteractionOption.checkInteraction(postId, manager.getCurrentUserId(), 1);
+        view.resetInteractionText();
     }
 
     // SETGET

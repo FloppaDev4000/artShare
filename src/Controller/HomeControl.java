@@ -23,7 +23,7 @@ public class HomeControl extends Control
 
         view.setContainer(new View(m));
         view.add(view.getCont());
-        manager.getFrame().frameReset();
+        //manager.getFrame().frameReset();
 
         view.addLogoutListener(e -> logout());
         view.addCreateListener(e -> makeActiveCreate());
@@ -80,7 +80,7 @@ public class HomeControl extends Control
         int uid = -1;
 
         manager.logout();
-        manager.makeActiveLogin();
+        manager.makeActiveSplash();
     }
 
     // SETGET

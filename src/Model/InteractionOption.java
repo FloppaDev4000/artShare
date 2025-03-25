@@ -2,6 +2,8 @@ package Model;
 
 import java.sql.*;
 
+import javax.naming.spi.DirStateFactory.Result;
+
 import Exceptions.InteractionTypeException;
 
 //      Interaction:
@@ -22,8 +24,51 @@ public class InteractionOption
         }
     }
 
+    public static int checkInteraction(int postId, int userId, int type)
+    {
+        // CHECK IF IDENTICAL INTERACTION EXISTS. IF SO, REMOVE. IF NOT, CREATE
+
+        String sql = "SELECT interactionId FROM Interaction WHERE postId = ? AND userId = ? AND type = ?";
+
+        try
+        {
+            checkTypeValid(type, 1, 0);
+
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+            pst.setInt(2, userId);
+            pst.setInt(3, type);
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next())
+            {
+                System.out.println("REMOVING...");
+                removeInteraction(postId, userId, type);
+            }
+            else
+            {
+                System.out.println("ADDING TO POST: " + postId);
+                createInteraction(postId, userId, type);
+            }
+        }
+        catch(InteractionTypeException i)
+        {
+            return 1;
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+
+        return 0;
+    }
+
     // create non-comment interaction
-    public static int createInteraction(int postId, int userId, int type) throws InteractionTypeException
+    private static int createInteraction(int postId, int userId, int type)
     {
         String sql = "INSERT INTO Interaction (postId, userId, type) VALUES (?, ?, ?)";
 
@@ -35,6 +80,41 @@ public class InteractionOption
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, postId);
+            pst.setInt(2, userId);
+            pst.setInt(3, type);
+
+            pst.executeUpdate();
+        }
+        catch(InteractionTypeException i)
+        {
+            return 1;
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+
+        return 0;
+    }
+
+    // create non-comment interaction
+    private static int removeInteraction(int postId, int userId, int type)
+    {
+        String sql = "DELETE FROM Interaction WHERE postId = ? AND userId = ? AND type = ?";
+
+        try
+        {
+            checkTypeValid(type, 1, 0);
+
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+            pst.setInt(2, userId);
+            pst.setInt(3, type);
+
+            pst.executeUpdate();
         }
         catch(InteractionTypeException i)
         {
@@ -57,7 +137,6 @@ public class InteractionOption
 
         try
         {
-
             Connection c = Global.getCon();
             PreparedStatement pst = c.prepareStatement(sql);
 

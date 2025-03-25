@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.FilePermission;
 import java.sql.*;
 import Objects.*;
 
@@ -11,7 +12,7 @@ import Objects.*;
 
 public class PostOption
 {
-    public static int create(String name, String description, int userId)
+    public static int create(String name, String description, int userId, String path)
     {
         // create SQL insert statement
         String sql = "INSERT INTO Post (title, description, userId) VALUES (?, ?, ?)";
@@ -29,11 +30,32 @@ public class PostOption
             pst.setString(2, description);
             pst.setInt(3, userId);
 
-            pst.executeUpdate();
+            int affectedRows = pst.executeUpdate();
+
+            int postId;
+
+            if(affectedRows == 0) 
+            {
+                throw new SQLException("Creating user failed, no rows affected.");
+            }
+
+            try (ResultSet generatedKeys = pst.getGeneratedKeys())
+            {
+                if(generatedKeys.next())
+                {
+                    postId = generatedKeys.getInt(1);
+                    FileOption.saveFile(postId, userId, path);
+                }
+                else
+                {
+                    throw new SQLException("No ID obtained.");
+                }
+            }
         }
         catch(SQLException s)
         {
             s.printStackTrace();
+            return 1;
         }
         
         return 0;

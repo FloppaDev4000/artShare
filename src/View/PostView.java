@@ -2,13 +2,20 @@ package View;
 
 import Objects.*;
 import Controller.ControlManager;
+import Model.InteractionOption;
 import Model.UserOption;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class PostView extends View
 {
     AuthorView author;
+
+    int postId;
+
+    boolean hasUserLiked;
+    boolean hasUserShared;
 
     JLabel title;
     JLabel description;
@@ -32,6 +39,8 @@ public class PostView extends View
     {
         super(m);
 
+        postId = p.getPostId();
+
         System.out.println("POST VIEW!");
 
         // author stuff
@@ -43,19 +52,7 @@ public class PostView extends View
         ImageIcon imageIcon = new ImageIcon(p.getFilePath());
         image = new JLabel(imageIcon);
 
-        
-        int[] i = p.getInteractions();
-        // ensure i exists
-        if(i == null)
-        {
-            i = new int[3];
-            for(int index = 0; index < i.length; index++){i[index] = 0;}
-        }
-        likes = i[0];
-        shares = i[1];
-        comments = i[2];
-        interactions = new JLabel("LIKES: " + likes + ", SHARES: " + shares + ", COMMENTS: " + comments);
-
+        resetInteractionText();
         likeButton = new JButton("Like");
         shareButton = new JButton("Share");
 
@@ -73,5 +70,29 @@ public class PostView extends View
         add(shareButton);
         add(commentField);
         add(commentButton);
+    }
+
+    public void addLikeListener(ActionListener l){likeButton.addActionListener(l);}
+    public void addShareListener(ActionListener l){shareButton.addActionListener(l);}
+
+    public void resetInteractionText()
+    {
+        int[] i = InteractionOption.getInteraction(postId);
+        
+        // ensure i exists
+        if(i == null)
+        {
+            i = new int[3];
+            for(int index = 0; index < i.length; index++)
+            {
+                i[index] = 0;
+            }
+        }
+
+        likes = i[0];
+        shares = i[1];
+        comments = i[2];
+        String newText = "LIKES: " + likes + ", SHARES: " + shares + ", COMMENTS: " + comments;
+        interactions.setText(newText);
     }
 }
