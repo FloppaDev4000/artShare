@@ -1,13 +1,8 @@
 package Controller;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.Writer;
-
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
 import Model.FileSaver;
 import Model.PostOption;
 import View.*;
@@ -18,12 +13,14 @@ public class CreatePostControl extends Control
 
     File selectedFile;
 
+    // constructor
     public CreatePostControl(ControlManager m)
     {
         super(m);
 
         view = new CreatePostView(m);
 
+        // add listeners
         view.addExitListener(e -> exit());
         view.addSubmitListener(e -> submit());
         view.addFileListener(e -> filePopup());
@@ -31,11 +28,13 @@ public class CreatePostControl extends Control
         view.setUpView();
     }
 
+    // exit button pressed
     public void exit()
     {
         manager.mainHome.makeActiveArrayPost(-1);
     }
 
+    // submit button pressed
     public void submit()
     {
         // get values from fields, then validate, then submit to model function
@@ -60,35 +59,20 @@ public class CreatePostControl extends Control
         System.out.println("Post Created!");
     }
 
+    // file popup dialogue
     public void filePopup()
     {
         JFileChooser fileChoose = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Images (PNG, JPG, JPEG, BMP, TIFF, WEBP, GIF)", "png", "jpg", "jpeg", "bmp", "tiff", "webp", "gif");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Images (PNG, JPG, JPEG, BMP, TIFF, GIF)", "png", "jpg", "jpeg", "bmp", "tiff", "gif");
         fileChoose.setFileFilter(filter);
         fileChoose.setAcceptAllFileFilterUsed(false);
 
         int returnVal = fileChoose.showOpenDialog(manager.getFrame());
 
-        if(returnVal == fileChoose.APPROVE_OPTION)
+        if(returnVal == JFileChooser.APPROVE_OPTION)
         {
             selectedFile = fileChoose.getSelectedFile();
             view.getFileLabel().setText("Selected: " + selectedFile.getName());
-        }
-    }
-
-    public void writeFile(File f, String dirName)
-    {
-        try
-        {
-            Writer output = null;
-            output = new BufferedWriter(new FileWriter(f));
-
-            File dir = new File(dirName);
-            
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
         }
     }
 

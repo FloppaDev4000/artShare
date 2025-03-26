@@ -1,9 +1,5 @@
 package Controller;
 
-import Model.PostOption;
-import Model.UserOption;
-import Objects.ArrayPost;
-import Objects.Post;
 import View.*;
 
 public class HomeControl extends Control
@@ -77,8 +73,6 @@ public class HomeControl extends Control
 
     public void logout()
     {
-        int uid = -1;
-
         manager.logout();
         manager.makeActiveSplash();
     }

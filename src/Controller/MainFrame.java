@@ -13,6 +13,7 @@ public class MainFrame extends JFrame
     public HomeControl homeControl;
     public PostControl postControl;
 
+    // constructor
     public MainFrame()
     {
         setTitle("ArtShare");

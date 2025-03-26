@@ -1,7 +1,6 @@
 package Controller;
 
 import View.*;
-import Model.*;
 
 public class SplashControl extends Control
 {
@@ -14,6 +13,7 @@ public class SplashControl extends Control
 
         view = new SplashView(m);
 
+        // add listeners
         view.addLoginListener(e -> m.makeActiveLogin());
         view.addSignUpListener(e -> m.makeActiveSignUp());
     }
