@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -24,6 +25,8 @@ public class HomeView extends View
         createButton = new JButton("Create"); 
         myProfileButton = new JButton("My Profile");      
         arrayPostButton = new JButton("Home"); 
+
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
 
         add(homeScreen);
         add(logoutButton);

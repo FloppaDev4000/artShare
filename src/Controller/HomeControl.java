@@ -29,7 +29,7 @@ public class HomeControl extends Control
         makeActiveArrayPost(-1);
     }
 
-    void makeActivePost(int postId)
+    public void makeActivePost(int postId)
     {
         // place homePost's view inside home's view
         // give post values to post

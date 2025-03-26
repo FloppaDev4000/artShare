@@ -54,12 +54,10 @@ public class FileOption
 
             if(!rs.next())
             {
-                System.out.println("NO FILE FOR " + postId);
                 return null;
             }
 
             path = rs.getString("path");
-            System.out.println("POSTID: " + postId + " - PATH!: " + path);
         }
         catch(SQLException s)
         {
@@ -81,7 +79,6 @@ public class FileOption
             // communicate with SQL
             Connection c = Global.getCon();
 
-            System.out.println("CONNECTED");
 
             PreparedStatement pst = c.prepareStatement(sql);
 
@@ -91,7 +88,6 @@ public class FileOption
 
             pst.executeUpdate();
 
-            System.out.println("FILE ADDED TO THING!");
         }
         catch(SQLException s)
         {

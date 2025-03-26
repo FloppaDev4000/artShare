@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -18,6 +19,8 @@ public class SplashView extends View
 
         loginButton = new JButton("Log In");
         signupButton = new JButton("Sign Up");
+
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
 
         add(loginButton);
         add(signupButton);

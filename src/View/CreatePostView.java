@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -34,6 +35,9 @@ public class CreatePostView extends View
 
         submitButton = new JButton("Submit");
         exitButton = new JButton("Exit");
+
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
+
 
         add(titleLabel);
         add(titleField);

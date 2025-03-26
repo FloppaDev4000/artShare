@@ -130,4 +130,6 @@ public class ControlManager
     //---------------------------------------------
     // SETGET
     public MainFrame getFrame(){return f;}
+
+    public HomeControl getMainHome(){return mainHome;}
 }

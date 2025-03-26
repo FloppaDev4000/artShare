@@ -2,8 +2,6 @@ package Model;
 
 import java.sql.*;
 
-import javax.naming.spi.DirStateFactory.Result;
-
 import Exceptions.InteractionTypeException;
 
 //      Interaction:

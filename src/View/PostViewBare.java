@@ -6,7 +6,14 @@ import Model.InteractionOption;
 import Model.UserOption;
 
 import javax.swing.*;
+
+import java.awt.event.MouseEvent;       // For MouseEvent class
+import java.awt.event.MouseListener;    // For MouseListener interface
+import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
+
+import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 
 public class PostViewBare extends View
 {
@@ -43,7 +50,6 @@ public class PostViewBare extends View
         System.out.println("FILEPATH: " + p.getFilePath());
         image = new JLabel(imageIcon);
 
-        
         int[] i = InteractionOption.getInteraction(postId);
         
         // ensure i exists
@@ -60,8 +66,6 @@ public class PostViewBare extends View
         likeButton = new JButton("Like");
         shareButton = new JButton("Share");
 
-        // PUT ARRAY COMMENTS STUFF HERE
-
         add(author);
         add(title);
         add(description);
@@ -69,6 +73,9 @@ public class PostViewBare extends View
         add(interactions);
         add(likeButton);
         add(shareButton);
+
+        // CLICKABLE
+        addListeners();
     }
 
     public void addLikeListener(ActionListener l){likeButton.addActionListener(l);}
@@ -93,5 +100,31 @@ public class PostViewBare extends View
         comments = i[2];
         String newText = "LIKES: " + likes + ", SHARES: " + shares + ", COMMENTS: " + comments;
         interactions.setText(newText);
+    }
+
+    public void addListeners()
+    {
+        addMouseListener(new MouseAdapter()
+        {
+            @Override
+            public void mouseClicked(MouseEvent e)
+            {
+                System.out.println("Panel clicked at position: " + e.getPoint());
+                getManager().getMainHome().makeActivePost(postId);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e)
+            {
+                setBackground(new Color(150, 150, 255));
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e)
+            {
+                setBackground(new Color(200, 200, 255));
+            }
+        }
+        );
     }
 }
