@@ -2,6 +2,8 @@ package View;
 
 import javax.swing.*;
 
+import java.awt.FlowLayout;
+
 import Controller.*;
 import WindowBuilder.helper_classes.CustomFontLoader;
 
@@ -18,6 +20,9 @@ public class MainView extends View
         super(m);
         JLabel title = new JLabel("ArtShare");
         title.setFont(CustomFontLoader.loadTitleFont(20.0f));
+
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
+
         add(title);
         container = new View(m);
         add(container);
