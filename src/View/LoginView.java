@@ -1,7 +1,7 @@
 package View;
 
 import java.awt.event.ActionListener;
-
+import java.awt.FlowLayout;
 import javax.swing.*;
 
 import Controller.ControlManager;
@@ -18,6 +18,8 @@ public class LoginView extends View
     {
         super(m);
         JLabel title = new JLabel("Login Screen", SwingConstants.CENTER);
+
+        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
 
         usernameField = new JTextField(12);
         passwordField = new JPasswordField(12);

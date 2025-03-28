@@ -1,7 +1,8 @@
 package Model;
 
 import java.sql.*;
-
+import Objects.Comment;
+import Objects.Post;
 import Exceptions.InteractionTypeException;
 
 //      Interaction:
@@ -151,6 +152,35 @@ public class InteractionOption
         }
 
         return 0;
+    }
+
+    public static Comment readComment(int interactionId)
+    {
+        String sql = "SELECT * FROM Interaction WHERE interactionId = ?";
+        ResultSet rs;
+        Comment comment = null;
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, interactionId);
+            rs = pst.executeQuery();
+
+            comment = new Comment();
+            comment.setInteractionId(interactionId);
+            comment.setUserId(rs.getInt("userId"));
+            comment.setPostId(rs.getInt("postId"));
+            comment.setValue(rs.getString("comment"));
+
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+
+        return comment;
     }
 
     public static int deleteInteraction(int interactionId)

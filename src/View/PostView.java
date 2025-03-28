@@ -33,6 +33,9 @@ public class PostView extends View
     JButton commentButton;
     JTextField commentField;
 
+    // popup buttons
+    JButton deleteButton;
+
     ArrayCommentView arrayComments;
 
     public PostView(ControlManager m, Post p)
@@ -52,14 +55,38 @@ public class PostView extends View
         ImageIcon imageIcon = new ImageIcon(p.getFilePath());
         image = new JLabel(imageIcon);
 
+        interactions = new JLabel();
         resetInteractionText();
+
         likeButton = new JButton("Like");
         shareButton = new JButton("Share");
 
-        commentField = new JTextField();
+        commentField = new JTextField(12);
         commentButton = new JButton("Submit Comment");
 
+
+        // setup popup menu
+        String[] popupOptions;
+        Popup popup;
+        if(p.getUserId() == m.getCurrentUserId())
+        {
+            popupOptions = new String[]{"Edit", "Delete", "Report"};
+            popup = new Popup(m, "Menu", popupOptions);
+            popup.items[0].addActionListener(e -> getManager().getMainHome().makeActiveEdit(p));
+        }
+        else
+        {
+            popupOptions = new String[]{"Report"};
+            popup = new Popup(m, "Menu", popupOptions);
+
+        }
+        
+
+
+
+
         // PUT ARRAY COMMENTS STUFF HERE
+        arrayComments = new ArrayCommentView(m);
 
         add(author);
         add(title);
@@ -70,6 +97,7 @@ public class PostView extends View
         add(shareButton);
         add(commentField);
         add(commentButton);
+        add(popup);
     }
 
     public void addLikeListener(ActionListener l){likeButton.addActionListener(l);}

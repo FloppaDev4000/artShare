@@ -175,6 +175,7 @@ public class UserOption
             u.userId = userId;
             u.username = rs.getString("username");
             u.isVerified = rs.getBoolean("isVerified");
+            u.bio = rs.getString("bio");
         }
         catch(SQLException s)
         {

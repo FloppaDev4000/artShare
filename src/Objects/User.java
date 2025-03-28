@@ -7,6 +7,7 @@ public class User
     public int userId;
     public String username;
     public boolean isVerified;
+    public String bio;
 
     public void getData(int userId)
     {
@@ -35,7 +36,7 @@ public class User
         this.username = username;
     }
 
-    public boolean isIsVerified() {
+    public boolean isVerified() {
         return this.isVerified;
     }
 
@@ -54,7 +55,8 @@ public class User
         return "{" +
             " userId='" + getUserId() + "'" +
             ", username='" + getUsername() + "'" +
-            ", isVerified='" + isIsVerified() + "'" +
+            ", isVerified='" + isVerified() + "'" +
+            ", bio='" + bio + "'" +
             "}";
     }
     

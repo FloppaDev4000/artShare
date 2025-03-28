@@ -26,21 +26,6 @@ public class MainFrame extends JFrame
         setVisible(true);
     }
 
-    public void goToHome()
-    {
-
-    }
-
-    public void goToLogin()
-    {
-        
-    }
-
-    public void goToPost()
-    {
-        
-    }
-
     public void frameReset()
     {
         repaint();

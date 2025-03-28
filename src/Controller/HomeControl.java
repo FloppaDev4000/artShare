@@ -1,6 +1,7 @@
 package Controller;
 
 import View.*;
+import Objects.*;
 
 public class HomeControl extends Control
 {
@@ -37,8 +38,6 @@ public class HomeControl extends Control
         PostControl pCtrl = new PostControl(manager, postId);
         view.replaceContainer(pCtrl.getView());
 
-        //manager.getFrame().frameReset();
-
         middleControl = pCtrl;
     }
 
@@ -48,25 +47,29 @@ public class HomeControl extends Control
         ArrayPostControl a = new ArrayPostControl(manager, userId);
         view.replaceContainer(a.getView());
 
-        //manager.getFrame().frameReset();
+        middleControl = a;
     }
 
     public void makeActiveCreate()
     {
         CreatePostControl c = new CreatePostControl(manager);
         view.replaceContainer(c.getView());
-        
-        //manager.getFrame().frameReset();
-        
+                
         middleControl = c;
+    }
+
+    public void makeActiveEdit(Post p)
+    {
+        CreatePostControl e = new CreatePostControl(manager, p);
+        view.replaceContainer(e.getView());
+
+        middleControl = e;
     }
 
     public void makeActiveProfile(int userId)
     {
         ProfileControl c = new ProfileControl(manager, userId);
         view.replaceContainer(c.view);
-
-        //manager.getFrame().frameReset();
 
         middleControl = c;
     }
@@ -75,6 +78,11 @@ public class HomeControl extends Control
     {
         manager.logout();
         manager.makeActiveSplash();
+    }
+
+    public void Hello()
+    {
+        System.err.println("Hello");
     }
 
     // SETGET

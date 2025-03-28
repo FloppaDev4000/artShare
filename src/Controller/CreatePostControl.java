@@ -6,12 +6,15 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Model.FileSaver;
 import Model.PostOption;
 import View.*;
+import Objects.*;
 
 public class CreatePostControl extends Control
 {
     CreatePostView view;
 
     File selectedFile;
+
+    boolean isEdit;
 
     // constructor
     public CreatePostControl(ControlManager m)
@@ -26,6 +29,15 @@ public class CreatePostControl extends Control
         view.addFileListener(e -> filePopup());
 
         view.setUpView();
+    }
+
+    // edit constructor
+    public CreatePostControl(ControlManager m, Post p)
+    {
+        this(m);
+
+        this.view.getTitleField().setText(p.getTitle());
+        this.view.getDescField().setText(p.getDescription());
     }
 
     // exit button pressed
@@ -55,6 +67,7 @@ public class CreatePostControl extends Control
         //save file
         String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
         FileSaver.saveImgToDir(selectedFile);
+        
         PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path);
         System.out.println("Post Created!");
     }

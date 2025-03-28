@@ -40,6 +40,7 @@ public class HomeView extends View
         remove(container);
         container = newContainer;
         add(newContainer);
+        
         setUpView();
     }
     

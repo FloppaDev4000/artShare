@@ -13,6 +13,16 @@ public class Post
         this.filePath = filepath;
         this.interactions = interactions;
     }
+    public Post(int postId)
+    {
+        Post p = PostOption.readPost(postId);
+
+        postId = p.getPostId();
+        title = p.getTitle();
+        description = p.getDescription();
+        filePath = p.getFilePath();
+        interactions = p.getInteractions();
+    }
 
     // post data
     private int postId;

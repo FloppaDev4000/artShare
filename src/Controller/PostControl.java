@@ -17,6 +17,8 @@ public class PostControl extends Control
 
     Post post;
 
+    ArrayCommentControl arrayComments;
+
     public PostControl(ControlManager m, int postId)
     {
         super(m);

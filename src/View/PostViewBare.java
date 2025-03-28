@@ -13,7 +13,6 @@ import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 
 public class PostViewBare extends View
 {
@@ -49,19 +48,9 @@ public class PostViewBare extends View
         ImageIcon imageIcon = new ImageIcon(p.getFilePath());
         System.out.println("FILEPATH: " + p.getFilePath());
         image = new JLabel(imageIcon);
-
-        int[] i = InteractionOption.getInteraction(postId);
         
-        // ensure i exists
-        if(i == null)
-        {
-            i = new int[3];
-            for(int index = 0; index < i.length; index++){i[index] = 0;}
-        }
-        likes = i[0];
-        shares = i[1];
-        comments = i[2];
-        interactions = new JLabel("LIKES: " + likes + ", SHARES: " + shares + ", COMMENTS: " + comments);
+        interactions = new JLabel();
+        resetInteractionText();
 
         likeButton = new JButton("Like");
         shareButton = new JButton("Share");

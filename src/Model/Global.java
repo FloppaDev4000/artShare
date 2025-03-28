@@ -11,21 +11,13 @@ public abstract class Global
     private static Connection c;
     
     public static final String URL = "jdbc:sqlite:res/data.sqlite";
-    public static final String USER = "root";
-    public static final String PASSWORD = "";
-    //public static final String FULL_URL = "jdbc:mysql://c00299231.candept.com:3306/artShare?user=user1&password=pr4ssw0ld4!";
 
-    //public static String getFullUrl(){return FULL_URL;}
-
+    // get connection at start of program
     public static void connect()
     {
         try
         {
-            c = DriverManager.getConnection(Global.URL);
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace();
+            c = DriverManager.getConnection(URL);
         }
         catch(Exception e)
         {
@@ -33,5 +25,6 @@ public abstract class Global
         }
     }
 
+    // get connection
     public static Connection getCon(){return c;}
 }
