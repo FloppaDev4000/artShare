@@ -1,5 +1,7 @@
 package Controller;
 
+import javax.swing.JOptionPane;
+
 import Model.InteractionOption;
 import Model.PostOption;
 import Model.UserOption;
@@ -27,8 +29,34 @@ public class PostControl extends Control
 
         view = new PostView(m, post);
 
+        arrayComments = new ArrayCommentControl(m, postId);
+
+        view.add(arrayComments.view);
+
         view.addLikeListener(e -> addLike());
         view.addShareListener(e -> addShare());
+
+        // setup popup menu
+        String[] popupOptions;
+        Popup popup;
+
+        // add options popup stuff
+        if(post.getUserId() == m.getCurrentUserId())
+        {
+            // only show delete if post belongs to you
+            popupOptions = new String[]{"Report", "Edit", "Delete"};
+            popup = new Popup(m, "Options", popupOptions);
+            popup.getItems()[1].addActionListener(e -> manager.getMainHome().makeActiveEdit(post));
+            popup.getItems()[2].addActionListener(e -> deleteConfirm());
+        }
+        else
+        {
+            popupOptions = new String[]{"Report"};
+            popup = new Popup(m, "Menu", popupOptions);
+        }
+        popup.getItems()[0].addActionListener(e -> PostOption.reportPost(postId));
+
+        view.add(popup);
     }
 
     public void getPostValues(Post p)
@@ -37,6 +65,22 @@ public class PostControl extends Control
         description = p.getDescription();
         //getFile(p.filePath);
         author = UserOption.readUser(p.getUserId());
+    }
+
+    public void deleteConfirm()
+    {
+        int response = JOptionPane.showConfirmDialog(manager.getFrame(), "Are you sure you wish to delete this post?", "Confirmation", JOptionPane.YES_NO_OPTION);
+
+        if (response == JOptionPane.YES_OPTION)
+        {
+            int success = PostOption.deletePost(post.getPostId());
+
+            if(success == 0)
+            {
+                JOptionPane.showMessageDialog(manager.getFrame(), "Post deleted successfully.");
+                manager.makeActiveHome();
+            }
+        }
     }
 
     public void populate(int postId)

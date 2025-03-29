@@ -1,6 +1,8 @@
 package Model;
 
 import java.sql.*;
+import java.util.ArrayList;
+
 import Objects.Comment;
 import Objects.Post;
 import Exceptions.InteractionTypeException;
@@ -183,9 +185,57 @@ public class InteractionOption
         return comment;
     }
 
+    // read array of posts, by userId or all
+    // negative maxLength makes it read ALL comments!
+    public static Comment[] readComments(int postId, int maxLength)
+    {
+        
+
+        ArrayList<Comment> comments = new ArrayList<Comment>();
+
+        String sql = "SELECT * FROM Interaction WHERE type = 2 AND postId = ?";
+
+        ResultSet rs;
+
+        try
+        {
+            // communicate with SQL
+            Connection con = Global.getCon();
+            PreparedStatement pst = con.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+
+            rs = pst.executeQuery();
+
+            int index = 0;
+
+            while(rs.next() && index != maxLength)
+            {
+                System.out.println("GETTING COMMENT...");
+                Comment c = new Comment();
+                c.setInteractionId(rs.getInt("interactionId"));
+                c.setPostId(rs.getInt("postId"));
+                c.setUserId(rs.getInt("userId"));
+                c.setValue(rs.getString("comment"));
+                
+                comments.add(c);
+                index++;
+            }
+
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+
+        Comment[] commentsArr = new Comment[comments.size()];
+        commentsArr = comments.toArray(commentsArr);
+        return commentsArr;
+    }
+
     public static int deleteInteraction(int interactionId)
     {
-        String sql = "DELETE FROM Interaction WHERE InteractionId = ?";
+        String sql = "DELETE FROM Interaction WHERE interactionId = ?";
 
         try
         {
@@ -194,6 +244,29 @@ public class InteractionOption
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, interactionId);
+
+            pst.executeUpdate();
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+
+        return 0;
+    }
+
+    public static int deletePostInteractions(int postId)
+    {
+        String sql = "DELETE FROM Interaction WHERE postId = ?";
+
+        try
+        {
+
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
 
             pst.executeUpdate();
         }

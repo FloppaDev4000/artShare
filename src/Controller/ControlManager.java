@@ -21,23 +21,12 @@ public class ControlManager
 
     //-----------------------------children of main
     SplashControl mainSplash;
-    SplashView mainSplashV;
 
     LoginControl mainLogin;
-    LoginView mainLoginV;
 
     SignUpControl mainSignUp;
-    SignUpView mainSignUpV;
 
     HomeControl mainHome;
-    HomeView mainHomeV;
-
-    //-----------------------------children of home
-    ArrayPostControl homeArray;
-    ArrayPostView homeArrayV;
-
-    ProfileControl homeProfile;
-    ProfileView homeProfileV;
 
     // VIEW
     MainView mainView = new MainView(this);
@@ -49,12 +38,6 @@ public class ControlManager
         main = new MainControl(this);
         mainV = new MainView(this);
         mainV.setPreferredSize(new Dimension(840, 480));
-
-        mainLogin = new LoginControl(this);
-        mainHome = new HomeControl(this);
-
-        homeArray = new ArrayPostControl(this, -1);
-        homeProfile = new ProfileControl(this, getCurrentUserId());
 
         f.add(mainV);
         f.frameReset();

@@ -15,7 +15,7 @@ public class Popup extends JButton
     public Popup(ControlManager m, String newText, String[] options)
     {
         // Create a JButton
-        setText("Open Popup Menu");
+        setText(newText);
 
         // Create a JPopupMenu (the popup menu)
         JPopupMenu popupMenu = new JPopupMenu();
@@ -33,5 +33,23 @@ public class Popup extends JButton
         // Add an action listener to the button to show the popup menu when clicked
         addActionListener(e -> popupMenu.show(this, 0, getHeight()));
     }
+
+
+    public ControlManager getManager() {
+        return this.manager;
+    }
+
+    public void setManager(ControlManager manager) {
+        this.manager = manager;
+    }
+
+    public JMenuItem[] getItems() {
+        return this.items;
+    }
+
+    public void setItems(JMenuItem[] items) {
+        this.items = items;
+    }
+
 
 }

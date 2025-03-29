@@ -15,11 +15,14 @@ public class CreatePostControl extends Control
     File selectedFile;
 
     boolean isEdit;
+    int postId;
 
     // constructor
     public CreatePostControl(ControlManager m)
     {
         super(m);
+
+        isEdit = false;
 
         view = new CreatePostView(m);
 
@@ -36,8 +39,14 @@ public class CreatePostControl extends Control
     {
         this(m);
 
+        isEdit = true;
+        postId = p.getPostId();
+
         this.view.getTitleField().setText(p.getTitle());
         this.view.getDescField().setText(p.getDescription());
+
+
+        // TODO: select file
     }
 
     // exit button pressed
@@ -64,12 +73,26 @@ public class CreatePostControl extends Control
         }
 
         // SUBMIT
-        //save file
-        String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
-        FileSaver.saveImgToDir(selectedFile);
+
+        if(isEdit)
+        {
+            //save file
+            String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
+            FileSaver.saveImgToDir(selectedFile);
+            
+            PostOption.edit(newTitle, newDesc, postId, path);
+            System.out.println("Post Created!");
+        }
+        else
+        {
+            //save file
+            String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
+            FileSaver.saveImgToDir(selectedFile);
+            
+            PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path);
+            System.out.println("Post Created!");
+        }
         
-        PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path);
-        System.out.println("Post Created!");
     }
 
     // file popup dialogue

@@ -19,6 +19,7 @@ public class Comment
     }
     public Comment(int interactionId)
     {
+        System.out.println("GETTING COMMENT " + interactionId);
         Comment c = InteractionOption.readComment(interactionId);
 
         interactionId = c.getInteractionId();

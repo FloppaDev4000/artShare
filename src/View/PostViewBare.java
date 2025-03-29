@@ -1,6 +1,8 @@
 package View;
 
 import Objects.*;
+import tools.ImageTools;
+import tools.UiTools;
 import Controller.ControlManager;
 import Model.InteractionOption;
 import Model.UserOption;
@@ -47,7 +49,7 @@ public class PostViewBare extends View
 
         ImageIcon imageIcon = new ImageIcon(p.getFilePath());
         System.out.println("FILEPATH: " + p.getFilePath());
-        image = new JLabel(imageIcon);
+        image = new JLabel(ImageTools.resize(imageIcon, 200, 150));
         
         interactions = new JLabel();
         resetInteractionText();
@@ -105,13 +107,13 @@ public class PostViewBare extends View
             @Override
             public void mouseEntered(MouseEvent e)
             {
-                setBackground(new Color(150, 150, 255));
+                setBackground(new Color(UiTools.DEFAULT_GREY_HOVER));
             }
 
             @Override
             public void mouseExited(MouseEvent e)
             {
-                setBackground(new Color(200, 200, 255));
+                setBackground(new Color(UiTools.DEFAULT_GREY));
             }
         }
         );

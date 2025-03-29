@@ -69,7 +69,7 @@ public class FileOption
         return path;
     }
 
-    public static int saveFile(int postId, int userId, String link)
+    public static int saveFile(int postId, int userId, String path)
     {
         // create SQL insert statement
         String sql = "INSERT INTO File (postId, userId, path) VALUES (?, ?, ?)";
@@ -84,7 +84,35 @@ public class FileOption
 
             pst.setInt(1, postId);
             pst.setInt(2, userId);
-            pst.setString(3, link);
+            pst.setString(3, path);
+
+            pst.executeUpdate();
+
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+        
+        return 0;
+    }
+
+    public static int updateFile(int postId, String path)
+    {
+        // create SQL insert statement
+        String sql = "UPDATE File SET path = ? WHERE postId = ?";
+        
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+
+
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setString(1, path);
+            pst.setInt(2, postId);
 
             pst.executeUpdate();
 

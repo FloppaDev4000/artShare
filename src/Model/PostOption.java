@@ -1,6 +1,5 @@
 package Model;
 
-import java.io.FilePermission;
 import java.sql.*;
 import Objects.*;
 
@@ -51,6 +50,44 @@ public class PostOption
                     throw new SQLException("No ID obtained.");
                 }
             }
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+        
+        return 0;
+    }
+
+    public static int edit(String title, String description, int postId, String path)
+    {
+        // create SQL insert statement
+        String sql = "UPDATE Post SET title = ?, description = ? WHERE postId = ?";
+        
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+
+            System.out.println("CONNECTED");
+
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setString(1, title);
+            pst.setString(2, description);
+            pst.setInt(4, postId);
+
+            int affectedRows = pst.executeUpdate();
+
+            if(affectedRows == 0) 
+            {
+                throw new SQLException("Editing user failed, no rows affected.");
+            }
+
+            // now update File table if needed
+
+            FileOption.updateFile(postId, path);
         }
         catch(SQLException s)
         {
@@ -152,9 +189,32 @@ public class PostOption
     }
 
     // delete post by postId
-    public int deletePost(int postId)
+    public static int deletePost(int postId)
     {
         String sql = "DELETE FROM Post WHERE postId = ?";
+
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, postId);
+            pst.executeUpdate();
+
+            // delete relevant interactions
+            InteractionOption.deletePostInteractions(postId);
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static int reportPost(int postId)
+    {
+        String sql = "UPDATE Post SET reported = 1 WHERE postId = ?";
 
         try
         {
