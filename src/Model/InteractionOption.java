@@ -156,6 +156,7 @@ public class InteractionOption
         return 0;
     }
 
+    // read comment item from id, return Comment object
     public static Comment readComment(int interactionId)
     {
         String sql = "SELECT * FROM Interaction WHERE interactionId = ?";
