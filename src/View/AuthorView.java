@@ -1,6 +1,8 @@
 package View;
 
 import Controller.ControlManager;
+import Model.Global;
+
 import javax.swing.*;
 
 import java.awt.event.MouseEvent;       // For MouseEvent class
@@ -9,6 +11,7 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 import Objects.*;
+import tools.UiTools;
 
 public class AuthorView extends View
 {
@@ -43,13 +46,13 @@ public class AuthorView extends View
             @Override
             public void mouseEntered(MouseEvent e)
             {
-                setBackground(new Color(150, 150, 255));
+                setBackground(new Color(UiTools.DEFAULT_GREY_HOVER));
             }
 
             @Override
             public void mouseExited(MouseEvent e)
             {
-                setBackground(new Color(200, 200, 255));
+                setBackground(new Color(UiTools.DEFAULT_GREY));
             }
         }
         );

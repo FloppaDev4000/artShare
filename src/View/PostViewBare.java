@@ -10,7 +10,6 @@ import Model.UserOption;
 import javax.swing.*;
 
 import java.awt.event.MouseEvent;       // For MouseEvent class
-import java.awt.event.MouseListener;    // For MouseListener interface
 import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 import java.awt.Color;
