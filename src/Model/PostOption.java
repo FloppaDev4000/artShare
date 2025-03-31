@@ -76,7 +76,7 @@ public class PostOption
 
             pst.setString(1, title);
             pst.setString(2, description);
-            pst.setInt(4, postId);
+            pst.setInt(3, postId);
 
             int affectedRows = pst.executeUpdate();
 

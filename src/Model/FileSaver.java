@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class FileSaver
 {
-    public static String userFilePath = "res/userFiles/images";
+    public final static String userFilePath = "res/userFiles/images";
 
     public static void saveImgToDir(File selectedFile)
     {
@@ -25,6 +25,11 @@ public class FileSaver
 
         // Determine the target file path
         File targetFile = new File(targetDirectory, selectedFile.getName());
+
+        if(targetFile.exists())
+        {
+            return;
+        }
 
         // Copy file to the new location
         try (InputStream inStream = new FileInputStream(selectedFile);OutputStream outStream = new FileOutputStream(targetFile))

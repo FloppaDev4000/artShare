@@ -3,6 +3,8 @@ package Controller;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import Model.FileOption;
 import Model.FileSaver;
 import Model.PostOption;
 import View.*;
@@ -45,8 +47,13 @@ public class CreatePostControl extends Control
         this.view.getTitleField().setText(p.getTitle());
         this.view.getDescField().setText(p.getDescription());
 
+        String path = FileOption.getFilePath(postId);
 
-        // TODO: select file
+        if(path != null)
+        {
+            selectFile(new File(FileOption.getFilePath(postId)));
+        }
+
     }
 
     // exit button pressed
@@ -93,6 +100,7 @@ public class CreatePostControl extends Control
             System.out.println("Post Created!");
         }
         
+        manager.getMainHome().makeActiveArrayPost(-1);
     }
 
     // file popup dialogue
@@ -107,9 +115,14 @@ public class CreatePostControl extends Control
 
         if(returnVal == JFileChooser.APPROVE_OPTION)
         {
-            selectedFile = fileChoose.getSelectedFile();
-            view.getFileLabel().setText("Selected: " + selectedFile.getName());
+            selectFile(fileChoose.getSelectedFile());
         }
+    }
+
+    public void selectFile(File newFile)
+    {
+        selectedFile = newFile;
+        view.getFileLabel().setText("Selected: " + selectedFile.getName());
     }
 
     // SETGETS, ETC

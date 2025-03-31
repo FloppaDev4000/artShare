@@ -41,7 +41,7 @@ public class HomeControl extends Control
         middleControl = pCtrl;
     }
 
-    // return to base post scroll
+    // move to post scroll (-1 for home feed)
     public void makeActiveArrayPost(int userId)
     {
         ArrayPostControl a = new ArrayPostControl(manager, userId);
