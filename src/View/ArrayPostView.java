@@ -12,12 +12,14 @@ public class ArrayPostView extends View
     private JPanel scrollPaneChild;
     private PostControlBare[] postCtrls;
 
+    public JLabel title;
+
     public ArrayPostView(ControlManager m, Post[] posts)
     {
         super(m);
         
-        JLabel label = new JLabel("Array of posts.");
-        add(label);
+        title = new JLabel("Array of posts.");
+        add(title);
 
         scrollPaneChild = new JPanel();
         scrollPaneChild.setLayout(new BoxLayout(scrollPaneChild, BoxLayout.Y_AXIS));

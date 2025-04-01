@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -19,20 +20,24 @@ public class HomeView extends View
     {
         super(m);
 
-        JLabel homeScreen = new JLabel("Home Screen", SwingConstants.CENTER);
         logoutButton = new JButton("LogOut");
 
         createButton = new JButton("Create"); 
         myProfileButton = new JButton("My Profile");      
-        arrayPostButton = new JButton("Home"); 
+        arrayPostButton = new JButton("Home");
+
+        // layout stuff
 
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
 
-        add(homeScreen);
-        add(logoutButton);
-        add(createButton);
-        add(myProfileButton);
-        add(arrayPostButton);
+        JPanel buttons = new JPanel();
+        buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
+
+        buttons.add(logoutButton);
+        buttons.add(createButton);
+        buttons.add(myProfileButton);
+        buttons.add(arrayPostButton);
+        add(buttons);
     }
 
     public void replaceContainer(View newContainer)

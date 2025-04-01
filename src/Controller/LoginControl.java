@@ -35,7 +35,6 @@ public class LoginControl extends Control
             // success path; login and move to main view, logged in
             int uid = UserOption.getId(username);
             
-            System.out.println("FOUND UID: " + uid);
             manager.login(uid);
             manager.makeActiveHome();
             
@@ -43,7 +42,7 @@ public class LoginControl extends Control
         else if(loginValid == 1)
         {
             // fail path
-            System.out.println("Invalid login.");
+            view.message.setText("Invalid login.");
         }
     }
 

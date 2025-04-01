@@ -25,7 +25,7 @@ public class ImageTools
         int newHeight = (int) (originalHeight * ratio);
 
         // Resize the image to the new dimensions
-        Image resizedImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+        Image resizedImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_FAST);
 
         // Create a new ImageIcon with the resized image
         ImageIcon resizedIcon = new ImageIcon(resizedImage);

@@ -4,7 +4,7 @@ import Model.PostOption;
 import View.ArrayPostView;
 import Objects.Post;
 
-public class ArrayPostControl extends ArrayControl
+public class ArrayPostControl extends Control
 {
     ArrayPostView view;
 

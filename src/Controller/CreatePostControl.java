@@ -75,7 +75,7 @@ public class CreatePostControl extends Control
 
         if(newTitle == "" || newDesc == "")
         {
-            System.out.println("Fields cannot be empty!");
+            view.message.setText("Fields cannot be empty!");
             return;
         }
 

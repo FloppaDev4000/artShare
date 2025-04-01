@@ -19,6 +19,8 @@ public class CreatePostView extends View
     JButton submitButton;
     JButton exitButton;
 
+    public JLabel message;
+
     public CreatePostView(ControlManager m)
     {
         super(m);
@@ -36,6 +38,8 @@ public class CreatePostView extends View
         submitButton = new JButton("Submit");
         exitButton = new JButton("Exit");
 
+        message = new JLabel("");
+
         setLayout(new WrapLayout());
 
 
@@ -49,6 +53,8 @@ public class CreatePostView extends View
 
         add(submitButton);
         add(exitButton);
+
+        add(message);
     }
 
     public void addExitListener(ActionListener l)

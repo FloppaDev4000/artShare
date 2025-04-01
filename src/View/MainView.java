@@ -1,11 +1,17 @@
 package View;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import Controller.*;
 import WindowBuilder.helper_classes.CustomFontLoader;
+import tools.UiTools;
 
 public class MainView extends View
 {
@@ -18,14 +24,26 @@ public class MainView extends View
     public MainView(ControlManager m)
     {
         super(m);
+        setLayout(new BorderLayout());
+
+        // title
         JLabel title = new JLabel("ArtShare");
-        title.setFont(CustomFontLoader.loadTitleFont(20.0f));
+        title.setFont(CustomFontLoader.loadTitleFont(24.0f));
+        title.setBorder(new EmptyBorder(10,10,10,10));
+        JPanel titleP = new JPanel(new GridBagLayout());
+        titleP.add(title, new GridBagConstraints());
 
-        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
+        add(titleP, BorderLayout.PAGE_START);
 
-        add(title);
         container = new View(m);
-        add(container);
+        add(container, BorderLayout.CENTER);
+
+        // bottom panel
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setPreferredSize(new Dimension(640, 48));
+        bottomPanel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(UiTools.DEFAULT_GREY_HOVER)));
+        add(bottomPanel, BorderLayout.PAGE_END);
+
         setUpView();
 
     }
@@ -43,7 +61,7 @@ public class MainView extends View
             remove(container);
         }
         container = newContainer;
-        add(container);
+        add(container, BorderLayout.CENTER);
         setUpView();
     }
 

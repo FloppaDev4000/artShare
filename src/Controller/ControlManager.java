@@ -88,7 +88,6 @@ public class ControlManager
     public void login(int userId)
     {
         currentUser = UserOption.readUser(userId);
-        System.out.println("NEW USER: " + currentUser.toString());
     }
 
     public void logout()

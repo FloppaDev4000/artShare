@@ -1,5 +1,8 @@
 package View;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -19,7 +22,7 @@ public class SignUpView extends View
     public SignUpView(ControlManager m)
     {
         super(m);
-        JLabel title = new JLabel("Sign Up Screen", SwingConstants.CENTER);
+        JLabel title = new JLabel("Sign Up", SwingConstants.CENTER);
 
         JLabel usernameLabel = new JLabel("Username:");
         usernameField = new JTextField(12);
@@ -36,19 +39,53 @@ public class SignUpView extends View
         signUpButton = new JButton("Submit");
         backButton = new JButton("Back");
 
-        add(title);
+        // layout
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5,5,5);
 
-        add(usernameLabel);
-        add(usernameField);
-        add(passwordLabel);
-        add(passwordField);
-        add(confirmLabel);
-        add(confirmField);
-        add(emailLabel);
-        add(emailField);
+        // ADD ITEMS WITH LAYOUT CONSTRAINTS
 
-        add(signUpButton);
-        add(backButton);
+        // title
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 2;
+        add(title, gbc);
+
+        // label stuff
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.gridwidth = 1;
+
+        gbc.gridy = 1;
+        add(usernameLabel, gbc);
+        gbc.gridy = 2;
+        add(emailLabel, gbc);
+        gbc.gridy = 3;
+        add(passwordLabel, gbc);
+        gbc.gridy = 4;
+        add(confirmLabel, gbc);
+
+        // field stuff
+        gbc.gridx = 1;
+
+        gbc.gridy = 1;
+        add(usernameField, gbc);
+        gbc.gridy = 2;
+        add(emailField, gbc);
+        gbc.gridy = 3;
+        add(passwordField, gbc);
+        gbc.gridy = 4;
+        add(confirmField, gbc);
+        
+        // buttons
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.gridwidth = 2;
+        add(signUpButton, gbc);
+        gbc.gridy = 6;
+        add(backButton, gbc);
     }
 
     public void addSignUpListener(ActionListener l){signUpButton.addActionListener(l);}

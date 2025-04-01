@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public abstract class Global
 {
-    public static final boolean SECRET_DEBUG_MODE = false;
+    public static final boolean SECRET_DEBUG_MODE = true;
     
     private static Connection c;
     
