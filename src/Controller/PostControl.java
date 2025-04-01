@@ -35,6 +35,7 @@ public class PostControl extends Control
 
         view.addLikeListener(e -> addLike());
         view.addShareListener(e -> addShare());
+        view.addCommentListener(e -> addComment(view.commentField.getText()));
 
         // setup popup menu
         String[] popupOptions;
@@ -90,13 +91,19 @@ public class PostControl extends Control
 
     public void addLike()
     {
-        InteractionOption.checkInteraction(postId, manager.getCurrentUserId(), 0);
+        InteractionOption.checkInteraction(post.getPostId(), manager.getCurrentUserId(), 0);
         view.resetInteractionText();
     }
 
     public void addShare()
     {
-        InteractionOption.checkInteraction(postId, manager.getCurrentUserId(), 1);
+        InteractionOption.checkInteraction(post.getPostId(), manager.getCurrentUserId(), 1);
+        view.resetInteractionText();
+    }
+
+    public void addComment(String comment)
+    {
+        InteractionOption.createComment(post.getPostId(), manager.getCurrentUserId(), comment);
         view.resetInteractionText();
     }
 

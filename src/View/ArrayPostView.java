@@ -17,9 +17,6 @@ public class ArrayPostView extends View
     public ArrayPostView(ControlManager m, Post[] posts)
     {
         super(m);
-        
-        title = new JLabel("Array of posts.");
-        add(title);
 
         scrollPaneChild = new JPanel();
         scrollPaneChild.setLayout(new BoxLayout(scrollPaneChild, BoxLayout.Y_AXIS));
@@ -27,8 +24,7 @@ public class ArrayPostView extends View
 
         scrollPane = new JScrollPane(scrollPaneChild);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setPreferredSize(new Dimension(420, 600));
-        
+        scrollPane.setPreferredSize(new Dimension(450, 800));
 
         postCtrls = new PostControlBare[posts.length];
 
@@ -37,7 +33,7 @@ public class ArrayPostView extends View
             if(posts[i] != null)
             {
                 postCtrls[i] = new PostControlBare(m, posts[i]);
-                postCtrls[i].getView().setPreferredSize(new Dimension(380, 280));
+                postCtrls[i].getView().setPreferredSize(new Dimension(380, 380));
                 scrollPaneChild.add(postCtrls[i].getView());
             }
         }

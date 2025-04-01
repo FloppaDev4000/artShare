@@ -1,12 +1,10 @@
 package View;
 
 import Controller.ControlManager;
-import Model.Global;
 
 import javax.swing.*;
 
 import java.awt.event.MouseEvent;       // For MouseEvent class
-import java.awt.event.MouseListener;    // For MouseListener interface
 import java.awt.Color;
 import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 

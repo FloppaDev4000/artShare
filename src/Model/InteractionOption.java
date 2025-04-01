@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import Objects.Comment;
-import Objects.Post;
 import Exceptions.InteractionTypeException;
 
 //      Interaction:
@@ -146,6 +145,7 @@ public class InteractionOption
             pst.setString(3, comment);
 
             pst.executeUpdate();
+            System.out.println("comment created!");
         }
         catch(SQLException s)
         {

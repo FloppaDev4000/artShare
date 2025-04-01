@@ -41,7 +41,7 @@ public class MainView extends View
         // bottom panel
         JPanel bottomPanel = new JPanel();
         bottomPanel.setPreferredSize(new Dimension(640, 48));
-        bottomPanel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(UiTools.DEFAULT_GREY_HOVER)));
+        bottomPanel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(UiTools.DEFAULT_GREY_DARK)));
         add(bottomPanel, BorderLayout.PAGE_END);
 
         setUpView();

@@ -13,6 +13,9 @@ import java.awt.event.MouseEvent;       // For MouseEvent class
 import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 public class PostViewBare extends View
@@ -56,13 +59,39 @@ public class PostViewBare extends View
         likeButton = new JButton("Like");
         shareButton = new JButton("Share");
 
-        add(author);
-        add(title);
-        add(description);
-        add(image);
-        add(interactions);
-        add(likeButton);
-        add(shareButton);
+        // layout stuff
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5,5,5);
+
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.gridwidth = 2;
+        add(author, gbc);
+
+        gbc.gridy = 2;
+        add(title, gbc);
+
+        gbc.gridy = 3;
+        add(description, gbc);
+
+        gbc.gridy = 4;
+        add(image, gbc);
+
+        gbc.gridy = 5;
+        add(interactions, gbc);
+
+        // buttons
+        gbc.gridwidth = 1;
+        gbc.gridy = 6;
+        add(likeButton, gbc);
+        gbc.gridx = 2;
+        add(shareButton, gbc);
+
+        setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(UiTools.DEFAULT_GREY_DARK)));
 
         // CLICKABLE
         addListeners();

@@ -1,6 +1,5 @@
 package Controller;
 
-import javax.swing.*;
 import View.*;
 
 public class MainControl extends Control

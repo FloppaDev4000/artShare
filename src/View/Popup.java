@@ -1,7 +1,6 @@
 package View;
 
 import javax.swing.*;
-import java.awt.event.*;
 import Controller.*;
 
 public class Popup extends JButton

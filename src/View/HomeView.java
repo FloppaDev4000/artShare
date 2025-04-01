@@ -1,7 +1,6 @@
 package View;
 
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -33,10 +32,10 @@ public class HomeView extends View
         JPanel buttons = new JPanel();
         buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
 
-        buttons.add(logoutButton);
-        buttons.add(createButton);
-        buttons.add(myProfileButton);
         buttons.add(arrayPostButton);
+        buttons.add(myProfileButton);
+        buttons.add(createButton);
+        buttons.add(logoutButton);
         add(buttons);
     }
 

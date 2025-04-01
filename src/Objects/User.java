@@ -8,11 +8,12 @@ public class User
     public String username;
     public boolean isVerified;
     public String bio;
+    public int[] interactions;
 
     public void getData(int userId)
     {
         User temp = UserOption.readUser(userId);
-        int[] interactions = InteractionOption.getInteraction(userId);
+        interactions = InteractionOption.getInteraction(userId);
         
         this.userId = userId;
         username = temp.username;

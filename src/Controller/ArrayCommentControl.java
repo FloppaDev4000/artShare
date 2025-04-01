@@ -5,7 +5,6 @@ import java.util.Arrays;
 import Model.InteractionOption;
 import Objects.*;
 import View.ArrayCommentView;
-import View.ArrayPostView;
 
 public class ArrayCommentControl extends Control
 {
@@ -33,4 +32,8 @@ public class ArrayCommentControl extends Control
 
         view.setUpView();
     }
+
+    // SETGET
+    
+
 }

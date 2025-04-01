@@ -1,6 +1,7 @@
 package View;
 
-import Imported.*;
+
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -40,7 +41,7 @@ public class CreatePostView extends View
 
         message = new JLabel("");
 
-        setLayout(new WrapLayout());
+        setLayout(new FlowLayout());
 
 
         add(titleLabel);

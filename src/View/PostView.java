@@ -4,10 +4,13 @@ import Objects.*;
 import tools.*;
 import Controller.ControlManager;
 import Model.InteractionOption;
-import Model.PostOption;
 import Model.UserOption;
 
 import javax.swing.*;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 public class PostView extends View
@@ -33,7 +36,7 @@ public class PostView extends View
     JButton shareButton;
 
     JButton commentButton;
-    JTextField commentField;
+    public JTextField commentField;
 
     // popup buttons
     JButton deleteButton;
@@ -69,19 +72,47 @@ public class PostView extends View
         // PUT ARRAY COMMENTS STUFF HERE
         arrayComments = new ArrayCommentView(m);
 
-        add(author);
-        add(title);
-        add(description);
-        add(image);
-        add(interactions);
-        add(likeButton);
-        add(shareButton);
-        add(commentField);
-        add(commentButton);
+        // layout stuff
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5,5,5);
+
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.gridwidth = 2;
+        add(author, gbc);
+
+        gbc.gridy = 1;
+        add(title, gbc);
+
+        gbc.gridy = 2;
+        add(description, gbc);
+
+        gbc.gridy = 3;
+        add(image, gbc);
+
+        gbc.gridy = 4;
+        add(interactions, gbc);
+
+        gbc.gridy = 5;
+        add(likeButton, gbc);
+
+        gbc.gridy = 6;
+        add(shareButton, gbc);
+
+        gbc.gridy = 7;
+        add(commentField, gbc);
+
+        gbc.gridy = 8;
+        add(commentButton, gbc);
     }
 
     public void addLikeListener(ActionListener l){likeButton.addActionListener(l);}
     public void addShareListener(ActionListener l){shareButton.addActionListener(l);}
+    public void addCommentListener(ActionListener l){commentButton.addActionListener(l);}
 
     public void resetInteractionText()
     {

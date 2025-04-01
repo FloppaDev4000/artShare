@@ -1,7 +1,6 @@
 package View;
 
 import java.awt.event.ActionListener;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -9,7 +8,6 @@ import java.awt.Insets;
 import javax.swing.*;
 
 import Controller.ControlManager;
-import net.miginfocom.layout.Grid;
 
 public class LoginView extends View
 {
