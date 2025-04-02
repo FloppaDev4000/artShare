@@ -91,7 +91,9 @@ public class PostControl extends Control
 
     public void populateComments()
     {
-        
+        arrayComments = new ArrayCommentControl(manager, post.getPostId());
+        view.revalidate();
+        view.repaint();
     }
 
     public void addLike()
@@ -110,6 +112,7 @@ public class PostControl extends Control
     {
         InteractionOption.createComment(post.getPostId(), manager.getCurrentUserId(), comment);
         view.resetInteractionText();
+        populateComments();
     }
 
     // SETGET
