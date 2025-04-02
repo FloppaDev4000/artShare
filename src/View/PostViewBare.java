@@ -124,6 +124,7 @@ public class PostViewBare extends View
 
     public void addListeners()
     {
+        super.addListeners();
         addMouseListener(new MouseAdapter()
         {
             @Override
@@ -131,18 +132,6 @@ public class PostViewBare extends View
             {
                 System.out.println("Panel clicked at position: " + e.getPoint());
                 getManager().getMainHome().makeActivePost(postId);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e)
-            {
-                setBackground(new Color(UiTools.DEFAULT_GREY_HOVER));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e)
-            {
-                setBackground(new Color(UiTools.DEFAULT_GREY));
             }
         }
         );

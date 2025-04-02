@@ -1,6 +1,10 @@
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -15,6 +19,8 @@ public class HomeView extends View
 
     private View container;
 
+    private GridBagConstraints gbc;
+
     public HomeView(ControlManager m)
     {
         super(m);
@@ -25,25 +31,39 @@ public class HomeView extends View
         myProfileButton = new JButton("My Profile");      
         arrayPostButton = new JButton("Home");
 
-        // layout stuff
-
-        setLayout(new FlowLayout(FlowLayout.CENTER, 20, 30));
-
         JPanel buttons = new JPanel();
         buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
-
         buttons.add(arrayPostButton);
         buttons.add(myProfileButton);
         buttons.add(createButton);
         buttons.add(logoutButton);
-        add(buttons);
+
+        // layout stuff
+
+        setLayout(new BorderLayout());
+        gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5,5,5);
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weighty = 1;
+        gbc.weightx = 1;
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        add(buttons, BorderLayout.LINE_START);
     }
 
     public void replaceContainer(View newContainer)
     {
         remove(container);
         container = newContainer;
-        add(newContainer);
+
+        // layout
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weighty = 1;
+        gbc.weightx = 1;
+
+        add(newContainer, BorderLayout.CENTER);
         
         setUpView();
     }

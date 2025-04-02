@@ -51,6 +51,8 @@ public class View extends JPanel
             public void mouseEntered(MouseEvent e)
             {
                 setBackground(new Color(UiTools.DEFAULT_GREY_HOVER));
+                System.out.println("\nELEMENT: " + getClass());
+                System.out.println("SIZE: " + getSize());
             }
 
             @Override
