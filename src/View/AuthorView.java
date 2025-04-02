@@ -27,6 +27,8 @@ public class AuthorView extends View
         add(authorName);
         System.out.println("author panel created");
 
+        setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, new Color(UiTools.DEFAULT_GREY_DARK)));
+
         addListeners();
     }
 

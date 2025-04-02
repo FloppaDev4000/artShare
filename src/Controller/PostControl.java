@@ -89,6 +89,11 @@ public class PostControl extends Control
         post = PostOption.readPost(postId);
     }
 
+    public void populateComments()
+    {
+        
+    }
+
     public void addLike()
     {
         InteractionOption.checkInteraction(post.getPostId(), manager.getCurrentUserId(), 0);

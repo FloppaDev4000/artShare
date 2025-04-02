@@ -63,15 +63,15 @@ public class PostViewBare extends View
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5,5,5);
-
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.CENTER;
+        
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.weightx = 1.0;
+        gbc.weighty = 0.0;
         gbc.gridwidth = 2;
         add(author, gbc);
 
+        gbc.anchor = GridBagConstraints.CENTER;
         gbc.gridy = 2;
         add(title, gbc);
 
@@ -85,10 +85,11 @@ public class PostViewBare extends View
         add(interactions, gbc);
 
         // buttons
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 1;
         gbc.gridy = 6;
         add(likeButton, gbc);
-        gbc.gridx = 2;
+        gbc.gridx = 1;
         add(shareButton, gbc);
 
         setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(UiTools.DEFAULT_GREY_DARK)));
