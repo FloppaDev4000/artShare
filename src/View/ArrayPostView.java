@@ -25,7 +25,7 @@ public class ArrayPostView extends View
         scrollPane = new JScrollPane(scrollPaneChild);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setMinimumSize(new Dimension(150, 150));
-        scrollPane.setPreferredSize(new Dimension(400, 600));
+        scrollPane.setPreferredSize(new Dimension(400, 695));
 
         postCtrls = new PostControlBare[posts.length];
 

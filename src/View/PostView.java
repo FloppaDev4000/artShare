@@ -81,10 +81,11 @@ public class PostView extends View
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weightx = 1.0;
+        
         gbc.gridwidth = 2;
         add(author, gbc);
 
+        gbc.fill = GridBagConstraints.NONE;
         gbc.gridy = 1;
         add(title, gbc);
 
@@ -97,16 +98,20 @@ public class PostView extends View
         gbc.gridy = 4;
         add(interactions, gbc);
 
+        gbc.weightx = 1.0;
+
+        gbc.gridwidth = 1;
         gbc.gridy = 5;
         add(likeButton, gbc);
 
-        gbc.gridy = 6;
+        gbc.gridx = 1;
         add(shareButton, gbc);
 
-        gbc.gridy = 7;
+        gbc.gridy = 6;
+        gbc.gridx = 0;
         add(commentField, gbc);
 
-        gbc.gridy = 8;
+        gbc.gridx = 1;
         add(commentButton, gbc);
     }
 
@@ -133,5 +138,19 @@ public class PostView extends View
         comments = i[2];
         String newText = "LIKES: " + likes + ", SHARES: " + shares + ", COMMENTS: " + comments;
         interactions.setText(newText);
+    }
+
+    public void addArrayComments(ArrayCommentView a)
+    {
+        GridBagConstraints b = new GridBagConstraints();
+
+        b.gridy = 7;
+        add(a, b);
+    }
+
+    public void addOptions(JButton option)
+    {
+        GridBagConstraints b = new GridBagConstraints();
+        add(option, b);
     }
 }

@@ -1,7 +1,7 @@
 package View;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -31,12 +31,18 @@ public class HomeView extends View
         myProfileButton = new JButton("My Profile");      
         arrayPostButton = new JButton("Home");
 
-        JPanel buttons = new JPanel();
-        buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
-        buttons.add(arrayPostButton);
-        buttons.add(myProfileButton);
-        buttons.add(createButton);
-        buttons.add(logoutButton);
+        View buttons = new View(m);
+        buttons.setLayout(new GridBagLayout());
+        GridBagConstraints b = new GridBagConstraints();
+        b.fill = GridBagConstraints.BOTH;
+        buttons.add(arrayPostButton, b);
+        b.gridy = 1;
+        buttons.add(myProfileButton, b);
+        b.gridy = 2;
+        buttons.add(createButton, b);
+        b.gridy = 3;
+        buttons.add(logoutButton, b);
+        buttons.setPreferredSize(new Dimension(400, 400));
 
         // layout stuff
 
@@ -50,6 +56,11 @@ public class HomeView extends View
         gbc.gridx = 0;
         gbc.gridy = 0;
         add(buttons, BorderLayout.LINE_START);
+
+        // right panel
+        View rightPanel = new View(m);
+        rightPanel.setPreferredSize(new Dimension(250, 100));;
+        add(rightPanel, BorderLayout.LINE_END);
     }
 
     public void replaceContainer(View newContainer)
@@ -58,10 +69,8 @@ public class HomeView extends View
         container = newContainer;
 
         // layout
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.weighty = 1;
-        gbc.weightx = 1;
+        newContainer.setPreferredSize(new Dimension(400, 400));
+        newContainer.setMaximumSize(new Dimension(600, 600));
 
         add(newContainer, BorderLayout.CENTER);
         

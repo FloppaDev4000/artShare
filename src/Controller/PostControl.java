@@ -31,7 +31,7 @@ public class PostControl extends Control
 
         arrayComments = new ArrayCommentControl(m, postId);
 
-        view.add(arrayComments.view);
+        view.addArrayComments(arrayComments.view);
 
         view.addLikeListener(e -> addLike());
         view.addShareListener(e -> addShare());
@@ -57,7 +57,7 @@ public class PostControl extends Control
         }
         popup.getItems()[0].addActionListener(e -> PostOption.reportPost(postId));
 
-        view.add(popup);
+        view.addOptions(popup);
     }
 
     public void getPostValues(Post p)

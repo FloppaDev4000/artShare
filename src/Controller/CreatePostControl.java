@@ -44,6 +44,8 @@ public class CreatePostControl extends Control
         isEdit = true;
         postId = p.getPostId();
 
+        this.view.getTitleMsg().setText("Edit Post");
+
         this.view.getTitleField().setText(p.getTitle());
         this.view.getDescField().setText(p.getDescription());
 
@@ -122,7 +124,7 @@ public class CreatePostControl extends Control
     public void selectFile(File newFile)
     {
         selectedFile = newFile;
-        view.getFileLabel().setText("Selected: " + selectedFile.getName());
+        view.getFileButton().setText("Selected: " + selectedFile.getName());
     }
 
     // SETGETS, ETC

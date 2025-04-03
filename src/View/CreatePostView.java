@@ -1,7 +1,9 @@
 package View;
 
 
-import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
@@ -10,6 +12,8 @@ import Controller.*;
 
 public class CreatePostView extends View
 {
+    JLabel titleMsg;
+
     JTextField titleField;
     JTextArea descField;
     JButton fileButton;
@@ -26,8 +30,11 @@ public class CreatePostView extends View
     {
         super(m);
 
+        titleMsg = new JLabel("Create a New Post");
+
         JLabel titleLabel = new JLabel("Title:");
         titleField = new JTextField(12);
+
         JLabel descLabel = new JLabel("Description:");
         descField = new JTextArea(5, 12);
 
@@ -41,21 +48,42 @@ public class CreatePostView extends View
 
         message = new JLabel("");
 
-        setLayout(new FlowLayout());
+        // layout
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5,5,5);
 
+        gbc.gridx = 0;
+        gbc.gridwidth = 2;
+        add(titleMsg, gbc);
+        gbc.gridy = 1;
+        gbc.gridwidth = 1;
 
-        add(titleLabel);
-        add(titleField);
-        add(descLabel);
-        add(descField);
+        add(titleLabel, gbc);
+        gbc.gridx = 1;
+        add(titleField, gbc);
 
-        add(fileButton);
-        add(fileLabel);
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        add(descLabel, gbc);
+        gbc.gridx = 1;
+        add(descField, gbc);
 
-        add(submitButton);
-        add(exitButton);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 2;
+        gbc.fill = GridBagConstraints.BOTH;
+        add(fileButton, gbc);
 
-        add(message);
+        gbc.gridwidth = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 4;
+        add(submitButton, gbc);
+        gbc.gridx = 1;
+        add(exitButton, gbc);
+
+        gbc.gridy = 5;
+        add(message, gbc);
     }
 
     public void addExitListener(ActionListener l)
@@ -99,14 +127,6 @@ public class CreatePostView extends View
         this.fileButton = fileButton;
     }
 
-    public JLabel getFileLabel() {
-        return this.fileLabel;
-    }
-
-    public void setFileLabel(JLabel fileLabel) {
-        this.fileLabel = fileLabel;
-    }
-
     public JFileChooser getFileChoose() {
         return this.fileChoose;
     }
@@ -129,6 +149,32 @@ public class CreatePostView extends View
 
     public void setExitButton(JButton exitButton) {
         this.exitButton = exitButton;
+    }
+
+
+
+    public JLabel getTitleMsg() {
+        return this.titleMsg;
+    }
+
+    public void setTitleMsg(JLabel titleMsg) {
+        this.titleMsg = titleMsg;
+    }
+
+    public JLabel getFileLabel() {
+        return this.fileLabel;
+    }
+
+    public void setFileLabel(JLabel fileLabel) {
+        this.fileLabel = fileLabel;
+    }
+
+    public JLabel getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(JLabel message) {
+        this.message = message;
     }
     
 }
