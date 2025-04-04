@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -8,7 +8,8 @@ import java.awt.Insets;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import Controller.ControlManager;
+
+import controller.ControlManager;
 
 public class HomeView extends View
 {

@@ -1,8 +1,8 @@
-package Controller;
+package controller;
 
-import Model.PostOption;
-import View.ArrayPostView;
-import Objects.Post;
+import view.ArrayPostView;
+import model.PostOption;
+import objects.Post;
 
 public class ArrayPostControl extends Control
 {

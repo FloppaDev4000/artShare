@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
 import java.util.Arrays;
 
-import Model.InteractionOption;
-import Objects.Comment;
-import View.ArrayCommentView;
+import objects.Comment;
+import view.ArrayCommentView;
+import model.InteractionOption;
 
 public class ArrayCommentControl extends Control
 {

@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -12,8 +12,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import Controller.*;
 import WindowBuilder.helper_classes.CustomFontLoader;
+import controller.*;
 import tools.UiTools;
 
 public class MainView extends View

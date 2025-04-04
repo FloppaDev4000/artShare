@@ -1,15 +1,15 @@
-package Controller;
+package controller;
 
 import javax.swing.JOptionPane;
 
-import Model.InteractionOption;
-import Model.PostOption;
-import Model.UserOption;
-import Objects.Post;
-import Objects.User;
-import View.PostView;
-import View.Popup;
-import View.View;
+import objects.Post;
+import objects.User;
+import view.PostView;
+import view.Popup;
+import view.View;
+import model.InteractionOption;
+import model.PostOption;
+import model.UserOption;
 
 public class PostControl extends Control
 {

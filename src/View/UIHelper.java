@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import javax.swing.UIManager;
 import WindowBuilder.helper_classes.CustomFontLoader;

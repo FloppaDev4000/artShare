@@ -1,10 +1,10 @@
-package Controller;
+package controller;
 
 import javax.swing.JOptionPane;
 
-import Model.UserOption;
-import Objects.User;
-import View.EditProfileView;
+import objects.User;
+import view.EditProfileView;
+import model.UserOption;
 
 public class EditProfileControl extends Control
 {

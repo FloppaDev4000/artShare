@@ -1,11 +1,9 @@
-package Controller;
-
-import View.SignUpView;
+package controller;
 
 import java.util.Arrays;
-
-import Model.Global;
-import Model.UserOption;
+import model.Global;
+import model.UserOption;
+import view.SignUpView;
 
 public class SignUpControl extends Control
 {

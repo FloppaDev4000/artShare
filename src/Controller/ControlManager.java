@@ -1,12 +1,12 @@
-package Controller;
+package controller;
 
 import java.awt.Dimension;
 
-import Model.UserOption;
-import View.MainView;
-import View.View;
-import View.UIHelper;
-import Objects.User;
+import view.MainView;
+import view.View;
+import model.UserOption;
+import objects.User;
+import view.UIHelper;
 
 public class ControlManager
 {
@@ -52,13 +52,13 @@ public class ControlManager
     {
         // place mainLogin's view inside main's view
         mainLogin = new LoginControl(this);
-        mainV.replaceContainer(mainLogin.view);
+        //mainV.replaceContainer(mainLogin.view);
     }
 
     void makeActiveSignUp()
     {
         mainSignUp = new SignUpControl(this);
-        mainV.replaceContainer(mainSignUp.view);
+        //mainV.replaceContainer(mainSignUp.view);
     }
 
     void makeActiveSplash()

@@ -1,8 +1,9 @@
-package Controller;
+package controller;
 
-import View.LoginView;
-import Model.UserOption;
-import Model.Global;
+import model.UserOption;
+import model.Global;
+
+import view.LoginView;
 
 public class LoginControl extends Control
 {

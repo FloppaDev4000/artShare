@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.event.ActionListener;
 import java.awt.GridBagConstraints;
@@ -7,10 +7,11 @@ import java.awt.Insets;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import controller.ControlManager;
+
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
-
-import Controller.ControlManager;
 
 public class LoginView extends View
 {

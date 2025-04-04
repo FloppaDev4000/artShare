@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import javax.swing.JPanel;
 
@@ -8,8 +8,8 @@ import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 import java.awt.Color;
 
-import Controller.ControlManager;
-import Model.Global;
+import model.Global;
+import controller.ControlManager;
 import tools.UiTools;
 
 public class View extends JPanel

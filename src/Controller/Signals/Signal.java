@@ -1,4 +1,4 @@
-package Controller.Signals;
+package controller.signals;
 public class Signal
 {
     String name;

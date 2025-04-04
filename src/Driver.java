@@ -1,7 +1,7 @@
 
 
-import Controller.ControlManager;
-import Model.Global;
+import controller.ControlManager;
+import model.Global;
 
 class Driver
 {

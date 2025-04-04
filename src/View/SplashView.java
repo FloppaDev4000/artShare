@@ -1,11 +1,11 @@
-package View;
+package view;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
-import Controller.ControlManager;
+import controller.ControlManager;
 
 public class SplashView extends View
 {

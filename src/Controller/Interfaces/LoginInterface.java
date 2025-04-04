@@ -1,4 +1,4 @@
-package Controller.Interfaces;
+package controller.interfaces;
 
 public interface LoginInterface
 {

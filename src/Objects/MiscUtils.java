@@ -1,4 +1,4 @@
-package Objects;
+package objects;
 public class MiscUtils
 {
     public static void printArray(int[] arr)

@@ -1,10 +1,11 @@
-package Model;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import Objects.User;
+
+import objects.User;
 
 public class UserOption
 {

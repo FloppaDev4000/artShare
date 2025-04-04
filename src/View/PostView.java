@@ -1,10 +1,11 @@
-package View;
+package view;
 
-import Objects.*;
-import tools.*;
-import Controller.ControlManager;
-import Model.InteractionOption;
-import Model.UserOption;
+import model.InteractionOption;
+import model.UserOption;
+import tools.ImageTools;
+import controller.ControlManager;
+
+import objects.Post;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;

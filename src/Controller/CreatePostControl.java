@@ -1,15 +1,15 @@
-package Controller;
+package controller;
 
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import Model.FileOption;
-import Model.FileSaver;
-import Model.PostOption;
-import View.CreatePostView;
-import Objects.Post;
+import view.CreatePostView;
+import model.FileOption;
+import model.FileSaver;
+import model.PostOption;
+import objects.Post;
 
 public class CreatePostControl extends Control
 {

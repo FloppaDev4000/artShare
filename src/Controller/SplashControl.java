@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import View.SplashView;
-import View.View;
+import view.SplashView;
+import view.View;
 
 public class SplashControl extends Control
 {

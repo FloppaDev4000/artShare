@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
 
-import Controller.ControlManager;
+import controller.ControlManager;
 
 public class SignUpView extends View
 {

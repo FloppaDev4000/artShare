@@ -1,13 +1,12 @@
-package Controller;
-
-import View.ProfileView;
-import View.Popup;
+package controller;
 
 import javax.swing.JOptionPane;
+import model.PostOption;
+import model.UserOption;
+import view.Popup;
+import view.ProfileView;
 
-import Model.PostOption;
-import Model.UserOption;
-import Objects.User;
+import objects.User;
 
 public class ProfileControl extends Control
 {

@@ -1,7 +1,7 @@
-package Objects;
+package objects;
 
-import Model.UserOption;
-import Model.InteractionOption;
+import model.InteractionOption;
+import model.UserOption;
 
 public class User
 {

@@ -1,9 +1,9 @@
-package Controller;
+package controller;
 
-import View.View;
-import View.HomeView;
-import Objects.User;
-import Objects.Post;
+import objects.User;
+import objects.Post;
+import view.HomeView;
+import view.View;
 
 public class HomeControl extends Control
 {

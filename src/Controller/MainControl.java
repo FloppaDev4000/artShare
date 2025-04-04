@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import View.MainView;
+import view.MainView;
 
 public class MainControl extends Control
 {

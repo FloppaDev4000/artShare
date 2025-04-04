@@ -1,12 +1,12 @@
-package Controller;
+package controller;
 
-import Model.InteractionOption;
-import Model.PostOption;
-import Model.UserOption;
-import Objects.User;
-import Objects.Post;
-import View.PostViewBare;
-import View.View;
+import objects.User;
+import objects.Post;
+import view.PostViewBare;
+import view.View;
+import model.InteractionOption;
+import model.PostOption;
+import model.UserOption;
 
 public class PostControlBare extends Control
 {

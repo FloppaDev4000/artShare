@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Objects.*;
-import Controller.ControlManager;
+import controller.ControlManager;
+import objects.User;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;

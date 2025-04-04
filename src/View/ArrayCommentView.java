@@ -1,6 +1,6 @@
-package View;
+package view;
 
-import Controller.ControlManager;
+import controller.ControlManager;
 
 public class ArrayCommentView extends View
 {

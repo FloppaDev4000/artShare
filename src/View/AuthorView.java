@@ -1,16 +1,18 @@
-package View;
-
-import Controller.ControlManager;
+package view;
 
 import javax.swing.JLabel;
+import objects.User;
+
+import tools.UiTools;
+
+import controller.ControlManager;
+
 import javax.swing.BorderFactory;
 
 import java.awt.event.MouseEvent;       // For MouseEvent class
 import java.awt.Color;
 import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
-import Objects.User;
-import tools.UiTools;
 
 public class AuthorView extends View
 {

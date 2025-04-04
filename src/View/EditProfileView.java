@@ -1,4 +1,4 @@
-package View;
+package view;
 
 
 import java.awt.GridBagConstraints;
@@ -8,10 +8,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import controller.ControlManager;
+
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-
-import Controller.ControlManager;
 
 public class EditProfileView extends View
 {

@@ -1,9 +1,10 @@
-package View;
+package view;
 
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
-import Controller.*;
+
+import controller.ControlManager;
 
 public class Popup extends JButton
 {

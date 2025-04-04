@@ -1,10 +1,10 @@
-package View;
+package view;
 
 import javax.swing.JLabel;
 
-import Controller.ControlManager;
-import Model.UserOption;
-import Objects.Comment;
+import model.UserOption;
+import objects.Comment;
+import controller.ControlManager;
 
 public class CommentView extends View
 {

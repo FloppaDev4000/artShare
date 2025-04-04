@@ -1,6 +1,6 @@
-package Objects;
+package objects;
 
-import Model.InteractionOption;
+import model.InteractionOption;
 
 public class Comment
 {

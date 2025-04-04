@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Objects.Comment;
-import View.CommentView;
+import view.CommentView;
+import objects.Comment;
 
 public class CommentControl extends Control
 {
