@@ -1,7 +1,7 @@
 package tools;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.ImageIcon;
+import java.awt.Image;
 
 public class ImageTools
 {

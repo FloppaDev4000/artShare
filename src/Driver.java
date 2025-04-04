@@ -1,6 +1,6 @@
 
 
-import Controller.*;
+import Controller.ControlManager;
 import Model.Global;
 
 class Driver

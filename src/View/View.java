@@ -8,7 +8,7 @@ import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 import java.awt.Color;
 
-import Controller.*;
+import Controller.ControlManager;
 import Model.Global;
 import tools.UiTools;
 

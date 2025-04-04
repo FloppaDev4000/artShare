@@ -3,8 +3,10 @@ package Controller;
 import Model.InteractionOption;
 import Model.PostOption;
 import Model.UserOption;
-import Objects.*;
-import View.*;
+import Objects.User;
+import Objects.Post;
+import View.PostViewBare;
+import View.View;
 
 public class PostControlBare extends Control
 {

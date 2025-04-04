@@ -2,13 +2,14 @@ package Controller;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Model.FileOption;
 import Model.FileSaver;
 import Model.PostOption;
-import View.*;
-import Objects.*;
+import View.CreatePostView;
+import Objects.Post;
 
 public class CreatePostControl extends Control
 {
@@ -89,8 +90,14 @@ public class CreatePostControl extends Control
             String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
             FileSaver.saveImgToDir(selectedFile);
             
-            PostOption.edit(newTitle, newDesc, postId, path);
-            System.out.println("Post Created!");
+            if(PostOption.edit(newTitle, newDesc, postId, path) == 0)
+            {
+                JOptionPane.showMessageDialog(null, "Post updated successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Oh no! A problem occurred! D:");
+            }
         }
         else
         {
@@ -98,8 +105,14 @@ public class CreatePostControl extends Control
             String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
             FileSaver.saveImgToDir(selectedFile);
             
-            PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path);
-            System.out.println("Post Created!");
+            if(PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path) == 0)
+            {
+                JOptionPane.showMessageDialog(null, "Post created successfully!");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Oh no! A problem occurred! D:");
+            }
         }
         
         manager.getMainHome().makeActiveArrayPost(-1);

@@ -1,9 +1,13 @@
 package View;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JScrollPane;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.BoxLayout;
+import java.awt.Dimension;
 
-import Controller.*;
+import Controller.PostControlBare;
+import Controller.ControlManager;
 import Objects.Post;
 
 public class ArrayPostView extends View

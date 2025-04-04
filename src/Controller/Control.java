@@ -1,6 +1,6 @@
 package Controller;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 public class Control
 {

@@ -5,8 +5,11 @@ import javax.swing.JOptionPane;
 import Model.InteractionOption;
 import Model.PostOption;
 import Model.UserOption;
-import Objects.*;
-import View.*;
+import Objects.Post;
+import Objects.User;
+import View.PostView;
+import View.Popup;
+import View.View;
 
 public class PostControl extends Control
 {

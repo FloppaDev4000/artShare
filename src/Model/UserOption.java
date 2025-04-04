@@ -1,7 +1,10 @@
 package Model;
 
-import java.sql.*;
-import Objects.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import Objects.User;
 
 public class UserOption
 {
@@ -25,6 +28,7 @@ public class UserOption
         catch(SQLException s)
         {
             s.printStackTrace();
+            return 1;
         }
 
         return 0;
@@ -103,7 +107,7 @@ public class UserOption
                 
                 // invalid login
                 System.out.println("ResultSet is empty");
-                return 1;
+                return -1;
             }
             else
             {
@@ -115,7 +119,7 @@ public class UserOption
         {
             s.printStackTrace();
         }
-        return 2;
+        return -2;
     }
 
     // check if username is already taken or not
@@ -192,6 +196,11 @@ public class UserOption
     // delete user
     public static int delete(int userId)
     {
+
+        // first, delete posts and interactions
+        InteractionOption.deleteInteractions(userId);
+        PostOption.deletePosts(userId);
+
         String sql = "DELETE FROM User WHERE userId = ?";
 
         try
@@ -206,6 +215,7 @@ public class UserOption
         catch(SQLException s)
         {
             s.printStackTrace();
+            return 1;
         }
         return 0;
     }
@@ -235,6 +245,30 @@ public class UserOption
         catch(SQLException s)
         {
             s.printStackTrace();
+            return 1;
+        }
+        return 0;
+    }
+
+    public static int editUser(int userId, String newName, String newBio)
+    {
+        String sql = "UPDATE User SET username = ?, bio = ? WHERE userId = ?";
+        
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setString(1, newName);
+            pst.setString(2, newBio);
+            pst.setInt(3, userId);
+            pst.executeUpdate();
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
         }
         return 0;
     }

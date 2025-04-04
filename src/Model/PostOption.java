@@ -1,7 +1,10 @@
 package Model;
 
-import java.sql.*;
-import Objects.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import Objects.Post;
 
 //      Post:
 // postId
@@ -204,6 +207,29 @@ public class PostOption
 
             // delete relevant interactions
             InteractionOption.deletePostInteractions(postId);
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static int deletePosts(int userId)
+    {
+        String sql = "DELETE FROM Post WHERE userId = ?";
+
+        try
+        {
+            // communicate with SQL
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, userId);
+            pst.executeUpdate();
+
+            // delete relevant interactions
+            InteractionOption.deletePostInteractions(userId);
         }
         catch(SQLException s)
         {

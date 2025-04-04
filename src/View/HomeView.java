@@ -7,8 +7,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
-import Controller.*;
+import javax.swing.JButton;
+import Controller.ControlManager;
 
 public class HomeView extends View
 {

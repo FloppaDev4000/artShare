@@ -1,6 +1,8 @@
 package View;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
 import Controller.*;
 
 public class Popup extends JButton

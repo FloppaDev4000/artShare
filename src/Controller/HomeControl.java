@@ -1,7 +1,9 @@
 package Controller;
 
-import View.*;
-import Objects.*;
+import View.View;
+import View.HomeView;
+import Objects.User;
+import Objects.Post;
 
 public class HomeControl extends Control
 {
@@ -61,6 +63,14 @@ public class HomeControl extends Control
     public void makeActiveEdit(Post p)
     {
         CreatePostControl e = new CreatePostControl(manager, p);
+        view.replaceContainer(e.getView());
+
+        middleControl = e;
+    }
+
+    public void makeActiveEditProfile(User u)
+    {
+        EditProfileControl e = new EditProfileControl(manager, u);
         view.replaceContainer(e.getView());
 
         middleControl = e;

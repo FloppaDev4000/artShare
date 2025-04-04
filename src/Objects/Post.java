@@ -1,6 +1,7 @@
 package Objects;
 
-import Model.*;
+import Model.PostOption;
+import Model.InteractionOption;
 
 public class Post
 {

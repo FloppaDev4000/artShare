@@ -6,7 +6,11 @@ import Controller.ControlManager;
 import Model.InteractionOption;
 import Model.UserOption;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+import javax.swing.ImageIcon;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

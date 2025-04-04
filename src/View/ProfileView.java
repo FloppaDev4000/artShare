@@ -2,7 +2,11 @@ package View;
 
 import Objects.*;
 import Controller.ControlManager;
-import javax.swing.*;
+
+import javax.swing.JLabel;
+import javax.swing.JButton;
+
+import java.awt.GridBagConstraints;
 
 public class ProfileView extends View
 {
@@ -26,5 +30,11 @@ public class ProfileView extends View
         {
             add(verifiedLabel);
         }
+    }
+
+    public void addOptions(JButton option)
+    {
+        GridBagConstraints b = new GridBagConstraints();
+        add(option, b);
     }
 }

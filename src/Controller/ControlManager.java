@@ -1,11 +1,12 @@
 package Controller;
 
-import java.awt.*;
+import java.awt.Dimension;
 
 import Model.UserOption;
-import View.*;
+import View.MainView;
+import View.View;
 import View.UIHelper;
-import Objects.*;
+import Objects.User;
 
 public class ControlManager
 {

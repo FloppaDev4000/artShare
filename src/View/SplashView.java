@@ -3,7 +3,7 @@ package View;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
 
 import Controller.ControlManager;
 

@@ -1,7 +1,7 @@
 package View;
 
 import javax.swing.UIManager;
-import WindowBuilder.helper_classes.*;
+import WindowBuilder.helper_classes.CustomFontLoader;
 
 public class UIHelper
 {

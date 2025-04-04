@@ -1,6 +1,7 @@
 package Objects;
 
-import Model.*;
+import Model.UserOption;
+import Model.InteractionOption;
 
 public class User
 {
@@ -37,16 +38,28 @@ public class User
         this.username = username;
     }
 
-    public boolean isVerified() {
-        return this.isVerified;
-    }
-
     public boolean getIsVerified() {
         return this.isVerified;
     }
 
     public void setIsVerified(boolean isVerified) {
         this.isVerified = isVerified;
+    }
+
+    public String getBio() {
+        return this.bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public int[] getInteractions() {
+        return this.interactions;
+    }
+
+    public void setInteractions(int[] interactions) {
+        this.interactions = interactions;
     }
 
 
@@ -56,8 +69,8 @@ public class User
         return "{" +
             " userId='" + getUserId() + "'" +
             ", username='" + getUsername() + "'" +
-            ", isVerified='" + isVerified() + "'" +
-            ", bio='" + bio + "'" +
+            ", isVerified='" + getIsVerified() + "'" +
+            ", bio='" + getBio() + "'" +
             "}";
     }
     

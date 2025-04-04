@@ -7,7 +7,10 @@ import Controller.ControlManager;
 import Model.InteractionOption;
 import Model.UserOption;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
 
 import java.awt.event.MouseEvent;       // For MouseEvent class
 import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)

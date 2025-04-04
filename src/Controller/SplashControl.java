@@ -1,6 +1,7 @@
 package Controller;
 
-import View.*;
+import View.SplashView;
+import View.View;
 
 public class SplashControl extends Control
 {
@@ -18,4 +19,5 @@ public class SplashControl extends Control
         view.addSignUpListener(e -> m.makeActiveSignUp());
     }
     
+    public View getView(){return view;}
 }

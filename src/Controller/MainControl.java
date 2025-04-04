@@ -1,6 +1,6 @@
 package Controller;
 
-import View.*;
+import View.MainView;
 
 public class MainControl extends Control
 {

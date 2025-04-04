@@ -3,7 +3,7 @@ package Controller;
 import java.util.Arrays;
 
 import Model.InteractionOption;
-import Objects.*;
+import Objects.Comment;
 import View.ArrayCommentView;
 
 public class ArrayCommentControl extends Control

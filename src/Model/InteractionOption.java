@@ -1,6 +1,9 @@
 package Model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Objects.Comment;
@@ -98,7 +101,6 @@ public class InteractionOption
         return 0;
     }
 
-    // create non-comment interaction
     private static int removeInteraction(int postId, int userId, int type)
     {
         String sql = "DELETE FROM Interaction WHERE postId = ? AND userId = ? AND type = ?";
@@ -245,6 +247,29 @@ public class InteractionOption
             PreparedStatement pst = c.prepareStatement(sql);
 
             pst.setInt(1, interactionId);
+
+            pst.executeUpdate();
+        }
+        catch(SQLException s)
+        {
+            s.printStackTrace();
+            return 1;
+        }
+
+        return 0;
+    }
+
+    public static int deleteInteractions(int userId)
+    {
+        String sql = "DELETE FROM Interaction WHERE userId = ?";
+
+        try
+        {
+
+            Connection c = Global.getCon();
+            PreparedStatement pst = c.prepareStatement(sql);
+
+            pst.setInt(1, userId);
 
             pst.executeUpdate();
         }

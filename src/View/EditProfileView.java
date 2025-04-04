@@ -10,42 +10,32 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 
 import Controller.ControlManager;
 
-public class CreatePostView extends View
+public class EditProfileView extends View
 {
     JLabel titleMsg;
 
-    JTextField titleField;
-    JTextArea descField;
-    JButton fileButton;
-    JLabel fileLabel;
-
-    JFileChooser fileChoose;
+    JTextField nameField;
+    JTextArea bioField;
 
     JButton submitButton;
     JButton exitButton;
 
     public JLabel message;
 
-    public CreatePostView(ControlManager m)
+    public EditProfileView(ControlManager m)
     {
         super(m);
 
-        titleMsg = new JLabel("Create a New Post");
+        titleMsg = new JLabel("Edit Profile");
 
-        JLabel titleLabel = new JLabel("Title:");
-        titleField = new JTextField(12);
+        JLabel nameLabel = new JLabel("Username:");
+        nameField = new JTextField(12);
 
-        JLabel descLabel = new JLabel("Description:");
-        descField = new JTextArea(5, 12);
-
-        fileButton = new JButton("Select File");
-        fileLabel = new JLabel("");
-
-        fileChoose = new JFileChooser();
+        JLabel bioLabel = new JLabel("Bio:");
+        bioField = new JTextArea(5, 12);
 
         submitButton = new JButton("Submit");
         exitButton = new JButton("Exit");
@@ -63,21 +53,20 @@ public class CreatePostView extends View
         gbc.gridy = 1;
         gbc.gridwidth = 1;
 
-        add(titleLabel, gbc);
+        add(nameLabel, gbc);
         gbc.gridx = 1;
-        add(titleField, gbc);
+        add(nameField, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 2;
-        add(descLabel, gbc);
+        add(bioLabel, gbc);
         gbc.gridx = 1;
-        add(descField, gbc);
+        add(bioField, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 3;
         gbc.gridwidth = 2;
         gbc.fill = GridBagConstraints.BOTH;
-        add(fileButton, gbc);
 
         gbc.gridwidth = 1;
         gbc.gridx = 0;
@@ -100,43 +89,22 @@ public class CreatePostView extends View
         submitButton.addActionListener(l);
     }
 
-    public void addFileListener(ActionListener l)
-    {
-        fileButton.addActionListener(l);
-    }
-
     // SETGET
 
-    public JTextField getTitleField() {
-        return this.titleField;
+    public JTextField getNameField() {
+        return this.nameField;
     }
 
-    public void setTitleField(JTextField titleField) {
-        this.titleField = titleField;
+    public void setNameField(JTextField nameField) {
+        this.nameField = nameField;
     }
 
-    public JTextArea getDescField() {
-        return this.descField;
+    public JTextArea getBioField() {
+        return this.bioField;
     }
 
-    public void setDescField(JTextArea descField) {
-        this.descField = descField;
-    }
-
-    public JButton getFileButton() {
-        return this.fileButton;
-    }
-
-    public void setFileButton(JButton fileButton) {
-        this.fileButton = fileButton;
-    }
-
-    public JFileChooser getFileChoose() {
-        return this.fileChoose;
-    }
-
-    public void setFileChoose(JFileChooser fileChoose) {
-        this.fileChoose = fileChoose;
+    public void setBioField(JTextArea bioField) {
+        this.bioField = bioField;
     }
 
     public JButton getSubmitButton() {
@@ -163,14 +131,6 @@ public class CreatePostView extends View
 
     public void setTitleMsg(JLabel titleMsg) {
         this.titleMsg = titleMsg;
-    }
-
-    public JLabel getFileLabel() {
-        return this.fileLabel;
-    }
-
-    public void setFileLabel(JLabel fileLabel) {
-        this.fileLabel = fileLabel;
     }
 
     public JLabel getMessage() {
