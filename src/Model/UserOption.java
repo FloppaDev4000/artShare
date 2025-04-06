@@ -12,6 +12,7 @@ public class UserOption
     // create new user
     public static int create(String name, String password, String email)
     {
+
         String sql = "INSERT INTO User (username, password, email, isVerified) VALUES (?, ?, ?, 0)";
 
         try
@@ -43,7 +44,7 @@ public class UserOption
         // 1:   invalid login
         // 2:   error
 
-        String sql = "SELECT username, password FROM User WHERE username = ? and password = ? ";
+        String sql = "SELECT username, password FROM User WHERE UPPER(username) = UPPER(?) and password = ? ";
 
         try
         {
@@ -83,11 +84,11 @@ public class UserOption
     public static int getId(String name)
     {
         // RESULTS:
-        // 0:   valid login
-        // 1:   invalid login
-        // 2:   error
+        // id:   valid login
+        // -1:   invalid login
+        // -2:   error
 
-        String sql = "SELECT userId FROM User WHERE username = ? ";
+        String sql = "SELECT userId FROM User WHERE UPPER(username) = UPPER(?) ";
 
         System.out.println("getting ID...");
 
@@ -124,14 +125,14 @@ public class UserOption
     }
 
     // check if username is already taken or not
-    public static int checkUsernameAvailable(String username)
+    public static int checkUsernameAvailable(String name)
     {
         // RESULTS:
-        // 0:   valid login
-        // 1:   invalid login
+        // 0:   available
+        // 1:   unavailable
         // 2:   error
 
-        String sql = "SELECT * FROM User WHERE username = ?";
+        String sql = "SELECT * FROM User WHERE UPPER(username) = UPPER(?)";
 
         try
         {
@@ -139,7 +140,7 @@ public class UserOption
             Connection c = Global.getCon();
             PreparedStatement pst = c.prepareStatement(sql);
 
-            pst.setString(1, username);
+            pst.setString(1, name);
             
             ResultSet rs = pst.executeQuery();
 
@@ -253,6 +254,7 @@ public class UserOption
 
     public static int editUser(int userId, String newName, String newBio)
     {
+
         String sql = "UPDATE User SET username = ?, bio = ? WHERE userId = ?";
         
         try

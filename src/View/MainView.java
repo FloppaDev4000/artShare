@@ -12,7 +12,6 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import WindowBuilder.helper_classes.CustomFontLoader;
 import controller.*;
 import tools.UiTools;
 
@@ -31,7 +30,6 @@ public class MainView extends View
 
         // title
         JLabel title = new JLabel("ArtShare");
-        title.setFont(CustomFontLoader.loadTitleFont(24.0f));
         title.setBorder(new EmptyBorder(10,10,10,10));
         JPanel titleP = new JPanel(new GridBagLayout());
         titleP.add(title, new GridBagConstraints());

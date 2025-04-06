@@ -1,0 +1,25 @@
+LOGIN:
+    success
+    empty fields
+    unsuccessful
+    case insensitive
+
+SIGN UP:
+    success
+    name taken
+    empty fields
+
+CREATE POST
+    no file selected
+    successful
+
+VIEW POST
+    comment
+    edit
+    delete
+    report
+
+PROFILE VIEW
+    edit
+    report
+

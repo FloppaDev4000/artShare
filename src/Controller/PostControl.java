@@ -94,7 +94,9 @@ public class PostControl extends Control
 
     public void populateComments()
     {
+        view.remove(arrayComments.view);
         arrayComments = new ArrayCommentControl(manager, post.getPostId());
+        view.addArrayComments(arrayComments.view);
         view.revalidate();
         view.repaint();
     }
@@ -115,6 +117,7 @@ public class PostControl extends Control
     {
         InteractionOption.createComment(post.getPostId(), manager.getCurrentUserId(), comment);
         view.resetInteractionText();
+        view.commentField.setText("");
         populateComments();
     }
 

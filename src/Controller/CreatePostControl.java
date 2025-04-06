@@ -121,13 +121,17 @@ public class CreatePostControl extends Control
     // file popup dialogue
     public void filePopup()
     {
+
+        // init file chooser and filters
         JFileChooser fileChoose = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Images (PNG, JPG, JPEG, BMP, TIFF, GIF)", "png", "jpg", "jpeg", "bmp", "tiff", "gif");
+
+        // apply filter
         fileChoose.setFileFilter(filter);
         fileChoose.setAcceptAllFileFilterUsed(false);
 
+        // open dialog and get input
         int returnVal = fileChoose.showOpenDialog(manager.getFrame());
-
         if(returnVal == JFileChooser.APPROVE_OPTION)
         {
             selectFile(fileChoose.getSelectedFile());
@@ -136,6 +140,7 @@ public class CreatePostControl extends Control
 
     public void selectFile(File newFile)
     {
+        // set selected file
         selectedFile = newFile;
         view.getFileButton().setText("Selected: " + selectedFile.getName());
     }

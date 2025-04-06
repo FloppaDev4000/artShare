@@ -34,7 +34,7 @@ public class ControlManager
 
     public void run()
     {
-        UIHelper.setup();
+        //UIHelper.setup();
 
         main = new MainControl(this);
         mainV = new MainView(this);
@@ -52,13 +52,13 @@ public class ControlManager
     {
         // place mainLogin's view inside main's view
         mainLogin = new LoginControl(this);
-        //mainV.replaceContainer(mainLogin.view);
+        mainV.replaceContainer(mainLogin.view);
     }
 
     void makeActiveSignUp()
     {
         mainSignUp = new SignUpControl(this);
-        //mainV.replaceContainer(mainSignUp.view);
+        mainV.replaceContainer(mainSignUp.view);
     }
 
     void makeActiveSplash()
@@ -75,8 +75,6 @@ public class ControlManager
     }
 
     //-------------------------------------------------
-
-    
 
     void viewReset(View v)
     {
