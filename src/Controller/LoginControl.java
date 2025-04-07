@@ -48,28 +48,6 @@ public class LoginControl extends Control
         }
     }
 
-    // create new account, auto log in
-    public void signUp(String username, char[] password, String email)
-    {
-        String p = new String(password);
-
-        // 3 possible results
-        int nameAvailable = UserOption.checkUsernameAvailable(username);
-
-        if(nameAvailable == 0)
-        {
-            // success path
-            if(UserOption.create(username, p, email) == 0)
-            {
-                login(username, password);
-            }
-        }
-        else if(nameAvailable == 1)
-        {
-            // fail path
-        }
-    }
-
     // SETGET
 
     public LoginView getView() {

@@ -89,12 +89,7 @@ public class HomeControl extends Control
         getManager().logout();
         getManager().makeActiveSplash();
     }
-
-    public void Hello()
-    {
-        System.err.println("Hello");
-    }
-
+    
     // SETGET
 
     public HomeView getView() {
