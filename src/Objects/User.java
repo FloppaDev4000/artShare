@@ -5,11 +5,11 @@ import model.UserOption;
 
 public class User
 {
-    public int userId;
-    public String username;
-    public boolean isVerified;
-    public String bio;
-    public int[] interactions;
+    private int userId;
+    private String username;
+    private boolean isVerified;
+    private String bio;
+    private int[] interactions;
 
     public void getData(int userId)
     {

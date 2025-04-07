@@ -10,11 +10,11 @@ import objects.User;
 
 public class ProfileControl extends Control
 {
-    ProfileView view;
+    private ProfileView view;
 
-    User user;
+    private User user;
 
-    ArrayPostControl postArray;
+    private ArrayPostControl postArray;
 
     public ProfileControl(ControlManager m, int userId)
     {
@@ -38,7 +38,7 @@ public class ProfileControl extends Control
             // only show delete if post belongs to you
             popupOptions = new String[]{"Report", "Edit", "Delete"};
             popup = new Popup(m, "Options", popupOptions);
-            popup.getItems()[1].addActionListener(e -> manager.getMainHome().makeActiveEditProfile(user));
+            popup.getItems()[1].addActionListener(e -> getManager().getMainHome().makeActiveEditProfile(user));
             popup.getItems()[2].addActionListener(e -> deleteConfirm());
         }
         else
@@ -56,7 +56,7 @@ public class ProfileControl extends Control
 
     public void deleteConfirm()
     {
-        int response = JOptionPane.showConfirmDialog(manager.getFrame(), "Are you sure you wish to delete your account? This action is irreversible.", "Confirmation", JOptionPane.YES_NO_OPTION);
+        int response = JOptionPane.showConfirmDialog(getManager().getFrame(), "Are you sure you wish to delete your account? This action is irreversible.", "Confirmation", JOptionPane.YES_NO_OPTION);
 
         if (response == JOptionPane.YES_OPTION)
         {
@@ -64,9 +64,36 @@ public class ProfileControl extends Control
 
             if(success == 0)
             {
-                JOptionPane.showMessageDialog(manager.getFrame(), "Account deleted successfully.");
-                manager.makeActiveSplash();
+                JOptionPane.showMessageDialog(getManager().getFrame(), "Account deleted successfully.");
+                getManager().makeActiveSplash();
             }
         }
     }
+
+    // SETGET
+
+    public ProfileView getView() {
+        return this.view;
+    }
+
+    public void setView(ProfileView view) {
+        this.view = view;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public ArrayPostControl getPostArray() {
+        return this.postArray;
+    }
+
+    public void setPostArray(ArrayPostControl postArray) {
+        this.postArray = postArray;
+    }
+
 }

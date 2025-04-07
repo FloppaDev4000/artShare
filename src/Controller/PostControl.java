@@ -6,23 +6,22 @@ import objects.Post;
 import objects.User;
 import view.PostView;
 import view.Popup;
-import view.View;
 import model.InteractionOption;
 import model.PostOption;
 import model.UserOption;
 
 public class PostControl extends Control
 {
-    PostView view;
+    private PostView view;
 
-    int postId;
-    String title;
-    String description;
-    User author;
+    private int postId;
+    private String title;
+    private String description;
+    private User author;
 
-    Post post;
+    private Post post;
 
-    ArrayCommentControl arrayComments;
+    private ArrayCommentControl arrayComments;
 
     public PostControl(ControlManager m, int postId)
     {
@@ -34,7 +33,7 @@ public class PostControl extends Control
 
         arrayComments = new ArrayCommentControl(m, postId);
 
-        view.addArrayComments(arrayComments.view);
+        view.addArrayComments(arrayComments.getView());
 
         view.addLikeListener(e -> addLike());
         view.addShareListener(e -> addShare());
@@ -50,7 +49,7 @@ public class PostControl extends Control
             // only show delete if post belongs to you
             popupOptions = new String[]{"Report", "Edit", "Delete"};
             popup = new Popup(m, "Options", popupOptions);
-            popup.getItems()[1].addActionListener(e -> manager.getMainHome().makeActiveEdit(post));
+            popup.getItems()[1].addActionListener(e -> getManager().getMainHome().makeActiveEdit(post));
             popup.getItems()[2].addActionListener(e -> deleteConfirm());
         }
         else
@@ -73,7 +72,7 @@ public class PostControl extends Control
 
     public void deleteConfirm()
     {
-        int response = JOptionPane.showConfirmDialog(manager.getFrame(), "Are you sure you wish to delete this post?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        int response = JOptionPane.showConfirmDialog(getManager().getFrame(), "Are you sure you wish to delete this post?", "Confirmation", JOptionPane.YES_NO_OPTION);
 
         if (response == JOptionPane.YES_OPTION)
         {
@@ -81,8 +80,8 @@ public class PostControl extends Control
 
             if(success == 0)
             {
-                JOptionPane.showMessageDialog(manager.getFrame(), "Post deleted successfully.");
-                manager.makeActiveHome();
+                JOptionPane.showMessageDialog(getManager().getFrame(), "Post deleted successfully.");
+                getManager().makeActiveHome();
             }
         }
     }
@@ -94,33 +93,89 @@ public class PostControl extends Control
 
     public void populateComments()
     {
-        view.remove(arrayComments.view);
-        arrayComments = new ArrayCommentControl(manager, post.getPostId());
-        view.addArrayComments(arrayComments.view);
+        view.remove(arrayComments.getView());
+        arrayComments = new ArrayCommentControl(getManager(), post.getPostId());
+        view.addArrayComments(arrayComments.getView());
         view.revalidate();
         view.repaint();
     }
 
     public void addLike()
     {
-        InteractionOption.checkInteraction(post.getPostId(), manager.getCurrentUserId(), 0);
+        InteractionOption.checkInteraction(post.getPostId(), getManager().getCurrentUserId(), 0);
         view.resetInteractionText();
     }
 
     public void addShare()
     {
-        InteractionOption.checkInteraction(post.getPostId(), manager.getCurrentUserId(), 1);
+        InteractionOption.checkInteraction(post.getPostId(), getManager().getCurrentUserId(), 1);
         view.resetInteractionText();
     }
 
     public void addComment(String comment)
     {
-        InteractionOption.createComment(post.getPostId(), manager.getCurrentUserId(), comment);
+        InteractionOption.createComment(post.getPostId(), getManager().getCurrentUserId(), comment);
         view.resetInteractionText();
         view.commentField.setText("");
         populateComments();
     }
 
     // SETGET
-    public View getView(){return view;}
+
+    public PostView getView() {
+        return this.view;
+    }
+
+    public void setView(PostView view) {
+        this.view = view;
+    }
+
+    public int getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public User getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Post getPost() {
+        return this.post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public ArrayCommentControl getArrayComments() {
+        return this.arrayComments;
+    }
+
+    public void setArrayComments(ArrayCommentControl arrayComments) {
+        this.arrayComments = arrayComments;
+    }
+    
 }

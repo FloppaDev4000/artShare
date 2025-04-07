@@ -4,8 +4,8 @@ import javax.swing.JPanel;
 
 public class Control
 {
-    public JPanel view;
-    public ControlManager manager;
+    private JPanel view;
+    private ControlManager manager;
 
     Control(){}
     Control(ControlManager manager)
@@ -17,4 +17,23 @@ public class Control
     {
         return newView;
     }
+
+    //SETGET
+
+    public JPanel getView() {
+        return this.view;
+    }
+
+    public void setView(JPanel view) {
+        this.view = view;
+    }
+
+    public ControlManager getManager() {
+        return this.manager;
+    }
+
+    public void setManager(ControlManager manager) {
+        this.manager = manager;
+    }
+
 }

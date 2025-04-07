@@ -4,9 +4,9 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame
 {
-    public LoginControl loginControl;
-    public HomeControl homeControl;
-    public PostControl postControl;
+    private LoginControl loginControl;
+    private HomeControl homeControl;
+    private PostControl postControl;
 
     // constructor
     public MainFrame()
@@ -27,4 +27,32 @@ public class MainFrame extends JFrame
         revalidate();
         pack();
     }
+
+    // SETGET
+
+
+    public LoginControl getLoginControl() {
+        return this.loginControl;
+    }
+
+    public void setLoginControl(LoginControl loginControl) {
+        this.loginControl = loginControl;
+    }
+
+    public HomeControl getHomeControl() {
+        return this.homeControl;
+    }
+
+    public void setHomeControl(HomeControl homeControl) {
+        this.homeControl = homeControl;
+    }
+
+    public PostControl getPostControl() {
+        return this.postControl;
+    }
+
+    public void setPostControl(PostControl postControl) {
+        this.postControl = postControl;
+    }
+
 }

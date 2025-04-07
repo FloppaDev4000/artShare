@@ -7,8 +7,8 @@ import view.LoginView;
 
 public class LoginControl extends Control
 {
-    LoginView view;
-    MainControl parent;
+    private LoginView view;
+    private MainControl parent;
 
     public LoginControl(ControlManager m)
     {
@@ -37,8 +37,8 @@ public class LoginControl extends Control
             // success path; login and move to main view, logged in
             int uid = UserOption.getId(username);
             
-            manager.login(uid);
-            manager.makeActiveHome();
+            getManager().login(uid);
+            getManager().makeActiveHome();
             
         }
         else if(loginValid == 1)
@@ -69,4 +69,23 @@ public class LoginControl extends Control
             // fail path
         }
     }
+
+    // SETGET
+
+    public LoginView getView() {
+        return this.view;
+    }
+
+    public void setView(LoginView view) {
+        this.view = view;
+    }
+
+    public MainControl getParent() {
+        return this.parent;
+    }
+
+    public void setParent(MainControl parent) {
+        this.parent = parent;
+    }
+
 }

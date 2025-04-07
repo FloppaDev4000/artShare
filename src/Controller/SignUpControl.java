@@ -7,8 +7,8 @@ import view.SignUpView;
 
 public class SignUpControl extends Control
 {
-    SignUpView view;
-    MainControl parent;
+    private SignUpView view;
+    private MainControl parent;
 
     public SignUpControl(ControlManager m)
     {
@@ -38,8 +38,8 @@ public class SignUpControl extends Control
             int uid = UserOption.getId(username);
             
             System.out.println("FOUND UID: " + uid);
-            manager.login(uid);
-            manager.makeActiveHome();
+            getManager().login(uid);
+            getManager().makeActiveHome();
             
         }
         else if(loginValid == 1)
@@ -79,4 +79,23 @@ public class SignUpControl extends Control
             System.out.println("SIGN UP FAILED!");
         }
     }
+
+    // SETGET
+
+    public SignUpView getView() {
+        return this.view;
+    }
+
+    public void setView(SignUpView view) {
+        this.view = view;
+    }
+
+    public MainControl getParent() {
+        return this.parent;
+    }
+
+    public void setParent(MainControl parent) {
+        this.parent = parent;
+    }
+
 }

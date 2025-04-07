@@ -7,16 +7,16 @@ import view.View;
 
 public class HomeControl extends Control
 {
-    HomeView view;
-    Control middleControl;
-    View middleView;
+    private HomeView view;
+    private Control middleControl;
+    private View middleView;
 
     public HomeControl(ControlManager m)
     {
         super(m);
 
         // set basic middleControl
-        middleControl = new ArrayPostControl(manager, -1);
+        middleControl = new ArrayPostControl(getManager(), -1);
 
         view = new HomeView(m);
 
@@ -37,7 +37,7 @@ public class HomeControl extends Control
         // place homePost's view inside home's view
         // give post values to post
 
-        PostControl pCtrl = new PostControl(manager, postId);
+        PostControl pCtrl = new PostControl(getManager(), postId);
         view.replaceContainer(pCtrl.getView());
 
         middleControl = pCtrl;
@@ -46,7 +46,7 @@ public class HomeControl extends Control
     // move to post scroll (-1 for home feed)
     public void makeActiveArrayPost(int userId)
     {
-        ArrayPostControl a = new ArrayPostControl(manager, userId);
+        ArrayPostControl a = new ArrayPostControl(getManager(), userId);
         view.replaceContainer(a.getView());
 
         middleControl = a;
@@ -54,7 +54,7 @@ public class HomeControl extends Control
 
     public void makeActiveCreate()
     {
-        CreatePostControl c = new CreatePostControl(manager);
+        CreatePostControl c = new CreatePostControl(getManager());
         view.replaceContainer(c.getView());
                 
         middleControl = c;
@@ -62,7 +62,7 @@ public class HomeControl extends Control
 
     public void makeActiveEdit(Post p)
     {
-        CreatePostControl e = new CreatePostControl(manager, p);
+        CreatePostControl e = new CreatePostControl(getManager(), p);
         view.replaceContainer(e.getView());
 
         middleControl = e;
@@ -70,7 +70,7 @@ public class HomeControl extends Control
 
     public void makeActiveEditProfile(User u)
     {
-        EditProfileControl e = new EditProfileControl(manager, u);
+        EditProfileControl e = new EditProfileControl(getManager(), u);
         view.replaceContainer(e.getView());
 
         middleControl = e;
@@ -78,16 +78,16 @@ public class HomeControl extends Control
 
     public void makeActiveProfile(int userId)
     {
-        ProfileControl c = new ProfileControl(manager, userId);
-        view.replaceContainer(c.view);
+        ProfileControl c = new ProfileControl(getManager(), userId);
+        view.replaceContainer(c.getView());
 
         middleControl = c;
     }
 
     public void logout()
     {
-        manager.logout();
-        manager.makeActiveSplash();
+        getManager().logout();
+        getManager().makeActiveSplash();
     }
 
     public void Hello()

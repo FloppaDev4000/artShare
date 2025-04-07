@@ -3,21 +3,20 @@ package controller;
 import objects.User;
 import objects.Post;
 import view.PostViewBare;
-import view.View;
 import model.InteractionOption;
 import model.PostOption;
 import model.UserOption;
 
 public class PostControlBare extends Control
 {
-    PostViewBare view;
+    private PostViewBare view;
 
-    int postId;
-    String title;
-    String description;
-    User author;
+    private int postId;
+    private String title;
+    private String description;
+    private User author;
 
-    Post post;
+    private Post post;
 
     public PostControlBare(ControlManager m, Post p)
     {
@@ -48,18 +47,66 @@ public class PostControlBare extends Control
 
     public void addLike()
     {
-        System.out.println("LIKING WITH ID: " + manager.getCurrentUserId());
-        InteractionOption.checkInteraction(postId, manager.getCurrentUserId(), 0);
+        System.out.println("LIKING WITH ID: " + getManager().getCurrentUserId());
+        InteractionOption.checkInteraction(postId, getManager().getCurrentUserId(), 0);
         view.resetInteractionText();
     }
 
     public void addShare()
     {
-        InteractionOption.checkInteraction(postId, manager.getCurrentUserId(), 1);
+        InteractionOption.checkInteraction(postId, getManager().getCurrentUserId(), 1);
         view.resetInteractionText();
     }
 
     // SETGET
-    public View getView(){return view;}
+
+    public PostViewBare getView() {
+        return this.view;
+    }
+
+    public void setView(PostViewBare view) {
+        this.view = view;
+    }
+
+    public int getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public User getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Post getPost() {
+        return this.post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+    
 
 }

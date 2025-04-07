@@ -13,12 +13,12 @@ import objects.Post;
 
 public class CreatePostControl extends Control
 {
-    CreatePostView view;
+    private CreatePostView view;
 
-    File selectedFile;
+    private File selectedFile;
 
-    boolean isEdit;
-    int postId;
+    private boolean isEdit;
+    private int postId;
 
     // constructor
     public CreatePostControl(ControlManager m)
@@ -62,7 +62,7 @@ public class CreatePostControl extends Control
     // exit button pressed
     public void exit()
     {
-        manager.mainHome.makeActiveArrayPost(-1);
+        getManager().getMainHome().makeActiveArrayPost(-1);
     }
 
     // submit button pressed
@@ -105,7 +105,7 @@ public class CreatePostControl extends Control
             String path = FileSaver.userFilePath + "\\" + selectedFile.getName();
             FileSaver.saveImgToDir(selectedFile);
             
-            if(PostOption.create(newTitle, newDesc, manager.getCurrentUserId(), path) == 0)
+            if(PostOption.create(newTitle, newDesc, getManager().getCurrentUserId(), path) == 0)
             {
                 JOptionPane.showMessageDialog(null, "Post created successfully!");
             }
@@ -115,7 +115,7 @@ public class CreatePostControl extends Control
             }
         }
         
-        manager.getMainHome().makeActiveArrayPost(-1);
+        getManager().getMainHome().makeActiveArrayPost(-1);
     }
 
     // file popup dialogue
@@ -131,7 +131,7 @@ public class CreatePostControl extends Control
         fileChoose.setAcceptAllFileFilterUsed(false);
 
         // open dialog and get input
-        int returnVal = fileChoose.showOpenDialog(manager.getFrame());
+        int returnVal = fileChoose.showOpenDialog(getManager().getFrame());
         if(returnVal == JFileChooser.APPROVE_OPTION)
         {
             selectFile(fileChoose.getSelectedFile());
@@ -145,6 +145,42 @@ public class CreatePostControl extends Control
         view.getFileButton().setText("Selected: " + selectedFile.getName());
     }
 
-    // SETGETS, ETC
-    public CreatePostView getView(){return view;}
+    // SETGET
+
+    public CreatePostView getView() {
+        return this.view;
+    }
+
+    public void setView(CreatePostView view) {
+        this.view = view;
+    }
+
+    public File getSelectedFile() {
+        return this.selectedFile;
+    }
+
+    public void setSelectedFile(File selectedFile) {
+        this.selectedFile = selectedFile;
+    }
+
+    public boolean isIsEdit() {
+        return this.isEdit;
+    }
+
+    public boolean getIsEdit() {
+        return this.isEdit;
+    }
+
+    public void setIsEdit(boolean isEdit) {
+        this.isEdit = isEdit;
+    }
+
+    public int getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
 }

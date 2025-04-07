@@ -4,13 +4,31 @@ import view.MainView;
 
 public class MainControl extends Control
 {
-    public MainView view;
+    private MainView view;
 
-    public Control currentControl;
+    private Control currentControl;
 
     public MainControl(ControlManager m)
     {
         super(m);
+    }
+
+    // SETGET
+
+    public MainView getView() {
+        return this.view;
+    }
+
+    public void setView(MainView view) {
+        this.view = view;
+    }
+
+    public Control getCurrentControl() {
+        return this.currentControl;
+    }
+
+    public void setCurrentControl(Control currentControl) {
+        this.currentControl = currentControl;
     }
 
 }

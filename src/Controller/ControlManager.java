@@ -12,29 +12,29 @@ public class ControlManager
 {
     
     // frame
-    MainFrame f = new MainFrame();
+    private MainFrame f = new MainFrame();
 
-    User currentUser;
+    private User currentUser;
 
     //-----------------------------main
-    MainControl main;
-    MainView mainV;
+    private MainControl main;
+    private MainView mainV;
 
     //-----------------------------children of main
-    SplashControl mainSplash;
+    private SplashControl mainSplash;
 
-    LoginControl mainLogin;
+    private LoginControl mainLogin;
 
-    SignUpControl mainSignUp;
+    private SignUpControl mainSignUp;
 
-    HomeControl mainHome;
+    private HomeControl mainHome;
 
     // VIEW
-    MainView mainView = new MainView(this);
+    private MainView mainView = new MainView(this);
 
     public void run()
     {
-        //UIHelper.setup();
+        UIHelper.setup();
 
         main = new MainControl(this);
         mainV = new MainView(this);
@@ -52,26 +52,26 @@ public class ControlManager
     {
         // place mainLogin's view inside main's view
         mainLogin = new LoginControl(this);
-        mainV.replaceContainer(mainLogin.view);
+        mainV.replaceContainer(mainLogin.getView());
     }
 
     void makeActiveSignUp()
     {
         mainSignUp = new SignUpControl(this);
-        mainV.replaceContainer(mainSignUp.view);
+        mainV.replaceContainer(mainSignUp.getView());
     }
 
     void makeActiveSplash()
     {
         mainSplash = new SplashControl(this);
-        mainV.replaceContainer(mainSplash.view);
+        mainV.replaceContainer(mainSplash.getView());
     }
 
     void makeActiveHome()
     {
         // place mainHome's view inside main's view
         mainHome = new HomeControl(this);
-        mainV.replaceContainer(mainHome.view);
+        mainV.replaceContainer(mainHome.getView());
     }
 
     //-------------------------------------------------
@@ -101,7 +101,7 @@ public class ControlManager
     {
         if(currentUser != null)
         {
-            return currentUser.userId;
+            return currentUser.getUserId();
         }
 
         System.out.println("NULL USER!");
@@ -110,7 +110,73 @@ public class ControlManager
 
     //---------------------------------------------
     // SETGET
-    public MainFrame getFrame(){return f;}
 
     public HomeControl getMainHome(){return mainHome;}
+
+    public MainFrame getFrame() {
+        return this.f;
+    }
+
+    public void setFrame(MainFrame f) {
+        this.f = f;
+    }
+
+    public User getCurrentUser() {
+        return this.currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public MainControl getMain() {
+        return this.main;
+    }
+
+    public void setMain(MainControl main) {
+        this.main = main;
+    }
+
+    public MainView getMainV() {
+        return this.mainV;
+    }
+
+    public void setMainV(MainView mainV) {
+        this.mainV = mainV;
+    }
+
+    public SplashControl getMainSplash() {
+        return this.mainSplash;
+    }
+
+    public void setMainSplash(SplashControl mainSplash) {
+        this.mainSplash = mainSplash;
+    }
+
+    public LoginControl getMainLogin() {
+        return this.mainLogin;
+    }
+
+    public void setMainLogin(LoginControl mainLogin) {
+        this.mainLogin = mainLogin;
+    }
+
+    public SignUpControl getMainSignUp() {
+        return this.mainSignUp;
+    }
+
+    public void setMainSignUp(SignUpControl mainSignUp) {
+        this.mainSignUp = mainSignUp;
+    }
+    public void setMainHome(HomeControl mainHome) {
+        this.mainHome = mainHome;
+    }
+
+    public MainView getMainView() {
+        return this.mainView;
+    }
+
+    public void setMainView(MainView mainView) {
+        this.mainView = mainView;
+    }
 }

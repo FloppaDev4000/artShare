@@ -178,10 +178,10 @@ public class UserOption
             
             ResultSet rs = pst.executeQuery();
 
-            u.userId = userId;
-            u.username = rs.getString("username");
-            u.isVerified = rs.getBoolean("isVerified");
-            u.bio = rs.getString("bio");
+            u.setUserId(userId);
+            u.setUsername(rs.getString("username"));
+            u.setIsVerified(rs.getBoolean("isVerified"));
+            u.setBio(rs.getString("bio"));
         }
         catch(SQLException s)
         {

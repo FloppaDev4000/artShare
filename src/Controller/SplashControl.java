@@ -1,12 +1,11 @@
 package controller;
 
 import view.SplashView;
-import view.View;
 
 public class SplashControl extends Control
 {
-    SplashView view;
-    MainControl parent;
+    private SplashView view;
+    private MainControl parent;
 
     public SplashControl(ControlManager m)
     {
@@ -19,5 +18,22 @@ public class SplashControl extends Control
         view.addSignUpListener(e -> m.makeActiveSignUp());
     }
     
-    public View getView(){return view;}
+    // SETGET
+
+    public SplashView getView() {
+        return this.view;
+    }
+
+    public void setView(SplashView view) {
+        this.view = view;
+    }
+
+    public MainControl getParent() {
+        return this.parent;
+    }
+
+    public void setParent(MainControl parent) {
+        this.parent = parent;
+    }
+
 }

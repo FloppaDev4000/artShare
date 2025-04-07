@@ -6,9 +6,9 @@ import objects.Post;
 
 public class ArrayPostControl extends Control
 {
-    ArrayPostView view;
+    private ArrayPostView view;
 
-    PostControl[] postArray;
+    private PostControl[] postArray;
 
     public ArrayPostControl(ControlManager m, int userId)
     {
@@ -29,4 +29,18 @@ public class ArrayPostControl extends Control
     }
 
     public ArrayPostView getView(){return view;}
+
+    // SETGET
+    public void setView(ArrayPostView view) {
+        this.view = view;
+    }
+
+    public PostControl[] getPostArray() {
+        return this.postArray;
+    }
+
+    public void setPostArray(PostControl[] postArray) {
+        this.postArray = postArray;
+    }
+
 }

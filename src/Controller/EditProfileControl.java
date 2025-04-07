@@ -8,9 +8,9 @@ import model.UserOption;
 
 public class EditProfileControl extends Control
 {
-    EditProfileView view;
+    private EditProfileView view;
 
-    int userId;
+    private int userId;
 
     // edit constructor
     public EditProfileControl(ControlManager m, User u)
@@ -35,7 +35,7 @@ public class EditProfileControl extends Control
     // exit button pressed
     public void exit()
     {
-        manager.mainHome.makeActiveArrayPost(-1);
+        getManager().getMainHome().makeActiveArrayPost(-1);
     }
 
     // submit button pressed
@@ -66,9 +66,25 @@ public class EditProfileControl extends Control
             JOptionPane.showMessageDialog(null, "Oh no! A problem occurred! D:");
         }
         
-        manager.getMainHome().makeActiveArrayPost(-1);
+        getManager().getMainHome().makeActiveArrayPost(-1);
     }
 
     // SETGETS, ETC
-    public EditProfileView getView(){return view;}
+
+    public EditProfileView getView() {
+        return this.view;
+    }
+
+    public void setView(EditProfileView view) {
+        this.view = view;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    
 }

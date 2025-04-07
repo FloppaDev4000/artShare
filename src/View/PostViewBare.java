@@ -23,22 +23,22 @@ import java.awt.event.ActionListener;
 
 public class PostViewBare extends View
 {
-    AuthorView author;
+    private AuthorView author;
 
-    int postId;
+    private int postId;
 
-    JLabel title;
-    JLabel description;
+    private JLabel title;
+    private JLabel description;
 
-    JLabel image;
+    private JLabel image;
 
-    JLabel interactions;
-    int likes;
-    int shares;
-    int comments;
+    private JLabel interactions;
+    private int likes;
+    private int shares;
+    private int comments;
 
-    JButton likeButton;
-    JButton shareButton;
+    private JButton likeButton;
+    private JButton shareButton;
 
     public PostViewBare(ControlManager m, Post p)
     {
@@ -139,4 +139,95 @@ public class PostViewBare extends View
         }
         );
     }
+
+    // SETGET
+
+    public AuthorView getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(AuthorView author) {
+        this.author = author;
+    }
+
+    public int getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
+    }
+
+    public JLabel getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(JLabel title) {
+        this.title = title;
+    }
+
+    public JLabel getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(JLabel description) {
+        this.description = description;
+    }
+
+    public JLabel getImage() {
+        return this.image;
+    }
+
+    public void setImage(JLabel image) {
+        this.image = image;
+    }
+
+    public JLabel getInteractions() {
+        return this.interactions;
+    }
+
+    public void setInteractions(JLabel interactions) {
+        this.interactions = interactions;
+    }
+
+    public int getLikes() {
+        return this.likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getShares() {
+        return this.shares;
+    }
+
+    public void setShares(int shares) {
+        this.shares = shares;
+    }
+
+    public int getComments() {
+        return this.comments;
+    }
+
+    public void setComments(int comments) {
+        this.comments = comments;
+    }
+
+    public JButton getLikeButton() {
+        return this.likeButton;
+    }
+
+    public void setLikeButton(JButton likeButton) {
+        this.likeButton = likeButton;
+    }
+
+    public JButton getShareButton() {
+        return this.shareButton;
+    }
+
+    public void setShareButton(JButton shareButton) {
+        this.shareButton = shareButton;
+    }
+
 }

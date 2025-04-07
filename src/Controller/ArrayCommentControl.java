@@ -8,9 +8,9 @@ import model.InteractionOption;
 
 public class ArrayCommentControl extends Control
 {
-    ArrayCommentView view;
+    private ArrayCommentView view;
 
-    CommentControl[] commentsArray;
+    private CommentControl[] commentsArray;
 
     public ArrayCommentControl(ControlManager m, int postId)
     {
@@ -27,7 +27,7 @@ public class ArrayCommentControl extends Control
         for(int i = 0; i < commentControls.length; i++)
         {
             commentControls[i] = new CommentControl(m, comments[i]);
-            view.add(commentControls[i].view);
+            view.add(commentControls[i].getView());
         }
 
         view.setUpView();
@@ -35,5 +35,21 @@ public class ArrayCommentControl extends Control
 
     // SETGET
     
+
+    public ArrayCommentView getView() {
+        return this.view;
+    }
+
+    public void setView(ArrayCommentView view) {
+        this.view = view;
+    }
+
+    public CommentControl[] getCommentsArray() {
+        return this.commentsArray;
+    }
+
+    public void setCommentsArray(CommentControl[] commentsArray) {
+        this.commentsArray = commentsArray;
+    }
 
 }
