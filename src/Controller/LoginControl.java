@@ -16,7 +16,7 @@ public class LoginControl extends Control
 
         view = new LoginView(m);
 
-        view.addLoginListener(e -> login(view.usernameField.getText(), view.passwordField.getPassword()));
+        view.addLoginListener(e -> login(view.getUsernameField().getText(), view.getPasswordField().getPassword()));
         view.addBackListener(e -> m.makeActiveSplash());
     }
     
@@ -44,7 +44,7 @@ public class LoginControl extends Control
         else if(loginValid == 1)
         {
             // fail path
-            view.message.setText("Invalid login.");
+            view.getMessage().setText("Invalid login.");
         }
     }
 

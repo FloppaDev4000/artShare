@@ -96,6 +96,7 @@ public class PostControl extends Control
         view.remove(arrayComments.getView());
         arrayComments = new ArrayCommentControl(getManager(), post.getPostId());
         view.addArrayComments(arrayComments.getView());
+        
         view.revalidate();
         view.repaint();
     }

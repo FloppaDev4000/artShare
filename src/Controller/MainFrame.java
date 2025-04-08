@@ -30,7 +30,6 @@ public class MainFrame extends JFrame
 
     // SETGET
 
-
     public LoginControl getLoginControl() {
         return this.loginControl;
     }

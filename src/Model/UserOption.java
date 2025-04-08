@@ -190,11 +190,6 @@ public class UserOption
         return u;
     }
 
-    public static int update()
-    {
-        return 0;
-    }
-
     // delete user
     public static int delete(int userId)
     {

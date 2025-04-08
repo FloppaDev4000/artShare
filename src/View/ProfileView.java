@@ -13,7 +13,6 @@ public class ProfileView extends View
     private JLabel usernameLabel;
     private JLabel bioLabel;
     private JLabel verifiedLabel;
-    
 
     public ProfileView(ControlManager m, User u)
     {

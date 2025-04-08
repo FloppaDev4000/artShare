@@ -18,10 +18,8 @@ import tools.UiTools;
 public class MainView extends View
 {
     private JButton logoutButton;
-
-    public View container;
-    
-    public View subView;
+    private View container;
+    private View subView;
 
     public MainView(ControlManager m)
     {
@@ -66,11 +64,6 @@ public class MainView extends View
         setUpView();
     }
 
-    public void switchContainer(View view)
-    {
-
-    }
-
     // SETGET
 
     public JButton getLogoutButton() {
@@ -79,6 +72,19 @@ public class MainView extends View
 
     public void setLogoutButton(JButton logoutButton) {
         this.logoutButton = logoutButton;
+    }
+
+    public View getContainer() {
+        return this.container;
+    }
+
+
+    public View getSubView() {
+        return this.subView;
+    }
+
+    public void setSubView(View subView) {
+        this.subView = subView;
     }
 
     

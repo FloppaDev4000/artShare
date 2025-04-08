@@ -16,7 +16,7 @@ public class HomeView extends View
     private JButton logoutButton;
     private JButton createButton;
     private JButton myProfileButton;
-    public JButton arrayPostButton;
+    private JButton arrayPostButton;
 
     private View container;
 

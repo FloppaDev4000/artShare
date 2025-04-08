@@ -17,19 +17,19 @@ import javax.swing.JFileChooser;
 
 public class CreatePostView extends View
 {
-    JLabel titleMsg;
+    private JLabel titleMsg;
 
-    JTextField titleField;
-    JTextArea descField;
-    JButton fileButton;
-    JLabel fileLabel;
+    private JTextField titleField;
+    private JTextArea descField;
+    private JButton fileButton;
+    private JLabel fileLabel;
 
-    JFileChooser fileChoose;
+    private JFileChooser fileChoose;
 
-    JButton submitButton;
-    JButton exitButton;
+    private JButton submitButton;
+    private JButton exitButton;
 
-    public JLabel message;
+    private JLabel message;
 
     public CreatePostView(ControlManager m)
     {

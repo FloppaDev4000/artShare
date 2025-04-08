@@ -15,13 +15,13 @@ import controller.ControlManager;
 
 public class SignUpView extends View
 {
-    public JTextField usernameField;
-    public JPasswordField passwordField;
-    public JPasswordField confirmField;
-    public JTextField emailField;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
+    private JPasswordField confirmField;
+    private JTextField emailField;
 
-    public JButton signUpButton;
-    public JButton backButton;
+    private JButton signUpButton;
+    private JButton backButton;
 
     public SignUpView(ControlManager m)
     {
@@ -94,4 +94,55 @@ public class SignUpView extends View
 
     public void addSignUpListener(ActionListener l){signUpButton.addActionListener(l);}
     public void addBackListener(ActionListener l){backButton.addActionListener(l);}
+
+    // SETGET
+
+    public JTextField getUsernameField() {
+        return this.usernameField;
+    }
+
+    public void setUsernameField(JTextField usernameField) {
+        this.usernameField = usernameField;
+    }
+
+    public JPasswordField getPasswordField() {
+        return this.passwordField;
+    }
+
+    public void setPasswordField(JPasswordField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    public JPasswordField getConfirmField() {
+        return this.confirmField;
+    }
+
+    public void setConfirmField(JPasswordField confirmField) {
+        this.confirmField = confirmField;
+    }
+
+    public JTextField getEmailField() {
+        return this.emailField;
+    }
+
+    public void setEmailField(JTextField emailField) {
+        this.emailField = emailField;
+    }
+
+    public JButton getSignUpButton() {
+        return this.signUpButton;
+    }
+
+    public void setSignUpButton(JButton signUpButton) {
+        this.signUpButton = signUpButton;
+    }
+
+    public JButton getBackButton() {
+        return this.backButton;
+    }
+
+    public void setBackButton(JButton backButton) {
+        this.backButton = backButton;
+    }
+
 }

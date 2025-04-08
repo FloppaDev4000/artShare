@@ -16,7 +16,7 @@ public class ArrayPostView extends View
     private JPanel scrollPaneChild;
     private PostControlBare[] postCtrls;
 
-    public JLabel title;
+    private JLabel title;
 
     public ArrayPostView(ControlManager m, Post[] posts)
     {
@@ -44,4 +44,39 @@ public class ArrayPostView extends View
         }
         add(scrollPane);
     }
+
+    // SETGET
+
+    public JScrollPane getScrollPane() {
+        return this.scrollPane;
+    }
+
+    public void setScrollPane(JScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
+
+    public JPanel getScrollPaneChild() {
+        return this.scrollPaneChild;
+    }
+
+    public void setScrollPaneChild(JPanel scrollPaneChild) {
+        this.scrollPaneChild = scrollPaneChild;
+    }
+
+    public PostControlBare[] getPostCtrls() {
+        return this.postCtrls;
+    }
+
+    public void setPostCtrls(PostControlBare[] postCtrls) {
+        this.postCtrls = postCtrls;
+    }
+
+    public JLabel getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(JLabel title) {
+        this.title = title;
+    }
+
 }

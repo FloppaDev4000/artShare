@@ -16,7 +16,7 @@ public class SignUpControl extends Control
 
         view = new SignUpView(m);
 
-        view.addSignUpListener(e -> signUp(view.usernameField.getText(), view.passwordField.getPassword(), view.confirmField.getPassword(), view.emailField.getText()));
+        view.addSignUpListener(e -> signUp(view.getUsernameField().getText(), view.getPasswordField().getPassword(), view.getConfirmField().getPassword(), view.getEmailField().getText()));
         view.addBackListener(e -> m.makeActiveSplash());
     }
     

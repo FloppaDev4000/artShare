@@ -9,8 +9,8 @@ import controller.ControlManager;
 public class CommentView extends View
 {
 
-    AuthorView author;
-    JLabel commentText;
+    private AuthorView author;
+    private JLabel commentText;
 
     public CommentView(ControlManager m, Comment c)
     {
@@ -23,7 +23,24 @@ public class CommentView extends View
         add(author);
 
         add(commentText);
-
-
     }
+
+    // SETGET
+
+    public AuthorView getAuthor() {
+        return this.author;
+    }
+
+    public void setAuthor(AuthorView author) {
+        this.author = author;
+    }
+
+    public JLabel getCommentText() {
+        return this.commentText;
+    }
+
+    public void setCommentText(JLabel commentText) {
+        this.commentText = commentText;
+    }
+    
 }

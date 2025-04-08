@@ -10,8 +10,8 @@ import controller.ControlManager;
 public class SplashView extends View
 {
 
-    public JButton loginButton;
-    public JButton signupButton;
+    private JButton loginButton;
+    private JButton signupButton;
 
     public SplashView(ControlManager m)
     {
@@ -29,4 +29,22 @@ public class SplashView extends View
     public void addLoginListener(ActionListener l){loginButton.addActionListener(l);}
 
     public void addSignUpListener(ActionListener l){signupButton.addActionListener(l);}
+
+    // SETGET
+    
+    public JButton getLoginButton() {
+        return this.loginButton;
+    }
+
+    public void setLoginButton(JButton loginButton) {
+        this.loginButton = loginButton;
+    }
+
+    public JButton getSignupButton() {
+        return this.signupButton;
+    }
+
+    public void setSignupButton(JButton signupButton) {
+        this.signupButton = signupButton;
+    }
 }

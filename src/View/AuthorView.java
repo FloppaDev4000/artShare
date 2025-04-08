@@ -16,8 +16,8 @@ import java.awt.event.MouseAdapter;     // For MouseAdapter (an abstract class)
 
 public class AuthorView extends View
 {
-    JLabel authorName;
-    User user;
+    private JLabel authorName;
+    private User user;
 
     public AuthorView(ControlManager m, User u)
     {
@@ -60,4 +60,24 @@ public class AuthorView extends View
         }
         );
     }
+
+    // SETGET
+
+    public JLabel getAuthorName() {
+        return this.authorName;
+    }
+
+    public void setAuthorName(JLabel authorName) {
+        this.authorName = authorName;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    
 }

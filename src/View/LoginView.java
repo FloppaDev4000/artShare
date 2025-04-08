@@ -15,13 +15,13 @@ import javax.swing.JPasswordField;
 
 public class LoginView extends View
 {
-    public JTextField usernameField;
-    public JPasswordField passwordField;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
 
-    public JButton loginButton;
-    public JButton backButton;
+    private JButton loginButton;
+    private JButton backButton;
 
-    public JLabel message;
+    private JLabel message;
 
     public LoginView(ControlManager m)
     {
@@ -89,4 +89,47 @@ public class LoginView extends View
 
     public void addLoginListener(ActionListener l){loginButton.addActionListener(l);}
     public void addBackListener(ActionListener l){backButton.addActionListener(l);}
+
+    // SETGET
+
+    public JTextField getUsernameField() {
+        return this.usernameField;
+    }
+
+    public void setUsernameField(JTextField usernameField) {
+        this.usernameField = usernameField;
+    }
+
+    public JPasswordField getPasswordField() {
+        return this.passwordField;
+    }
+
+    public void setPasswordField(JPasswordField passwordField) {
+        this.passwordField = passwordField;
+    }
+
+    public JButton getLoginButton() {
+        return this.loginButton;
+    }
+
+    public void setLoginButton(JButton loginButton) {
+        this.loginButton = loginButton;
+    }
+
+    public JButton getBackButton() {
+        return this.backButton;
+    }
+
+    public void setBackButton(JButton backButton) {
+        this.backButton = backButton;
+    }
+
+    public JLabel getMessage() {
+        return this.message;
+    }
+
+    public void setMessage(JLabel message) {
+        this.message = message;
+    }
+    
 }

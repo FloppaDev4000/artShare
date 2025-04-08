@@ -8,11 +8,9 @@ import controller.ControlManager;
 
 public class Popup extends JButton
 {
-    ControlManager manager;
+    private ControlManager manager;
 
-    
-
-    JMenuItem[] items;
+    private JMenuItem[] items;
 
     public Popup(ControlManager m, String newText, String[] options)
     {
@@ -36,6 +34,7 @@ public class Popup extends JButton
         addActionListener(e -> popupMenu.show(this, 0, getHeight()));
     }
 
+    // SETGET
 
     public ControlManager getManager() {
         return this.manager;
