@@ -1,6 +1,7 @@
 {
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar",
-        "lib/*.jar"
-    ]
+    "java.project.sourcePaths": [
+        "my-app/src",
+        "my-app/res"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
