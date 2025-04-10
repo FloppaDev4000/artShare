@@ -6,7 +6,6 @@ import view.MainView;
 import view.View;
 import model.UserOption;
 import objects.User;
-import view.UIHelper;
 
 public class ControlManager
 {
@@ -34,8 +33,6 @@ public class ControlManager
 
     public void run()
     {
-        UIHelper.setup();
-
         main = new MainControl(this);
         mainV = new MainView(this);
         mainV.setPreferredSize(new Dimension(840, 480));

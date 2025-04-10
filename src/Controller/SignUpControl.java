@@ -1,6 +1,9 @@
 package controller;
 
 import java.util.Arrays;
+
+import javax.swing.JOptionPane;
+
 import model.Global;
 import model.UserOption;
 import view.SignUpView;
@@ -45,20 +48,31 @@ public class SignUpControl extends Control
         else if(loginValid == 1)
         {
             // fail path
-            System.out.println("Invalid login.");
+            JOptionPane.showMessageDialog(null, "Invalid login. Please try again.");
         }
     }
 
     // create new account, auto log in
     public void signUp(String username, char[] password, char[] confirm, String email)
     {
+        String p = new String(password);
+
+        // VALIDATE
         if(!Arrays.equals(password, confirm))
         {
-            System.out.println("Passwords must match!");
+            JOptionPane.showMessageDialog(null, "Passwords must match!");
             return;
         }
-
-        String p = new String(password);
+        else if(!p.matches(".{5,}"))
+        {
+            JOptionPane.showMessageDialog(null, "Password must be at least 5 characters long!");
+            return;
+        }
+        else if(!email.matches(".*@.*"))
+        {
+            JOptionPane.showMessageDialog(null, "Email is invalid!");
+            return;
+        }
 
         // 3 possible results
         int nameAvailable = UserOption.checkUsernameAvailable(username);

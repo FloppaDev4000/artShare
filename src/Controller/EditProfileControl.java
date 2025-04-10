@@ -39,7 +39,7 @@ public class EditProfileControl extends Control
     }
 
     // submit button pressed
-    public void submit()
+    public int submit()
     {
         // get values from fields, then validate, then submit to model function
 
@@ -52,7 +52,17 @@ public class EditProfileControl extends Control
         if(newName == "" || newBio == "")
         {
             view.message.setText("Fields cannot be empty!");
-            return;
+            return 1;
+        }
+        else if(!newName.matches(""))
+        {
+            view.message.setText("Name field is invalid!");
+            return 1;
+        }
+        else if(!newBio.matches(""))
+        {
+            view.message.setText("Bio field is invalid!");
+            return 1;
         }
 
         // SUBMIT
@@ -67,6 +77,7 @@ public class EditProfileControl extends Control
         }
         
         getManager().getMainHome().makeActiveArrayPost(-1);
+        return 0;
     }
 
     // SETGETS, ETC
