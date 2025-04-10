@@ -1,25 +1,30 @@
 LOGIN:
-    success
     empty fields
     unsuccessful
     case insensitive
 
 SIGN UP:
-    success
-    name taken
     empty fields
+    name taken
+    passwords dont match
+    invalid email
 
-CREATE POST
+CREATE POST:
     no file selected
     successful
 
-VIEW POST
+POST ARRAY:
+    like
+    unlike
+    scroll
+
+VIEW POST:
     comment
     edit
     delete
     report
 
-PROFILE VIEW
+PROFILE VIEW:
+    scroll
     edit
-    report
 
