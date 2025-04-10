@@ -57,8 +57,15 @@ public class SignUpControl extends Control
     {
         String p = new String(password);
 
+        System.out.println(username);
+
         // VALIDATE
-        if(!Arrays.equals(password, confirm))
+        if(username == "" || p == "" || email == "")
+        {
+            JOptionPane.showMessageDialog(null, "Fields cannot be empty!");
+            return;
+        }
+        else if(!Arrays.equals(password, confirm))
         {
             JOptionPane.showMessageDialog(null, "Passwords must match!");
             return;
@@ -80,7 +87,8 @@ public class SignUpControl extends Control
         if(nameAvailable == 1)
         {
             // fail path
-            System.out.println("Username not available.");
+            JOptionPane.showMessageDialog(null, "Username is already taken!");
+            return;
         }
 
         // success path
