@@ -54,12 +54,12 @@ public class EditProfileControl extends Control
             view.message.setText("Fields cannot be empty!");
             return 1;
         }
-        else if(!newName.matches(""))
+        else if(!newName.matches(".*"))
         {
             view.message.setText("Name field is invalid!");
             return 1;
         }
-        else if(!newBio.matches(""))
+        else if(!newBio.matches(".*"))
         {
             view.message.setText("Bio field is invalid!");
             return 1;

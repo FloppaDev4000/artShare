@@ -81,13 +81,15 @@ public class CreatePostControl extends Control
             view.getMessage().setText("Fields cannot be empty!");
             return 1;
         }
-        else if(!newTitle.matches(""))
+        else if(!newTitle.matches(".*"))
         {
             view.getMessage().setText("Title is invalid!");
+            return 1;
         }
-        else if(!newDesc.matches(""))
+        else if(!newDesc.matches(".*"))
         {
             view.getMessage().setText("Description is invalid!");
+            return 1;
         }
 
         // SUBMIT
