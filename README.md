@@ -3,6 +3,8 @@
 A mock-up social media platform for artists developed in Java using Swing and JavaFX, with SQLite database.
 Created for college modules: Object Oriented Software Development and Design, System Analysis & Testing
 
+![screenshot](./media/screenshot.png)
+
 ---
 
 ## Features
